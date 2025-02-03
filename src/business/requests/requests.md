@@ -1,0 +1,1 @@
+- Here is where each endpoint is implemented with respective methods

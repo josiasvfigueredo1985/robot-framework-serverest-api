@@ -1,0 +1,1 @@
+# abstract class that holds request methods - it uses clent instance from requestExecutionStrategy
