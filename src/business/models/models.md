@@ -1,1 +1,0 @@
-- Here is where response and request body are defined using SOLID design pattern
