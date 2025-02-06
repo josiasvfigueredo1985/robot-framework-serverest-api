@@ -1,6 +1,7 @@
 *** Settings ***
-Library    RequestsLibrary
-Library    Collections
+Resource    ../business/bases/base.resources.resource
+Suite Setup    Start Session
+Suite Teardown  End Session
 
 *** Test Cases ***
 Login com Usuário Padrão
@@ -8,7 +9,6 @@ Login com Usuário Padrão
     ...    email=fulano@qa.com
     ...    password=teste
     Log    ${user}
-    Create Session    serverest    https://serverest.dev
     ${response}    POST On Session    serverest    /login     json=${user} 
     Should Be Equal As Numbers    ${response.status_code}    200
     Dictionary Should Contain Key    ${response.json()}    authorization
