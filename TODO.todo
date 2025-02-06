@@ -28,8 +28,46 @@
         }
       },
       {
-        "key": 1738861385100,
+        "key": 1738867692240,
         "children": [],
+        "todo": {
+          "content": "Implement API Methods",
+          "id": 1738867692240,
+          "level": "default",
+          "done": true,
+          "start": 1738867692241,
+          "focus": false,
+          "end": 1738875412041
+        }
+      },
+      {
+        "key": 1738861385100,
+        "children": [
+          {
+            "key": 1738875433020,
+            "children": [],
+            "todo": {
+              "content": "Implement Build Query parameters",
+              "id": 1738875433020,
+              "level": "default",
+              "done": true,
+              "start": 1738875433020,
+              "focus": false,
+              "end": 1738875471328
+            }
+          },
+          {
+            "key": 1738875453543,
+            "children": [],
+            "todo": {
+              "content": "Implement URL with quer parameters",
+              "id": 1738875453543,
+              "level": "default",
+              "done": false,
+              "start": 1738875453543
+            }
+          }
+        ],
         "todo": {
           "content": "Implement Build URL",
           "id": 1738861385100,
@@ -45,8 +83,10 @@
           "content": "Implement GET method dinamic options",
           "id": 1738861395243,
           "level": "default",
-          "done": false,
-          "start": 1738861395243
+          "done": true,
+          "start": 1738861395243,
+          "focus": false,
+          "end": 1738875425366
         }
       },
       {
@@ -218,7 +258,8 @@
     ],
     "expandKeys": [
       1738861913176,
-      1738861738546
+      1738861738546,
+      1738861385100
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -231,6 +272,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1738867502422"
+    "version": "1738875473825"
   }
 }
