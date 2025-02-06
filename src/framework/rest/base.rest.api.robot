@@ -1,6 +1,5 @@
 *** Settings ***
-Resource    ../bases/base.resources.resource
-Library    Collections
+Resource    ../../business/bases/base.resources.resource
 
 
 *** Keywords ***

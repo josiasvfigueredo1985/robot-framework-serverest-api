@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../business/bases/base.resources.resource
+Resource    ../framework/base/base.resources.resource
 Library    Collections
 Library    JSONLibrary
 
