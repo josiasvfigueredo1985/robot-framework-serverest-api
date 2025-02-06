@@ -8,8 +8,10 @@
           "content": "Implement simple login test",
           "id": 1738861351232,
           "level": "default",
-          "done": false,
-          "start": 1738861351232
+          "done": true,
+          "start": 1738861351232,
+          "focus": false,
+          "end": 1738865761742
         }
       },
       {
@@ -227,6 +229,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1738861956777"
+    "version": "1738865761796"
   }
 }
