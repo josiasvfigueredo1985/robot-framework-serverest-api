@@ -1,7 +1,7 @@
-from business.models.common import BaseModel
+from business.models.common import base_model
 
 
-class ProdutosModel(BaseModel):
+class ProdutosModel(base_model):
     def __init__(self, nome: str, preco: float, descricao: str, quantidade: int):
         self.nome = nome
         self.preco = preco

@@ -6,4 +6,3 @@ class UsuariosModel(LoginModel):
         super().__init__(email, password)
         self.nome = nome
         self.endereco = endereco
-    

@@ -1,4 +1,4 @@
-from business.models.common.BaseModel import BaseModel
+from business.models.common.base_model import BaseModel
 
 
 class LoginModel(BaseModel):

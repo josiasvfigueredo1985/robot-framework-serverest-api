@@ -1,14 +1,14 @@
 *** Settings ***
 Resource    ../framework/base/base.resources.resource
 
-Library    ../business/steps/LoginStep.py
+Library    ../business/factories/login_factory.py
 Suite Setup    Start Session
 Suite Teardown  End Session
 
 
 *** Test Cases ***
 Login com Usuário Padrão
-    ${user}    Login Object        fulano@qa.com    teste
+    ${user}    Create Login       fulano@qa.com    teste
     ${response}    POST Data   /login       ${user} 
     Should Be Equal As Numbers    ${response.status_code}    200
     Should Be Equal As Strings  ${response.json()}[message]     Login realizado com sucesso

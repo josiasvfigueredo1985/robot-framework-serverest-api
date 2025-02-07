@@ -87,8 +87,10 @@
           "content": "Implement Models",
           "id": 1738861425007,
           "level": "default",
-          "done": false,
-          "start": 1738861425007
+          "done": true,
+          "start": 1738861425007,
+          "focus": false,
+          "end": 1738937070135
         }
       },
       {
@@ -245,6 +247,17 @@
           "done": false,
           "start": 1738861738546
         }
+      },
+      {
+        "key": 1738936874678,
+        "children": [],
+        "todo": {
+          "content": "Adding certificate verification",
+          "id": 1738936874678,
+          "level": "default",
+          "done": false,
+          "start": 1738936874678
+        }
       }
     ],
     "expandKeys": [
@@ -262,6 +275,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1738881849047"
+    "version": "1738937070191"
   }
 }
