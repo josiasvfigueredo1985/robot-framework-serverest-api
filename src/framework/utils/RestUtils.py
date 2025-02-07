@@ -1,6 +1,7 @@
 
 class RestUtils:
 
+
     def build_resource_with_query_parameters(self, resource: str, parameters: dict):
         """
         Construct a resource with the provided query parameters.

@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../../business/bases/base.resources.resource
+Resource    ../base/base.resources.resource
 
 
 *** Keywords ***
