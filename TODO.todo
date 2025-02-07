@@ -94,28 +94,6 @@
         }
       },
       {
-        "key": 1738942354241,
-        "children": [],
-        "todo": {
-          "content": "Add Manager to authenticate session",
-          "id": 1738942354241,
-          "level": "default",
-          "done": false,
-          "start": 1738942354241
-        }
-      },
-      {
-        "key": 1738861435236,
-        "children": [],
-        "todo": {
-          "content": "Implement Schemas",
-          "id": 1738861435236,
-          "level": "default",
-          "done": false,
-          "start": 1738861435236
-        }
-      },
-      {
         "key": 1738861442309,
         "children": [],
         "todo": {
@@ -129,6 +107,41 @@
         }
       },
       {
+        "key": 1738861435236,
+        "children": [],
+        "todo": {
+          "content": "Implement Schemas",
+          "id": 1738861435236,
+          "level": "default",
+          "done": true,
+          "start": 1738861435236,
+          "focus": false,
+          "end": 1738960346285
+        }
+      },
+      {
+        "key": 1738942354241,
+        "children": [],
+        "todo": {
+          "content": "Add Manager to authenticate session",
+          "id": 1738942354241,
+          "level": "default",
+          "done": false,
+          "start": 1738942354241
+        }
+      },
+      {
+        "key": 1738949370623,
+        "children": [],
+        "todo": {
+          "content": "Add smart wait for requests",
+          "id": 1738949370623,
+          "level": "default",
+          "done": false,
+          "start": 1738949370623
+        }
+      },
+      {
         "key": 1738861457738,
         "children": [],
         "todo": {
@@ -137,28 +150,6 @@
           "level": "default",
           "done": false,
           "start": 1738861457738
-        }
-      },
-      {
-        "key": 1738861473713,
-        "children": [],
-        "todo": {
-          "content": "Implement API response time monitoring",
-          "id": 1738861473713,
-          "level": "default",
-          "done": false,
-          "start": 1738861473713
-        }
-      },
-      {
-        "key": 1738861497826,
-        "children": [],
-        "todo": {
-          "content": "Implement API response time tests",
-          "id": 1738861497826,
-          "level": "default",
-          "done": false,
-          "start": 1738861497826
         }
       },
       {
@@ -271,11 +262,66 @@
           "done": false,
           "start": 1738936874678
         }
+      },
+      {
+        "key": 1738861473713,
+        "children": [],
+        "todo": {
+          "content": "Implement API response time monitoring",
+          "id": 1738861473713,
+          "level": "default",
+          "done": false,
+          "start": 1738861473713
+        }
+      },
+      {
+        "key": 1738861497826,
+        "children": [],
+        "todo": {
+          "content": "Implement API response time tests",
+          "id": 1738861497826,
+          "level": "default",
+          "done": false,
+          "start": 1738861497826
+        }
+      },
+      {
+        "key": 1738958936098,
+        "children": [],
+        "todo": {
+          "content": "Implement Contract Test models",
+          "id": 1738958936098,
+          "level": "default",
+          "done": false,
+          "start": 1738958936098
+        }
+      },
+      {
+        "key": 1738958951575,
+        "children": [],
+        "todo": {
+          "content": "Implement Contract Tests validator",
+          "id": 1738958951575,
+          "level": "default",
+          "done": false,
+          "start": 1738958951575
+        }
+      },
+      {
+        "key": 1738958968164,
+        "children": [],
+        "todo": {
+          "content": "Implement Contrac Tests scenarios",
+          "id": 1738958968164,
+          "level": "default",
+          "done": false,
+          "start": 1738958968164
+        }
       }
     ],
     "expandKeys": [
       1738861913176,
-      1738861738546
+      1738936874678
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -288,6 +334,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1738942374429"
+    "version": "1738960346329"
   }
 }
