@@ -1,13 +1,14 @@
 *** Settings ***
 Resource    ../framework/base/base.resources.resource
-Library    Collections
-Library    JSONLibrary
+Library    ../business/steps/LoginStep.py
 
 Suite Setup    Start Session
 Suite Teardown  End Session
 
+
 *** Test Cases ***
 Login com Usuário Padrão
+
     ${user}    Create Dictionary
     ...    email=beltrano123@qa.com.br
     ...    password=teste

@@ -55,25 +55,16 @@
               "focus": false,
               "end": 1738875471328
             }
-          },
-          {
-            "key": 1738875453543,
-            "children": [],
-            "todo": {
-              "content": "Implement URL with query parameters",
-              "id": 1738875453543,
-              "level": "default",
-              "done": false,
-              "start": 1738875453543
-            }
           }
         ],
         "todo": {
           "content": "Implement Build URL",
           "id": 1738861385100,
           "level": "default",
-          "done": false,
-          "start": 1738861385100
+          "done": true,
+          "start": 1738861385100,
+          "focus": false,
+          "end": 1738881847363
         }
       },
       {
@@ -258,8 +249,7 @@
     ],
     "expandKeys": [
       1738861913176,
-      1738861738546,
-      1738861385100
+      1738861738546
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -272,6 +262,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1738880540110"
+    "version": "1738881849047"
   }
 }
