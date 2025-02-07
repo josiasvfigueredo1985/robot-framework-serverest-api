@@ -120,6 +120,19 @@
         }
       },
       {
+        "key": 1738960425702,
+        "children": [],
+        "todo": {
+          "content": "Instal Faker",
+          "id": 1738960425702,
+          "level": "default",
+          "done": true,
+          "start": 1738960425702,
+          "focus": false,
+          "end": 1738961588990
+        }
+      },
+      {
         "key": 1738942354241,
         "children": [],
         "todo": {
@@ -321,7 +334,8 @@
     ],
     "expandKeys": [
       1738861913176,
-      1738936874678
+      1738936874678,
+      1738861435236
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -334,6 +348,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1738960346329"
+    "version": "1738961589052"
   }
 }
