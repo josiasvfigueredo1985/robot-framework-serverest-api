@@ -94,6 +94,17 @@
         }
       },
       {
+        "key": 1738942354241,
+        "children": [],
+        "todo": {
+          "content": "Add Manager to authenticate session",
+          "id": 1738942354241,
+          "level": "default",
+          "done": false,
+          "start": 1738942354241
+        }
+      },
+      {
         "key": 1738861435236,
         "children": [],
         "todo": {
@@ -108,11 +119,13 @@
         "key": 1738861442309,
         "children": [],
         "todo": {
-          "content": "Implement Models requests",
+          "content": "Implement Models Factories",
           "id": 1738861442309,
           "level": "default",
-          "done": false,
-          "start": 1738861442309
+          "done": true,
+          "start": 1738861442309,
+          "focus": false,
+          "end": 1738942336102
         }
       },
       {
@@ -275,6 +288,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1738937070191"
+    "version": "1738942374429"
   }
 }
