@@ -139,8 +139,10 @@
           "content": "Add Manager to authenticate session",
           "id": 1738942354241,
           "level": "default",
-          "done": false,
-          "start": 1738942354241
+          "done": true,
+          "start": 1738942354241,
+          "focus": false,
+          "end": 1738975837655
         }
       },
       {
@@ -348,6 +350,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1738961589052"
+    "version": "1738975837711"
   }
 }

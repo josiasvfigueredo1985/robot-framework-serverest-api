@@ -1,6 +1,10 @@
+from robot.api.deco import library, keyword
 
+
+@library
 class RestUtils:
 
+    @keyword
     def build_resource_with_query_parameters(self, resource: str, parameters: dict):
         """
         Construct a resource with the provided query parameters.
@@ -9,7 +13,7 @@ class RestUtils:
         :return: The constructed URL.
         * Example:
         ${params}=    Create List    id=123    nome=Joao    email=joao@exemplo.com
-        
+
         ${buildedParameters}=   Build Resource With Query Parameters ${params}
 
         * Output: usuarios?id=123&nome=Joao&email=joao@exemplo.com
