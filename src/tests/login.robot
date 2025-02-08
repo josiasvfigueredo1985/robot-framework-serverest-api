@@ -1,15 +1,21 @@
 *** Settings ***
-Resource    ../framework/base/base.resources.resource
+Resource            ../framework/base/base.resources.resource
 
-Library    ../business/factories/login_factory.py
-Suite Setup    Start Session
-Suite Teardown  End Session
+Test Teardown      End Session
 
 
 *** Test Cases ***
 Login com Usuário Padrão
-    ${user}    Create Login       fulano@qa.com    teste
-    ${response}    POST Data   /login       ${user} 
+    ${user}    Create Login    fulano@qa.com    teste
+    ${response}    base.request.api.POST Data    /login    ${user}
     Should Be Equal As Numbers    ${response.status_code}    200
-    Should Be Equal As Strings  ${response.json()}[message]     Login realizado com sucesso
-    Dictionary Should Contain Key  ${response.json()}   authorization
+    Should Be Equal As Strings    ${response.json()}[message]    Login realizado com sucesso
+    Dictionary Should Contain Key    ${response.json()}    authorization
+
+Login com novo usuário aleatório
+    ${response}    Login com usuário aleatório
+    Should Be Equal As Numbers    ${response.status_code}    200
+    Should Be Equal As Strings    ${response.json()}[message]    Login realizado com sucesso
+    Dictionary Should Contain Key    ${response.json()}    authorization
+    ${bearer}    Get Bearer Token
+    Log    ${bearer}

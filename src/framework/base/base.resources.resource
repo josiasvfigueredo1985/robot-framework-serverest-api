@@ -3,7 +3,7 @@ Library    RequestsLibrary
 Library    Collections
 Library    requests
 Library    JSONLibrary
-Resource  base.test.robot
+Resource  ../rest/base.rest.robot
 Resource   base.config.variables.resource
-Resource    ../../framework/rest/base.rest.api.robot
+Resource    ../../framework/rest/base.request.api.robot
 Library    ../../framework/utils/RestUtils.py

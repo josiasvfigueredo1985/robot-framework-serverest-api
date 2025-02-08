@@ -1,1 +1,0 @@
-# create manager to create an authenticated session
