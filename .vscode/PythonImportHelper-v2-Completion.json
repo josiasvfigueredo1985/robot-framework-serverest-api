@@ -1,0 +1,500 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Literal",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "library",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "keyword",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "library",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "keyword",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "library",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "keyword",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "library",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "keyword",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "library",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "keyword",
+        "importPath": "robot.api.deco",
+        "description": "robot.api.deco",
+        "isExtraImport": true,
+        "detail": "robot.api.deco",
+        "documentation": {}
+    },
+    {
+        "label": "CarrinhosModel",
+        "importPath": "business.models.carrinhos.carrinhos_model",
+        "description": "business.models.carrinhos.carrinhos_model",
+        "isExtraImport": true,
+        "detail": "business.models.carrinhos.carrinhos_model",
+        "documentation": {}
+    },
+    {
+        "label": "ProdutosCarrinho",
+        "importPath": "business.models.carrinhos.produtos_carrinho",
+        "description": "business.models.carrinhos.produtos_carrinho",
+        "isExtraImport": true,
+        "detail": "business.models.carrinhos.produtos_carrinho",
+        "documentation": {}
+    },
+    {
+        "label": "LoginModel",
+        "importPath": "business.models.login.login_model",
+        "description": "business.models.login.login_model",
+        "isExtraImport": true,
+        "detail": "business.models.login.login_model",
+        "documentation": {}
+    },
+    {
+        "label": "LoginModel",
+        "importPath": "business.models.login.login_model",
+        "description": "business.models.login.login_model",
+        "isExtraImport": true,
+        "detail": "business.models.login.login_model",
+        "documentation": {}
+    },
+    {
+        "label": "ProdutosModel",
+        "importPath": "business.models.produtos.productos_model",
+        "description": "business.models.produtos.productos_model",
+        "isExtraImport": true,
+        "detail": "business.models.produtos.productos_model",
+        "documentation": {}
+    },
+    {
+        "label": "UsuariosModel",
+        "importPath": "business.models.usuarios.usuarios_model",
+        "description": "business.models.usuarios.usuarios_model",
+        "isExtraImport": true,
+        "detail": "business.models.usuarios.usuarios_model",
+        "documentation": {}
+    },
+    {
+        "label": "DataGenerator",
+        "importPath": "framework.utils.data_generator",
+        "description": "framework.utils.data_generator",
+        "isExtraImport": true,
+        "detail": "framework.utils.data_generator",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "business.models.common.base_model",
+        "description": "business.models.common.base_model",
+        "isExtraImport": true,
+        "detail": "business.models.common.base_model",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "business.models.common.base_model",
+        "description": "business.models.common.base_model",
+        "isExtraImport": true,
+        "detail": "business.models.common.base_model",
+        "documentation": {}
+    },
+    {
+        "label": "base_model",
+        "importPath": "business.models.common",
+        "description": "business.models.common",
+        "isExtraImport": true,
+        "detail": "business.models.common",
+        "documentation": {}
+    },
+    {
+        "label": "SchemaModel",
+        "importPath": "business.schemas.common.schema_model",
+        "description": "business.schemas.common.schema_model",
+        "isExtraImport": true,
+        "detail": "business.schemas.common.schema_model",
+        "documentation": {}
+    },
+    {
+        "label": "SchemaModel",
+        "importPath": "business.schemas.common.schema_model",
+        "description": "business.schemas.common.schema_model",
+        "isExtraImport": true,
+        "detail": "business.schemas.common.schema_model",
+        "documentation": {}
+    },
+    {
+        "label": "SchemaModel",
+        "importPath": "business.schemas.common.schema_model",
+        "description": "business.schemas.common.schema_model",
+        "isExtraImport": true,
+        "detail": "business.schemas.common.schema_model",
+        "documentation": {}
+    },
+    {
+        "label": "SchemaModel",
+        "importPath": "business.schemas.common.schema_model",
+        "description": "business.schemas.common.schema_model",
+        "isExtraImport": true,
+        "detail": "business.schemas.common.schema_model",
+        "documentation": {}
+    },
+    {
+        "label": "SchemaModel",
+        "importPath": "business.schemas.common.schema_model",
+        "description": "business.schemas.common.schema_model",
+        "isExtraImport": true,
+        "detail": "business.schemas.common.schema_model",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "validate",
+        "importPath": "jsonschema",
+        "description": "jsonschema",
+        "isExtraImport": true,
+        "detail": "jsonschema",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "jsonschema",
+        "description": "jsonschema",
+        "isExtraImport": true,
+        "detail": "jsonschema",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "CarrinhosFactory",
+        "kind": 6,
+        "importPath": "src.business.factories.carrinhos_factory",
+        "description": "src.business.factories.carrinhos_factory",
+        "peekOfCode": "class CarrinhosFactory:\n    @keyword\n    def create_carrinhos(self, produtos: List[ProdutosCarrinho]):\n        \"\"\"\n        Create a new CarrinhosModel object with the given productos.\n        Args:\n            produtos: List of ProdutosCarrinho objects\n        Returns:\n            CarrinhosModel object with the given productos.\n        \"\"\"",
+        "detail": "src.business.factories.carrinhos_factory",
+        "documentation": {}
+    },
+    {
+        "label": "LoginFactory",
+        "kind": 6,
+        "importPath": "src.business.factories.login_factory",
+        "description": "src.business.factories.login_factory",
+        "peekOfCode": "class LoginFactory:\n    @keyword\n    def create_login(self, email: str, password: str):\n        \"\"\"\n        Create a new LoginModel object with the given email and password.\n        Args:\n            email: The email for the login.\n            password: The password for the login.\n        Returns:\n            LoginModel object with the given email and password.",
+        "detail": "src.business.factories.login_factory",
+        "documentation": {}
+    },
+    {
+        "label": "ProdutosFactory",
+        "kind": 6,
+        "importPath": "src.business.factories.produtos_factory",
+        "description": "src.business.factories.produtos_factory",
+        "peekOfCode": "class ProdutosFactory:\n    @keyword\n    def create_produto(self, nome, preco, descricao, quantidade):\n        \"\"\"\n        Create a new ProdutosModel object with the given attributes.\n        Args:\n            nome: The name of the product.\n            preco: The price of the product.\n            descricao: The description of the product.\n            quantidade: The quantity of the product.",
+        "detail": "src.business.factories.produtos_factory",
+        "documentation": {}
+    },
+    {
+        "label": "UsuariosFactory",
+        "kind": 6,
+        "importPath": "src.business.factories.usuarios_factory",
+        "description": "src.business.factories.usuarios_factory",
+        "peekOfCode": "class UsuariosFactory:\n    @keyword\n    def create_usuario(self, nome, email, password, admnistrador):\n        \"\"\"\n        Create a new UsuariosModel object with the given email and password.\n        \"\"\"\n        usuarioObj = UsuariosModel(nome, email, password, admnistrador)\n        return usuarioObj.to_dict()\n    @keyword\n    def create_random_user(self):",
+        "detail": "src.business.factories.usuarios_factory",
+        "documentation": {}
+    },
+    {
+        "label": "CarrinhosModel",
+        "kind": 6,
+        "importPath": "src.business.models.carrinhos.carrinhos_model",
+        "description": "src.business.models.carrinhos.carrinhos_model",
+        "peekOfCode": "class CarrinhosModel(BaseModel):\n    \"\"\"_summary_\n    Args:\n        BaseModel (_type_): _description_\n    \"\"\"\n    def __init__(self, productos: List[ProdutosCarrinho]):\n        self.productos = productos",
+        "detail": "src.business.models.carrinhos.carrinhos_model",
+        "documentation": {}
+    },
+    {
+        "label": "ProdutosCarrinho",
+        "kind": 6,
+        "importPath": "src.business.models.carrinhos.produtos_carrinho",
+        "description": "src.business.models.carrinhos.produtos_carrinho",
+        "peekOfCode": "class ProdutosCarrinho:\n    \"\"\"\n    A class representing a product in a shopping cart.\n    \"\"\"\n    def __init__(self, idProduto: str, quantidade: int):\n        self.idProduto = idProduto\n        self.quantidade = quantidade",
+        "detail": "src.business.models.carrinhos.produtos_carrinho",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "kind": 6,
+        "importPath": "src.business.models.common.base_model",
+        "description": "src.business.models.common.base_model",
+        "peekOfCode": "class BaseModel:\n    \"\"\"\n    Base class to provide access to_dict function\n    \"\"\"\n    def to_dict(self) -> Dict[str, Any]:\n        \"\"\"\n        Converts the model object to a dictionary.\n        Returns:\n            Dict[str, Any]: The model object converted to a dictionary.\n        \"\"\"",
+        "detail": "src.business.models.common.base_model",
+        "documentation": {}
+    },
+    {
+        "label": "LoginModel",
+        "kind": 6,
+        "importPath": "src.business.models.login.login_model",
+        "description": "src.business.models.login.login_model",
+        "peekOfCode": "class LoginModel(BaseModel):\n    def __init__(self, email: str, password: str):\n        self.email = email\n        self.password = password",
+        "detail": "src.business.models.login.login_model",
+        "documentation": {}
+    },
+    {
+        "label": "ProdutosModel",
+        "kind": 6,
+        "importPath": "src.business.models.produtos.productos_model",
+        "description": "src.business.models.produtos.productos_model",
+        "peekOfCode": "class ProdutosModel(base_model):\n    def __init__(self, nome: str, preco: float, descricao: str, quantidade: int):\n        self.nome = nome\n        self.preco = preco\n        self.descricao = descricao\n        self.quantidade = quantidade",
+        "detail": "src.business.models.produtos.productos_model",
+        "documentation": {}
+    },
+    {
+        "label": "UsuariosModel",
+        "kind": 6,
+        "importPath": "src.business.models.usuarios.usuarios_model",
+        "description": "src.business.models.usuarios.usuarios_model",
+        "peekOfCode": "class UsuariosModel(LoginModel):\n    def __init__(self, nome: str, email: str, password: str, administrador: Literal[\"true\", \"false\"]):\n        super().__init__(email, password)\n        self.nome = nome\n        self.administrador = administrador",
+        "detail": "src.business.models.usuarios.usuarios_model",
+        "documentation": {}
+    },
+    {
+        "label": "CarrinhosGetAllSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.carrinhos.carrinhos_schemas",
+        "description": "src.business.schemas.carrinhos.carrinhos_schemas",
+        "peekOfCode": "class CarrinhosGetAllSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"quantidade\": {\n                \"type\": \"number\"\n            },\n            \"carrinhos\": {",
+        "detail": "src.business.schemas.carrinhos.carrinhos_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "CarrinhosGetByIdSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.carrinhos.carrinhos_schemas",
+        "description": "src.business.schemas.carrinhos.carrinhos_schemas",
+        "peekOfCode": "class CarrinhosGetByIdSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"produtos\": {\n                \"type\": \"array\",\n                \"items\": {\n                    \"type\": \"object\",",
+        "detail": "src.business.schemas.carrinhos.carrinhos_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "CommonGenericMessageSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.common.common_schemas",
+        "description": "src.business.schemas.common.common_schemas",
+        "peekOfCode": "class CommonGenericMessageSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"message\": {\n                \"type\": \"string\"\n            },\n            \"_id\": {",
+        "detail": "src.business.schemas.common.common_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "CommonErrorMessageSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.common.common_schemas",
+        "description": "src.business.schemas.common.common_schemas",
+        "peekOfCode": "class CommonErrorMessageSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"message\": {\n                \"type\": \"string\"\n            }\n        },",
+        "detail": "src.business.schemas.common.common_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "SchemaModel",
+        "kind": 6,
+        "importPath": "src.business.schemas.common.schema_model",
+        "description": "src.business.schemas.common.schema_model",
+        "peekOfCode": "class SchemaModel:\n    SCHEMA = None\n    def validate_response_with_schema(self, response, schema_name):\n        \"\"\"\n        Validates the response against the provided schema.\n        Args:\n            response: The response to be validated.\n            schema_name: The name of the schema to validate against.\n        Returns:\n            True if the response is valid against the schema, a string containing",
+        "detail": "src.business.schemas.common.schema_model",
+        "documentation": {}
+    },
+    {
+        "label": "LoginPostSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.login.login_schemas",
+        "description": "src.business.schemas.login.login_schemas",
+        "peekOfCode": "class LoginPostSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"message\": {\n                \"type\": \"string\"\n            },\n            \"authorization\": {",
+        "detail": "src.business.schemas.login.login_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "ProdutosGetAllSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.produtos.produtos_schemas",
+        "description": "src.business.schemas.produtos.produtos_schemas",
+        "peekOfCode": "class ProdutosGetAllSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"quantidade\": {\n                \"type\": \"number\"\n            },\n            \"produtos\": {",
+        "detail": "src.business.schemas.produtos.produtos_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "ProdutosGetByIdSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.produtos.produtos_schemas",
+        "description": "src.business.schemas.produtos.produtos_schemas",
+        "peekOfCode": "class ProdutosGetByIdSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"nome\": {\n                \"type\": \"string\"\n            },\n            \"preco\": {",
+        "detail": "src.business.schemas.produtos.produtos_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "ProdutosDeleteErrorSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.produtos.produtos_schemas",
+        "description": "src.business.schemas.produtos.produtos_schemas",
+        "peekOfCode": "class ProdutosDeleteErrorSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"message\": {\n                \"type\": \"string\"\n            },\n            \"idCarrinho\": {",
+        "detail": "src.business.schemas.produtos.produtos_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UsuariosGetAllSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.usuarios.usuarios_schemas",
+        "description": "src.business.schemas.usuarios.usuarios_schemas",
+        "peekOfCode": "class UsuariosGetAllSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"quantidade\": {\n                \"type\": \"number\"\n            },\n            \"usuarios\": {",
+        "detail": "src.business.schemas.usuarios.usuarios_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "UsuariosGetByIdSchema",
+        "kind": 6,
+        "importPath": "src.business.schemas.usuarios.usuarios_schemas",
+        "description": "src.business.schemas.usuarios.usuarios_schemas",
+        "peekOfCode": "class UsuariosGetByIdSchema(SchemaModel):\n    SCHEMA = {\n        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n        \"title\": \"Generated schema for Root\",\n        \"type\": \"object\",\n        \"properties\": {\n            \"nome\": {\n                \"type\": \"string\"\n            },\n            \"email\": {",
+        "detail": "src.business.schemas.usuarios.usuarios_schemas",
+        "documentation": {}
+    },
+    {
+        "label": "DataGenerator",
+        "kind": 6,
+        "importPath": "src.framework.utils.data_generator",
+        "description": "src.framework.utils.data_generator",
+        "peekOfCode": "class DataGenerator:\n    \"\"\"\n    Generates fake data for testing purposes.\n    :params:\n        data_generator = DataGenerator() \\n\n        1 - newName = data_generator.fake.name() \\n\n        2 - newEmail = data_generator.fake.email()\n    :return: 1 - random full name\n    :return: 2 - random email\n    \"\"\"",
+        "detail": "src.framework.utils.data_generator",
+        "documentation": {}
+    },
+    {
+        "label": "RestUtils",
+        "kind": 6,
+        "importPath": "src.framework.utils.rest_utils",
+        "description": "src.framework.utils.rest_utils",
+        "peekOfCode": "class RestUtils:\n    @keyword\n    def build_resource_with_query_parameters(self, resource: str, parameters: dict):\n        \"\"\"\n        Construct a resource with the provided query parameters.\n        :param resource: The resource path without any query parameters.\n        :param parameters: A dictionary of query parameters.\n        :return: The constructed URL.\n        * Example:\n        ${params}=    Create List    id=123    nome=Joao    email=joao@exemplo.com",
+        "detail": "src.framework.utils.rest_utils",
+        "documentation": {}
+    }
+]

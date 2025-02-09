@@ -1,8 +1,7 @@
 from typing import List
-from business.models.carrinhos.carrinhos_model import CarrinhosModel
-from business.models.common import base_model
+from business.models.carrinhos.produtos_carrinho import ProdutosCarrinho
+from framework.utils.object_util import ObjectUtil
 
-
-class CarrinhosModel(base_model):
-    def __init__(self, productos: List[CarrinhosModel]):
+class CarrinhosModel(ObjectUtil):
+    def __init__(self, productos: List[ProdutosCarrinho]):
         self.productos = productos

@@ -11,7 +11,6 @@ from business.models.carrinhos.produtos_carrinho import ProdutosCarrinho  # noqa
 
 @library
 class CarrinhosFactory:
-
     @keyword
     def create_carrinhos(self, produtos: List[ProdutosCarrinho]):
         """
@@ -23,10 +22,10 @@ class CarrinhosFactory:
         Returns:
             CarrinhosModel object with the given productos.
         """
+        # Use random data
         carrinhoObj = CarrinhosModel(produtos)
-        return carrinhoObj.to_dict()
+        return carrinhoObj.convert_object_to_dict(carrinhoObj)
 
-    @keyword
     def create_produto_carrinho(self, idProduto, quantidade):
         """
         Create a new ProdutosCarrinho object with the given idProduto and quantidade.
@@ -39,4 +38,4 @@ class CarrinhosFactory:
             ProdutosCarrinho object with the given idProduto and quantidade.
         """
         produtoCarrinhoObj = ProdutosCarrinho(idProduto, int(quantidade))
-        return produtoCarrinhoObj.to_dict()
+        return produtoCarrinhoObj

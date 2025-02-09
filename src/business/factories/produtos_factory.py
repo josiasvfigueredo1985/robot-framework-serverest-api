@@ -4,7 +4,7 @@ from robot.api.deco import library, keyword
 
 sys.path.append(os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../../")))
-from business.models.produtos.productos_model import ProdutosModel  # noqa: E402
+from business.models.produtos.produtos_model import ProdutosModel  # noqa: E402
 
 
 @library
@@ -26,4 +26,4 @@ class ProdutosFactory:
         """
         produtoObj = ProdutosModel(
             nome, float(preco), descricao, int(quantidade))
-        return produtoObj.to_dict()
+        return produtoObj.convert_object_to_dict(produtoObj)
