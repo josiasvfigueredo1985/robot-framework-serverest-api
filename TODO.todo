@@ -165,8 +165,49 @@
           "content": "Add smart wait for requests",
           "id": 1738949370623,
           "level": "default",
-          "done": false,
-          "start": 1738949370623
+          "done": true,
+          "start": 1738949370623,
+          "focus": false,
+          "end": 1739125230288
+        }
+      },
+      {
+        "key": 1738861528409,
+        "children": [],
+        "todo": {
+          "content": "Implement Create New User flow",
+          "id": 1738861528409,
+          "level": "default",
+          "done": true,
+          "start": 1738861528409,
+          "focus": false,
+          "end": 1739125243787
+        }
+      },
+      {
+        "key": 1738861541189,
+        "children": [],
+        "todo": {
+          "content": "Implement Login Flow",
+          "id": 1738861541189,
+          "level": "default",
+          "done": true,
+          "start": 1738861541189,
+          "focus": false,
+          "end": 1739125245185
+        }
+      },
+      {
+        "key": 1738861568687,
+        "children": [],
+        "todo": {
+          "content": "Implement Login With New User flow",
+          "id": 1738861568687,
+          "level": "default",
+          "done": true,
+          "start": 1738861568687,
+          "focus": false,
+          "end": 1739125249503
         }
       },
       {
@@ -181,36 +222,25 @@
         }
       },
       {
-        "key": 1738861528409,
+        "key": 1738958936098,
         "children": [],
         "todo": {
-          "content": "Implement Create New User flow",
-          "id": 1738861528409,
+          "content": "Implement Contract Test models",
+          "id": 1738958936098,
           "level": "default",
           "done": false,
-          "start": 1738861528409
+          "start": 1738958936098
         }
       },
       {
-        "key": 1738861541189,
+        "key": 1738958951575,
         "children": [],
         "todo": {
-          "content": "Implement Login Flow",
-          "id": 1738861541189,
+          "content": "Implement Contract Tests validator",
+          "id": 1738958951575,
           "level": "default",
           "done": false,
-          "start": 1738861541189
-        }
-      },
-      {
-        "key": 1738861568687,
-        "children": [],
-        "todo": {
-          "content": "Implement Login With New User flow",
-          "id": 1738861568687,
-          "level": "default",
-          "done": false,
-          "start": 1738861568687
+          "start": 1738958951575
         }
       },
       {
@@ -314,28 +344,6 @@
         }
       },
       {
-        "key": 1738958936098,
-        "children": [],
-        "todo": {
-          "content": "Implement Contract Test models",
-          "id": 1738958936098,
-          "level": "default",
-          "done": false,
-          "start": 1738958936098
-        }
-      },
-      {
-        "key": 1738958951575,
-        "children": [],
-        "todo": {
-          "content": "Implement Contract Tests validator",
-          "id": 1738958951575,
-          "level": "default",
-          "done": false,
-          "start": 1738958951575
-        }
-      },
-      {
         "key": 1738958968164,
         "children": [],
         "todo": {
@@ -363,6 +371,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1739124250427"
+    "version": "1739125265528"
   }
 }
