@@ -1,16 +1,22 @@
+# pylint: disable=import-error
+# pylint: disable=wrong-import-position
 import os
 import sys
 from typing import List
 from robot.api.deco import library, keyword
 
-sys.path.append(os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../../")))
-from business.models.carrinhos.carrinhos_model import CarrinhosModel  # noqa: E402
-from business.models.carrinhos.produtos_carrinho import ProdutosCarrinho  # noqa: E402
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+from business.models.carrinhos.carrinhos_model import CarrinhosModel
+from business.models.carrinhos.produtos_carrinho import ProdutosCarrinho
 
 
 @library
 class CarrinhosFactory:
+    """
+    Factory for creating CarrinhosModel and ProdutosCarrinho objects.
+    """
+
     @keyword
     def create_carrinhos(self, produtos: List[ProdutosCarrinho]):
         """
@@ -23,8 +29,8 @@ class CarrinhosFactory:
             CarrinhosModel object with the given productos.
         """
         # Use random data
-        carrinhoObj = CarrinhosModel(produtos)
-        return carrinhoObj.convert_object_to_dict(carrinhoObj)
+        carrinho_obj = CarrinhosModel(produtos)
+        return carrinho_obj.convert_object_to_dict(carrinho_obj)
 
     def create_produto_carrinho(self, idProduto, quantidade):
         """
@@ -37,5 +43,5 @@ class CarrinhosFactory:
         Returns:
             ProdutosCarrinho object with the given idProduto and quantidade.
         """
-        produtoCarrinhoObj = ProdutosCarrinho(idProduto, int(quantidade))
-        return produtoCarrinhoObj
+        produto_carrinho_obj = ProdutosCarrinho(idProduto, int(quantidade))
+        return produto_carrinho_obj

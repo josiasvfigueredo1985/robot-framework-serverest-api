@@ -1,7 +1,7 @@
 *** Settings ***
 Resource            ../framework/base/base.resources.resource
 
-Test Teardown      End Session
+Test Teardown       End Session
 
 
 *** Test Cases ***

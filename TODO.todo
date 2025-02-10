@@ -211,6 +211,41 @@
         }
       },
       {
+        "key": 1739154318992,
+        "children": [],
+        "todo": {
+          "content": "Add Linter for Robot",
+          "id": 1739154318992,
+          "level": "default",
+          "done": false,
+          "start": 1739154318992
+        }
+      },
+      {
+        "key": 1739154305993,
+        "children": [],
+        "todo": {
+          "content": "Add Linter for Python code",
+          "id": 1739154305993,
+          "level": "default",
+          "done": true,
+          "start": 1739154305993,
+          "focus": false,
+          "end": 1739158197340
+        }
+      },
+      {
+        "key": 1739158169120,
+        "children": [],
+        "todo": {
+          "content": "Fix Linter Errors",
+          "id": 1739158169120,
+          "level": "default",
+          "done": false,
+          "start": 1739158169120
+        }
+      },
+      {
         "key": 1738861457738,
         "children": [],
         "todo": {
@@ -355,28 +390,6 @@
         }
       },
       {
-        "key": 1739154305993,
-        "children": [],
-        "todo": {
-          "content": "Add Linter for Python code",
-          "id": 1739154305993,
-          "level": "default",
-          "done": false,
-          "start": 1739154305993
-        }
-      },
-      {
-        "key": 1739154318992,
-        "children": [],
-        "todo": {
-          "content": "Add Linter for Robot",
-          "id": 1739154318992,
-          "level": "default",
-          "done": false,
-          "start": 1739154318992
-        }
-      },
-      {
         "key": 1739154358315,
         "children": [],
         "todo": {
@@ -415,6 +428,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1739154387496"
+    "version": "1739158197398"
   }
 }
