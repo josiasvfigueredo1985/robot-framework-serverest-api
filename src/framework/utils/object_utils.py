@@ -1,7 +1,7 @@
 from typing import Any, Dict, List, Set, Tuple, Union
 
 
-class ObjectUtil:
+class ObjectUtils:
     """
     Base class to provide access to_dict function
     """

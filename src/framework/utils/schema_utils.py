@@ -2,7 +2,7 @@ import requests
 from jsonschema import validate, ValidationError
 
 
-class SchemaModel:
+class SchemaUtils:
     SCHEMA = None
 
     def validate_response_with_schema(self, response, schema_name):
@@ -20,14 +20,17 @@ class SchemaModel:
         Raises:
             ValueError: If the provided schema does not exist or is in incorrect format.
         """
-        if schema_name not in self.SCHEMAS:
+        if schema_name not in self.SCHEMA:
             raise ValueError(
-                f"Schema '{schema_name}' not found or in incorrect format.")
+                f"Schema '{schema_name}' not found or in incorrect format."
+            )
 
         try:
-            json_data = response.json() if isinstance(
-                response, requests.Response) else response
-            validate(instance=json_data, schema=self.SCHEMAS[schema_name])
+            json_data = (
+                response.json() if isinstance(response, requests.Response) else response
+            )
+            if self.SCHEMA:
+                validate(instance=json_data, schema=self.SCHEMA[schema_name])
             return True
         except ValidationError as e:
             return f"Schema validation error: {e.message}"

@@ -10,8 +10,6 @@ POST Data
     ...    ${SESSION_NAME}
     ...    ${resource}
     ...    json=${data}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}
 
 POST Data Authorized
@@ -21,8 +19,6 @@ POST Data Authorized
     ...    ${SESSION_NAME}
     ...    ${resource}
     ...    json=${data}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}
 
 PUT Data
@@ -32,8 +28,6 @@ PUT Data
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
     ...    json=${data}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}
 
 PUT Data Authorized
@@ -43,8 +37,6 @@ PUT Data Authorized
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
     ...    json=${data}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}
 
 DELETE By Parameter Authorized
@@ -52,8 +44,6 @@ DELETE By Parameter Authorized
     ${response}    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${parameter}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}
 
 DELETE By Id
@@ -62,8 +52,6 @@ DELETE By Id
     ${response}    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}
 
 DELETE By Id Authorized
@@ -72,8 +60,6 @@ DELETE By Id Authorized
     ${response}    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}
 
 GET All
@@ -82,8 +68,6 @@ GET All
     ${response}    GET On Session
     ...    ${SESSION_NAME}
     ...    ${resource}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}
 
 GET By Query
@@ -93,8 +77,6 @@ GET By Query
     ${response}    GET On Session
     ...    ${SESSION_NAME}
     ...    ${queryParameters}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}
 
 GET By Id
@@ -103,6 +85,4 @@ GET By Id
     ${response}    GET On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
-    ...    retry=${RETRY_COUNT}
-    ...    retry_interval=${RETRY_INTERVAL}
     RETURN    ${response}

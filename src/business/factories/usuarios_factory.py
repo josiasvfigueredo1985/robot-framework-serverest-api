@@ -1,11 +1,13 @@
 import os
 import sys
+from faker import Faker
 from robot.api.deco import library, keyword
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from business.models.usuarios.usuarios_model import UsuariosModel  # noqa: E402
-from framework.utils.data_generator import DataGenerator  # noqa: E402
+
+faker = Faker()
 
 
 @library
@@ -23,8 +25,7 @@ class UsuariosFactory:
         """
         Create a new UsuariosModel object with random name, email, password and administrator flag.
         """
-        faker = DataGenerator()
         randomUserObj = UsuariosModel(
-            faker.fake.name(), faker.fake.email(), faker.fake.password(), "true"
+            faker.name(), faker.email(), faker.password(), "true"
         )
         return randomUserObj.convert_object_to_dict(randomUserObj)

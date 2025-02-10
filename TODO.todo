@@ -162,13 +162,13 @@
         "key": 1738949370623,
         "children": [],
         "todo": {
-          "content": "Add smart wait for requests",
+          "content": "Add retries for requests",
           "id": 1738949370623,
           "level": "default",
           "done": true,
           "start": 1738949370623,
           "focus": false,
-          "end": 1739125230288
+          "end": 1739154351799
         }
       },
       {
@@ -353,6 +353,50 @@
           "done": false,
           "start": 1738958968164
         }
+      },
+      {
+        "key": 1739154305993,
+        "children": [],
+        "todo": {
+          "content": "Add Linter for Python code",
+          "id": 1739154305993,
+          "level": "default",
+          "done": false,
+          "start": 1739154305993
+        }
+      },
+      {
+        "key": 1739154318992,
+        "children": [],
+        "todo": {
+          "content": "Add Linter for Robot",
+          "id": 1739154318992,
+          "level": "default",
+          "done": false,
+          "start": 1739154318992
+        }
+      },
+      {
+        "key": 1739154358315,
+        "children": [],
+        "todo": {
+          "content": "Add requirements for python",
+          "id": 1739154358315,
+          "level": "default",
+          "done": false,
+          "start": 1739154358315
+        }
+      },
+      {
+        "key": 1739154368943,
+        "children": [],
+        "todo": {
+          "content": "Add VS Code extensions package",
+          "id": 1739154368943,
+          "level": "default",
+          "done": false,
+          "start": 1739154368943
+        }
       }
     ],
     "expandKeys": [
@@ -371,6 +415,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1739125265528"
+    "version": "1739154387496"
   }
 }

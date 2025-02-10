@@ -1,7 +1,7 @@
-from framework.utils.object_util import ObjectUtil
+from framework.utils.object_utils import ObjectUtils
 
 
-class ProdutosModel(ObjectUtil):
+class ProdutosModel(ObjectUtils):
     def __init__(self, nome: str, preco: float, descricao: str, quantidade: int):
         self.nome = nome
         self.preco = preco
