@@ -1,5 +1,3 @@
-# pylint: disable=import-error
-# pylint: disable=wrong-import-position
 import os
 import sys
 from typing import List

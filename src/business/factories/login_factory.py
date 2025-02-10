@@ -4,7 +4,7 @@ from robot.api.deco import library, keyword
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
-from business.models.login.login_model import LoginModel  # noqa: E402
+from business.models.login.login_model import LoginModel
 
 
 @library

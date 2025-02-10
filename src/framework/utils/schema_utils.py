@@ -3,7 +3,7 @@ from jsonschema import validate, ValidationError
 
 
 class SchemaUtils:
-    SCHEMA = None
+    SCHEMA = {}
 
     def validate_response_with_schema(self, response, schema_name):
         """
