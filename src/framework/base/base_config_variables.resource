@@ -15,3 +15,5 @@ ${BACKOFF_FACTOR}=          2
 ${RETRIES_STATUS_LIST}=     [500, 502, 503, 504, 400, 401, 403, 404]
 ${DISABLE_WARNINGS}=        0
 ${RETRIES_METHODS_LIST}=    ['HEAD', 'TRACE', 'DELETE', 'GET', 'PUT', 'OPTIONS']
+&{AUTH_HEADERS}=            &{EMPTY}
+&{HEADERS}=                 &{EMPTY}

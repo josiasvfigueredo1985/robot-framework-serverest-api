@@ -10,7 +10,7 @@ Library             requests
 *** Keywords ***
 Start Session
     [Documentation]    Starts a new session with the given headers and configuration.
-    &{HEADERS}    Create Dictionary    accept=${CONTENT_TYPE}
+    VAR    &{HEADERS}    accept=${CONTENT_TYPE}
     Create Session
     ...    ${SESSION_NAME}
     ...    ${BASE_URL}
@@ -23,11 +23,11 @@ Start Session
 Start Authenticated Session
     [Documentation]    Starts a new authenticated session with the given headers and configuration.
     ${AUTH_TOKEN}    Get Bearer Token
-    &{HEADERS}    Create Dictionary    Authorization=${AUTH_TOKEN}    Content-Type=${CONTENT_TYPE}
+    VAR    &{AUTH_HEADERS}    Authorization=${AUTH_TOKEN}    Content-Type=${CONTENT_TYPE}
     Create Session
     ...    ${SESSION_NAME}
     ...    ${BASE_URL}
-    ...    headers=${HEADERS}
+    ...    headers=${AUTH_HEADERS}
     ...    timeout=${TIMEOUT}
     ...    max_retries=${MAX_RETRIES}
     ...    backoff_factor=${BACKOFF_FACTOR}

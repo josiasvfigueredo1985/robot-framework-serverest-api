@@ -85,10 +85,10 @@ GET By Query
     [Documentation]    Sends a GET request to the specified resource and dynamic parameter.
     [Arguments]    ${resource}    ${dynamic_parameters}
     Start Session
-    ${queryParameters}    rest_utils.Build Resource With Query Parameters    ${resource}    ${dynamic_parameters}
+    ${query_parameters}    rest_utils.Build Resource With Query Parameters    ${resource}    ${dynamic_parameters}
     ${response}    GET On Session
     ...    ${SESSION_NAME}
-    ...    ${queryParameters}
+    ...    ${query_parameters}
     RETURN    ${response}
 
 GET By Id
