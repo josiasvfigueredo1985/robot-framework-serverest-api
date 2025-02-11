@@ -2,8 +2,7 @@
 Documentation       Suite for testing user registration
 
 Resource            ../business/flow/usuario_flow.resource
-Resource            ../framework/rest/base_request_methods.resource
-Resource            ../framework/base/base_resources.resource
+Resource            ../framework/base/base_test_resources.resource
 
 Test Teardown       End Session
 

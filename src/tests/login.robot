@@ -2,8 +2,7 @@
 Documentation       This suite tests the login functionality with a new random user.
 
 Resource            ../business/flow/login_flow.resource
-Resource            ../framework/rest/base_request_methods.resource
-Resource            ../framework/base/base_resources.resource
+Resource            ../framework/base/base_test_resources.resource
 
 Test Teardown       End Session
 

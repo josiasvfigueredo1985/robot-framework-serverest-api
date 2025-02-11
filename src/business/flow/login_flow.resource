@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation       This resource file contains keywords for the login flow.
 
-Resource            ../../framework/rest/base_rest.resource
 Resource            ../../framework/rest/base_request_methods.resource
 Resource            usuario_flow.resource
 Library             ../../business/factories/login_factory.py
