@@ -5,8 +5,7 @@ from robot.api.deco import library, keyword
 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
-from business.models.carrinhos.carrinhos_model import CarrinhosModel
-from business.models.carrinhos.produtos_carrinho import ProdutosCarrinho
+from business.models.carrinhos.carrinhos_model import CarrinhosModel, ProdutosCarrinho
 
 
 @library
@@ -18,13 +17,13 @@ class CarrinhosFactory:
     @keyword
     def create_carrinhos(self, produtos: List[ProdutosCarrinho]):
         """
-        Create a new CarrinhosModel object with the given productos.
+        Create a new CarrinhosModel object with the given produtos.
 
         Args:
             produtos: List of ProdutosCarrinho objects
 
         Returns:
-            CarrinhosModel object with the given productos.
+            CarrinhosModel object with the given produtos.
         """
         # Use random data
         carrinho_obj = CarrinhosModel(produtos)

@@ -1,13 +1,18 @@
 *** Settings ***
-Resource            ../framework/base/base.resources.resource
+Documentation       Suite for testing user registration
 
-Test Teardown      End Session
+Resource            ../business/flow/usuario_flow.resource
+Resource            ../framework/rest/base_request_methods.resource
+Resource            ../framework/base/base_resources.resource
+
+Test Teardown       End Session
 
 
 *** Test Cases ***
 Cadastrar um novo usuário aleatório
-    ${response}    ${randomuser}    Cadastrar usuário aleatório
-    Log    ${randomuser}
+    [Documentation]    This test case registers a new random user and verifies the response.
+    ${response}    ${random_user}    Cadastrar Usuário Aleatório
+    Log    ${random_user}
     Should Be Equal As Numbers    ${response.status_code}    201
     Should Be Equal As Strings    ${response.json()}[message]    Cadastro realizado com sucesso
     Dictionary Should Contain Key    ${response.json()}    _id

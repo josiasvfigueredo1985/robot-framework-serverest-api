@@ -12,11 +12,11 @@ class RestUtils:
         :param parameters: A dictionary of query parameters.
         :return: The constructed URL.
         * Example:
-        ${params}=    Create List    id=123    nome=Joao    email=joao@exemplo.com
+        ${params}=    Create List    id=123    nome=João    email=joao@exemplo.com
 
         ${buildedParameters}=   Build Resource With Query Parameters ${params}
 
-        * Output: usuarios?id=123&nome=Joao&email=joao@exemplo.com
+        * Output: usuarios?id=123&nome=João&email=joao@exemplo.com
         """
         url = resource
         if parameters:

@@ -1,8 +1,12 @@
+*** Settings ***
+Documentation       This resource file contains base configuration variables for the Serverest API tests.
+
+
 *** Variables ***
 ${BASE_URL}=                https://serverest.dev
 ${SESSION_NAME}=            serverest
-${CONTENT_TYPE}             application/json
-${AUTH_TOKEN}               ${EMPTY}
+${CONTENT_TYPE}=            application/json
+${AUTH_TOKEN}=              ${EMPTY}
 ${TIMEOUT_SHORT}=           2
 ${TIMEOUT}=                 5
 ${TIMEOUT_LONG}=            10

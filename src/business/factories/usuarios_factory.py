@@ -13,11 +13,11 @@ faker = Faker()
 @library
 class UsuariosFactory:
     @keyword
-    def create_usuario(self, nome, email, password, admnistrador):
+    def create_usuario(self, nome, email, password, administrador):
         """
         Create a new UsuariosModel object with the given email and password.
         """
-        usuarioObj = UsuariosModel(nome, email, password, admnistrador)
+        usuarioObj = UsuariosModel(nome, email, password, administrador)
         return usuarioObj.convert_object_to_dict(usuarioObj)
 
     @keyword

@@ -12,6 +12,11 @@ class ObjectUtils:
         obj: Any,
     ):
         """
-        Convert simple and compklex nested obhject to a dictionary
+        Convert object to dictionary
+        Args:
+            obj: The object to be converted.
+        Returns:
+            A dictionary representation of the object.
+            
         """
         return json.loads(json.dumps(obj, default=lambda o: o.__dict__, indent=4))

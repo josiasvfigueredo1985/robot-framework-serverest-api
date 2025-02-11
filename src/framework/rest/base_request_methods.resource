@@ -1,9 +1,13 @@
 *** Settings ***
-Resource    ../base/base.resources.resource
+Documentation       This resource file contains base request methods for REST API interactions.
+
+Resource            ./base_rest.resource
+Library             ../utils/rest_utils.py
 
 
 *** Keywords ***
 POST Data
+    [Documentation]    Sends a POST request to the specified resource with the given data.
     [Arguments]    ${resource}    ${data}
     Start Session
     ${response}    POST On Session
@@ -13,6 +17,7 @@ POST Data
     RETURN    ${response}
 
 POST Data Authorized
+    [Documentation]    Sends an authorized POST request to the specified resource with the given data.
     [Arguments]    ${resource}    ${data}
     Start Authenticated Session
     ${response}    POST On Session
@@ -22,6 +27,7 @@ POST Data Authorized
     RETURN    ${response}
 
 PUT Data
+    [Documentation]    Sends a PUT request to the specified resource with the given data.
     [Arguments]    ${resource}    ${id}    ${data}
     Start Session
     ${response}    PUT On Session
@@ -31,6 +37,7 @@ PUT Data
     RETURN    ${response}
 
 PUT Data Authorized
+    [Documentation]    Sends an authorized PUT request to the specified resource with the given data.
     [Arguments]    ${resource}    ${id}    ${data}
     Start Authenticated Session
     ${response}    PUT On Session
@@ -40,6 +47,7 @@ PUT Data Authorized
     RETURN    ${response}
 
 DELETE By Parameter Authorized
+    [Documentation]    Sends a DELETE request to the specified resource and parameter.
     [Arguments]    ${resource}    ${parameter}
     ${response}    DELETE On Session
     ...    ${SESSION_NAME}
@@ -47,6 +55,7 @@ DELETE By Parameter Authorized
     RETURN    ${response}
 
 DELETE By Id
+    [Documentation]    Sends a DELETE request to the specified resource and Id.
     [Arguments]    ${resource}    ${id}
     Start Session
     ${response}    DELETE On Session
@@ -55,6 +64,7 @@ DELETE By Id
     RETURN    ${response}
 
 DELETE By Id Authorized
+    [Documentation]    Sends an authorized DELETE request to the specified resource and Id.
     [Arguments]    ${resource}    ${id}
     Start Authenticated Session
     ${response}    DELETE On Session
@@ -63,6 +73,7 @@ DELETE By Id Authorized
     RETURN    ${response}
 
 GET All
+    [Documentation]    Sends a GET request to the specified resource.
     [Arguments]    ${resource}
     Start Session
     ${response}    GET On Session
@@ -71,15 +82,17 @@ GET All
     RETURN    ${response}
 
 GET By Query
-    [Arguments]    ${resource}    ${dinamicParameters}
+    [Documentation]    Sends a GET request to the specified resource and dynamic parameter.
+    [Arguments]    ${resource}    ${dynamic_parameters}
     Start Session
-    ${queryParameters}    Build Resource With Query Parameters    ${resource}    ${dinamicParameters}
+    ${queryParameters}    rest_utils.Build Resource With Query Parameters    ${resource}    ${dynamic_parameters}
     ${response}    GET On Session
     ...    ${SESSION_NAME}
     ...    ${queryParameters}
     RETURN    ${response}
 
 GET By Id
+    [Documentation]    Sends a GET request to the specified resource and Id.
     [Arguments]    ${resource}    ${id}
     Start Session
     ${response}    GET On Session
