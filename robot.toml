@@ -1,0 +1,5 @@
+output-dir = "test_results"
+paths = "src/"
+[env]
+TEST_VAR = "test"
+PROD_VAR = "prod"
