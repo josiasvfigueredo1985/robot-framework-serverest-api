@@ -217,8 +217,10 @@
           "content": "Add Linter for Robot",
           "id": 1739154318992,
           "level": "default",
-          "done": false,
-          "start": 1739154318992
+          "done": true,
+          "start": 1739154318992,
+          "focus": false,
+          "end": 1739369379205
         }
       },
       {
@@ -241,8 +243,10 @@
           "content": "Fix Linter Errors",
           "id": 1739158169120,
           "level": "default",
-          "done": false,
-          "start": 1739158169120
+          "done": true,
+          "start": 1739158169120,
+          "focus": false,
+          "end": 1739369383206
         }
       },
       {
@@ -382,7 +386,7 @@
         "key": 1738958968164,
         "children": [],
         "todo": {
-          "content": "Implement Contrac Tests scenarios",
+          "content": "Implement Contract Tests scenarios",
           "id": 1738958968164,
           "level": "default",
           "done": false,
@@ -410,6 +414,39 @@
           "done": false,
           "start": 1739154368943
         }
+      },
+      {
+        "key": 1739369402482,
+        "children": [],
+        "todo": {
+          "content": "Add Mock Tests",
+          "id": 1739369402482,
+          "level": "default",
+          "done": false,
+          "start": 1739369402482
+        }
+      },
+      {
+        "key": 1739369419598,
+        "children": [],
+        "todo": {
+          "content": "Add Integration with DB tests",
+          "id": 1739369419598,
+          "level": "default",
+          "done": false,
+          "start": 1739369419598
+        }
+      },
+      {
+        "key": 1739369433661,
+        "children": [],
+        "todo": {
+          "content": "Add Kafka integration",
+          "id": 1739369433661,
+          "level": "default",
+          "done": false,
+          "start": 1739369433661
+        }
       }
     ],
     "expandKeys": [
@@ -428,6 +465,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1739158197398"
+    "version": "1739370231451"
   }
 }
