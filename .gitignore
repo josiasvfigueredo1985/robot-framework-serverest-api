@@ -1,2 +1,4 @@
 *.html
 *.xml
+/test_results
+/results
