@@ -250,47 +250,36 @@
         }
       },
       {
-        "key": 1738861457738,
+        "key": 1739371488980,
         "children": [],
         "todo": {
-          "content": "Implement Shemas validation keyword",
-          "id": 1738861457738,
+          "content": "Implement remaining flows",
+          "id": 1739371488980,
           "level": "default",
           "done": false,
-          "start": 1738861457738
+          "start": 1739371488980
         }
       },
       {
-        "key": 1738958936098,
+        "key": 1738936874678,
         "children": [],
         "todo": {
-          "content": "Implement Contract Test models",
-          "id": 1738958936098,
+          "content": "Adding certificate verification",
+          "id": 1738936874678,
           "level": "default",
           "done": false,
-          "start": 1738958936098
+          "start": 1738936874678
         }
       },
       {
-        "key": 1738958951575,
+        "key": 1739371457857,
         "children": [],
         "todo": {
-          "content": "Implement Contract Tests validator",
-          "id": 1738958951575,
+          "content": "Add Test data cleanup",
+          "id": 1739371457857,
           "level": "default",
           "done": false,
-          "start": 1738958951575
-        }
-      },
-      {
-        "key": 1738861623676,
-        "children": [],
-        "todo": {
-          "content": "Implement Cart With Products flow",
-          "id": 1738861623676,
-          "level": "default",
-          "done": false,
-          "start": 1738861623676
+          "start": 1739371457857
         }
       },
       {
@@ -350,14 +339,69 @@
         }
       },
       {
-        "key": 1738936874678,
+        "key": 1738861457738,
         "children": [],
         "todo": {
-          "content": "Adding certificate verification",
-          "id": 1738936874678,
+          "content": "Implement Shemas validation keyword",
+          "id": 1738861457738,
           "level": "default",
           "done": false,
-          "start": 1738936874678
+          "start": 1738861457738
+        }
+      },
+      {
+        "key": 1738958936098,
+        "children": [],
+        "todo": {
+          "content": "Implement Contract Test models",
+          "id": 1738958936098,
+          "level": "default",
+          "done": false,
+          "start": 1738958936098
+        }
+      },
+      {
+        "key": 1739371596533,
+        "children": [],
+        "todo": {
+          "content": "Add Contract Tests",
+          "id": 1739371596533,
+          "level": "default",
+          "done": false,
+          "start": 1739371596533
+        }
+      },
+      {
+        "key": 1739369402482,
+        "children": [],
+        "todo": {
+          "content": "Add Mock Tests",
+          "id": 1739369402482,
+          "level": "default",
+          "done": false,
+          "start": 1739369402482
+        }
+      },
+      {
+        "key": 1739369419598,
+        "children": [],
+        "todo": {
+          "content": "Add Integration with DB tests",
+          "id": 1739369419598,
+          "level": "default",
+          "done": false,
+          "start": 1739369419598
+        }
+      },
+      {
+        "key": 1739369433661,
+        "children": [],
+        "todo": {
+          "content": "Add Kafka integration",
+          "id": 1739369433661,
+          "level": "default",
+          "done": false,
+          "start": 1739369433661
         }
       },
       {
@@ -414,39 +458,6 @@
           "done": false,
           "start": 1739154368943
         }
-      },
-      {
-        "key": 1739369402482,
-        "children": [],
-        "todo": {
-          "content": "Add Mock Tests",
-          "id": 1739369402482,
-          "level": "default",
-          "done": false,
-          "start": 1739369402482
-        }
-      },
-      {
-        "key": 1739369419598,
-        "children": [],
-        "todo": {
-          "content": "Add Integration with DB tests",
-          "id": 1739369419598,
-          "level": "default",
-          "done": false,
-          "start": 1739369419598
-        }
-      },
-      {
-        "key": 1739369433661,
-        "children": [],
-        "todo": {
-          "content": "Add Kafka integration",
-          "id": 1739369433661,
-          "level": "default",
-          "done": false,
-          "start": 1739369433661
-        }
       }
     ],
     "expandKeys": [
@@ -465,6 +476,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1739370231451"
+    "version": "1739371674125"
   }
 }
