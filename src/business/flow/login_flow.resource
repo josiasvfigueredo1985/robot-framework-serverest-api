@@ -1,16 +1,15 @@
 *** Settings ***
 Documentation       This resource file contains keywords for the login flow.
 
-Resource            ../../framework/rest/base_request_methods.resource
-Resource            usuario_flow.resource
-Library             ../../business/factories/login_factory.py
-Library             ../../business/factories/usuarios_factory.py
+Resource            ../../business/steps/usuario_steps.resource
+Resource            ../../business/steps/login_steps.resource
 
 
 *** Keywords ***
-Login Com Usuário Aleatório
-    [Documentation]    This keyword logs in with a randomly created user.
-    ${_}    ${randomUser}    Cadastrar Usuário Aleatório
-    ${newLogin}    Create Login    ${randomUser}[email]    ${randomUser}[password]
-    ${response}    POST Data    /login    ${newLogin}
+Login With New Random User
+    [Documentation]    This keyword logs in with a new user.
+    ${new_random_user}    Create New User
+    ${_}    ${new_random_login}    Register New User    ${new_random_user}
+    ${new_login_user}    Create Login    ${new_random_login}[email]    ${new_random_login}[password]
+    ${response}    Login With New User    ${new_login_user}
     RETURN    ${response}

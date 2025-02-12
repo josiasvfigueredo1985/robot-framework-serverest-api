@@ -18,8 +18,8 @@ POST Data
 
 POST Data Authorized
     [Documentation]    Sends an authorized POST request to the specified resource with the given data.
-    [Arguments]    ${resource}    ${data}
-    Start Authenticated Session
+    [Arguments]    ${resource}    ${data}    ${AUTH_TOKEN}
+    Start Authenticated Session    ${AUTH_TOKEN}
     ${response}    POST On Session
     ...    ${SESSION_NAME}
     ...    ${resource}
@@ -38,8 +38,8 @@ PUT Data
 
 PUT Data Authorized
     [Documentation]    Sends an authorized PUT request to the specified resource with the given data.
-    [Arguments]    ${resource}    ${id}    ${data}
-    Start Authenticated Session
+    [Arguments]    ${resource}    ${id}    ${data}    ${AUTH_TOKEN}
+    Start Authenticated Session    ${AUTH_TOKEN}
     ${response}    PUT On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
@@ -65,8 +65,8 @@ DELETE By Id
 
 DELETE By Id Authorized
     [Documentation]    Sends an authorized DELETE request to the specified resource and Id.
-    [Arguments]    ${resource}    ${id}
-    Start Authenticated Session
+    [Arguments]    ${resource}    ${id}    ${AUTH_TOKEN}
+    Start Authenticated Session    ${AUTH_TOKEN}
     ${response}    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
@@ -85,7 +85,7 @@ GET By Query
     [Documentation]    Sends a GET request to the specified resource and dynamic parameter.
     [Arguments]    ${resource}    ${dynamic_parameters}
     Start Session
-    ${query_parameters}    rest_utils.Build Resource With Query Parameters    ${resource}    ${dynamic_parameters}
+    ${query_parameters}    Build Resource With Query Parameters    ${resource}    ${dynamic_parameters}
     ${response}    GET On Session
     ...    ${SESSION_NAME}
     ...    ${query_parameters}

@@ -2,8 +2,7 @@ import os
 import sys
 from robot.api.deco import library, keyword
 
-sys.path.append(os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../../")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from business.models.produtos.produtos_model import ProdutosModel  # noqa: E402
 
 
@@ -24,6 +23,5 @@ class ProdutosFactory:
         Returns:
             ProdutosModel object with the given attributes.
         """
-        produtoObj = ProdutosModel(
-            nome, float(preco), descricao, int(quantidade))
+        produtoObj = ProdutosModel(nome, float(preco), descricao, int(quantidade))
         return produtoObj.convert_object_to_dict(produtoObj)

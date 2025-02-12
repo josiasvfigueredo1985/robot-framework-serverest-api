@@ -17,6 +17,6 @@ class ObjectUtils:
             obj: The object to be converted.
         Returns:
             A dictionary representation of the object.
-            
+
         """
         return json.loads(json.dumps(obj, default=lambda o: o.__dict__, indent=4))

@@ -3,4 +3,5 @@ Documentation       This resource file contains base settings and libraries for 
 
 Library             Collections
 Library             JSONLibrary
-Resource            ../../framework/rest/base_request_methods.resource
+Resource            ../../business/flow/login_flow.resource
+Resource            ../../business/flow/usuario_flow.resource

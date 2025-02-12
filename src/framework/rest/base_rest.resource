@@ -2,9 +2,7 @@
 Documentation       This resource file contains keywords for managing REST API sessions.
 
 Resource            ../base/base_config_variables.resource
-Resource            ../../business/flow/authentication_flow.resource
 Library             RequestsLibrary
-Library             requests
 
 
 *** Keywords ***
@@ -22,7 +20,7 @@ Start Session
 
 Start Authenticated Session
     [Documentation]    Starts a new authenticated session with the given headers and configuration.
-    ${AUTH_TOKEN}    Get Bearer Token
+    [Arguments]    ${AUTH_TOKEN}
     VAR    &{AUTH_HEADERS}    Authorization=${AUTH_TOKEN}    Content-Type=${CONTENT_TYPE}
     Create Session
     ...    ${SESSION_NAME}
