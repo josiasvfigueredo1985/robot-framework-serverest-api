@@ -2,7 +2,7 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
-from framework.utils.schema_utils import SchemaUtils
+from framework.utils.SchemaUtils import SchemaUtils
 
 
 class UsuariosGetAllSchema(SchemaUtils):

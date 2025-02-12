@@ -1,0 +1,7 @@
+{
+    "robotcode.libraries": [
+        "${workspaceFolder}/src/"
+    ],
+    "robotcode.autoImportModules": true,
+    "robotcode.importStyle": "fromImport"
+}

@@ -1,4 +1,4 @@
-from framework.utils.object_utils import ObjectUtils
+from framework.utils.ObjectUtils import ObjectUtils
 
 
 class LoginModel(ObjectUtils):

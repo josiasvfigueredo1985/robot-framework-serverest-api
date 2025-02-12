@@ -1,6 +1,6 @@
 from typing import List
 from business.models.carrinhos.produtos_carrinho import ProdutosCarrinho
-from framework.utils.object_utils import ObjectUtils
+from framework.utils.ObjectUtils import ObjectUtils
 
 
 class CarrinhosModel(ObjectUtils):

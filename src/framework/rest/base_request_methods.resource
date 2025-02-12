@@ -2,7 +2,7 @@
 Documentation       This resource file contains base request methods for REST API interactions.
 
 Resource            ./base_rest.resource
-Library             ../utils/rest_utils.py
+Library             ../utils/RestApiUtils.py
 
 
 *** Keywords ***

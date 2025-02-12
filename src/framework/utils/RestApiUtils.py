@@ -2,7 +2,9 @@ from robot.api.deco import library, keyword
 
 
 @library
-class RestUtils:
+class RestApiUtils:
+
+    ROBOT_LIBRARY_SCOPE = "GLOBAL"
 
     @keyword
     def build_resource_with_query_parameters(self, resource: str, parameters: dict):
