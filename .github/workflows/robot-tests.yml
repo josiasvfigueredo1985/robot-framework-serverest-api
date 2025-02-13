@@ -1,0 +1,41 @@
+name: Run Robot Framework Tests
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:  # Permite execução manual pelo GitHub Actions UI
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest  # Runner do GitHub Actions
+    env:
+      ENVIRONMENT: ${{ secrets.ENVIRONMENT }}  # Variável de ambiente
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # Baixa o código do repositório
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  # Versão do Python que suporta Robot
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  # Instala dependências do projeto
+          pip install robotframework  # Instala Robot Framework caso não esteja listado
+
+      - name: Run Robot Framework tests
+        run: |
+          robot --variable ENVIRONMENT:${ENVIRONMENT} --outputdir results tests/
+
+      - name: Upload test results
+        if: always()  # Garante que os logs sejam enviados, mesmo se os testes falharem
+        uses: actions/upload-artifact@v4
+        with:
+          name: Robot Test Results
+          path: results/
