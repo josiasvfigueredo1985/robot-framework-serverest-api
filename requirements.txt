@@ -116,7 +116,6 @@ PyJWT==2.10.1
 pylint==3.3.4
 pymongo==4.11
 PyMsgBox==1.0.9
-pyobjc==11.0
 pyobjc-core==11.0
 pyobjc-framework-Accessibility==11.0
 pyobjc-framework-Accounts==11.0
@@ -199,6 +198,7 @@ pyobjc-framework-IOSurface==11.0
 pyobjc-framework-iTunesLibrary==11.0
 pyobjc-framework-KernelManagement==11.0
 pyobjc-framework-LatentSemanticMapping==11.0
+pyobjc-framework-LaunchServices==11.0
 pyobjc-framework-libdispatch==11.0
 pyobjc-framework-libxpc==11.0
 pyobjc-framework-LinkPresentation==11.0
