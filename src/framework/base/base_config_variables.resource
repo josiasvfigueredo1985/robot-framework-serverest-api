@@ -3,7 +3,7 @@ Documentation       This resource file contains base configuration variables for
 
 
 *** Variables ***
-${BASE_URL}=                https://serverest.dev
+${BASE_URL}=                https://serverest.dev/
 ${SESSION_NAME}=            serverest
 ${CONTENT_TYPE}=            application/json
 ${AUTH_TOKEN}=              ${EMPTY}
@@ -17,3 +17,4 @@ ${DISABLE_WARNINGS}=        0
 ${RETRIES_METHODS_LIST}=    ['HEAD', 'TRACE', 'DELETE', 'GET', 'PUT', 'OPTIONS']
 &{AUTH_HEADERS}=            &{EMPTY}
 &{HEADERS}=                 &{EMPTY}
+${ID_FILE}=                 id_list.txt

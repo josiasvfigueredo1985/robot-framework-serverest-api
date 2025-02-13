@@ -1,10 +1,18 @@
 from robot.api.deco import library, keyword
+import warnings
+import urllib3
 
 
 @library
 class RestApiUtils:
 
     ROBOT_LIBRARY_SCOPE = "GLOBAL"
+
+    @keyword
+    def suppress_certificate_warnings(self):
+        warnings.simplefilter(
+            "ignore", category=urllib3.exceptions.InsecureRequestWarning
+        )
 
     @keyword
     def build_resource_with_query_parameters(self, resource: str, parameters: dict):
