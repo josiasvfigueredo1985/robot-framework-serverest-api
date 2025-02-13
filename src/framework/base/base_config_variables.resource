@@ -18,5 +18,5 @@ ${RETRIES_METHODS_LIST}=    ['HEAD', 'TRACE', 'DELETE', 'GET', 'PUT', 'OPTIONS']
 &{AUTH_HEADERS}=            &{EMPTY}
 &{HEADERS}=                 &{EMPTY}
 ${ID_FILE}=                 id_list.txt
-${ENV}=                     Test
+${ENVIRONMENT}=             %{ENVIRONMENT}    # robotcode: ignore
 ${CERTIFICATE_PATH}=        src/framework/rest/certificate/certadmin.pem

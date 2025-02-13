@@ -10,7 +10,7 @@ Library             ../utils/RestApiUtils.py
 Start Session
     [Documentation]    Starts a new session with the given headers and configuration.
     VAR    &{HEADERS}    accept=${CONTENT_TYPE}
-    Check Certificate    ${ENV}
+    Check Certificate    ${ENVIRONMENT}
     ${session}=    Session Exists    ${SESSION_NAME}
     IF    not ${session}
         Create Session
@@ -29,7 +29,7 @@ Start Authenticated Session
     [Documentation]    Starts a new authenticated session with the given headers and configuration.
     [Arguments]    ${AUTH_TOKEN}
     VAR    &{AUTH_HEADERS}    Authorization=${AUTH_TOKEN}    Content-Type=${CONTENT_TYPE}
-    Check Certificate    ${ENV}
+    Check Certificate    ${ENVIRONMENT}
     ${auth_session}=    Session Exists    ${SESSION_NAME}
     IF    not ${auth_session}
         Create Session
