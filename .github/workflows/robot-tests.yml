@@ -26,15 +26,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements-linux.txt  # Instala dependências do projeto
-          pip install robotframework  # Instala Robot Framework caso não esteja listado
-
+          pip install -r requirements-linux.txt  # Install project dependencies.
       - name: Run Robot Framework tests
         run: |
           robot --variable ENVIRONMENT:${ENVIRONMENT} --outputdir results src/tests/
 
       - name: Upload test results
-        if: always()  # Garante que os logs sejam enviados, mesmo se os testes falharem
+        if: always()  # Assure that logs are sent even in fail.
         uses: actions/upload-artifact@v4
         with:
           name: Robot Test Results

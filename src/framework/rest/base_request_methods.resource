@@ -8,7 +8,7 @@ Resource            ./base_session_manager.resource
 POST Data
     [Documentation]    Sends a POST request to the specified resource with the given data.
     [Arguments]    ${resource}    ${data}
-    Start Session
+    Create API Session    ${HEADERS}
     ${response}    POST On Session
     ...    ${SESSION_NAME}
     ...    ${resource}
@@ -17,8 +17,9 @@ POST Data
 
 POST Data Authorized    # robotcode: ignore
     [Documentation]    Sends an authorized POST request to the specified resource with the given data.
-    [Arguments]    ${resource}    ${data}    ${AUTH_TOKEN}
-    Start Authenticated Session    ${AUTH_TOKEN}
+    [Arguments]    ${resource}    ${data}    ${auth_token}
+    ${auth_headers}    Build Authorized Header    ${auth_token}
+    Create API Session    ${auth_headers}
     ${response}    POST On Session
     ...    ${SESSION_NAME}
     ...    ${resource}
@@ -28,7 +29,7 @@ POST Data Authorized    # robotcode: ignore
 PUT Data    # robotcode: ignore
     [Documentation]    Sends a PUT request to the specified resource with the given data.
     [Arguments]    ${resource}    ${id}    ${data}
-    Start Session
+    Create API Session    ${HEADERS}
     ${response}    PUT On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
@@ -37,8 +38,9 @@ PUT Data    # robotcode: ignore
 
 PUT Data Authorized    # robotcode: ignore
     [Documentation]    Sends an authorized PUT request to the specified resource with the given data.
-    [Arguments]    ${resource}    ${id}    ${data}    ${AUTH_TOKEN}
-    Start Authenticated Session    ${AUTH_TOKEN}
+    [Arguments]    ${resource}    ${id}    ${data}    ${auth_token}
+    ${auth_headers}    Build Authorized Header    ${auth_token}
+    Create API Session    ${auth_headers}
     ${response}    PUT On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
@@ -47,7 +49,9 @@ PUT Data Authorized    # robotcode: ignore
 
 DELETE By Parameter Authorized    # robotcode: ignore
     [Documentation]    Sends a DELETE request to the specified resource and parameter.
-    [Arguments]    ${resource}    ${parameter}
+    [Arguments]    ${resource}    ${parameter}    ${auth_token}
+    ${auth_headers}    Build Authorized Header    ${auth_token}
+    Create API Session    ${auth_headers}
     ${response}    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${parameter}
@@ -56,7 +60,7 @@ DELETE By Parameter Authorized    # robotcode: ignore
 DELETE By Id
     [Documentation]    Sends a DELETE request to the specified resource and Id.
     [Arguments]    ${resource}    ${id}
-    Start Session
+    Create API Session    ${HEADERS}
     ${response}    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
@@ -64,8 +68,9 @@ DELETE By Id
 
 DELETE By Id Authorized
     [Documentation]    Sends an authorized DELETE request to the specified resource and Id.
-    [Arguments]    ${resource}    ${id}    ${AUTH_TOKEN}
-    Start Authenticated Session    ${AUTH_TOKEN}
+    [Arguments]    ${resource}    ${id}    ${auth_token}
+    ${auth_headers}    Build Authorized Header    ${auth_token}
+    Create API Session    ${auth_headers}
     ${response}    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
@@ -74,7 +79,7 @@ DELETE By Id Authorized
 GET All    # robotcode: ignore
     [Documentation]    Sends a GET request to the specified resource.
     [Arguments]    ${resource}
-    Start Session
+    Create API Session    ${HEADERS}
     ${response}    GET On Session
     ...    ${SESSION_NAME}
     ...    ${resource}
@@ -83,7 +88,7 @@ GET All    # robotcode: ignore
 GET By Query    # robotcode: ignore
     [Documentation]    Sends a GET request to the specified resource and dynamic parameter.
     [Arguments]    ${resource}    ${dynamic_parameters}
-    Start Session
+    Create API Session    ${HEADERS}
     ${query_parameters}    Build Resource With Query Parameters    ${resource}    ${dynamic_parameters}
     ${response}    GET On Session
     ...    ${SESSION_NAME}
@@ -93,8 +98,14 @@ GET By Query    # robotcode: ignore
 GET By Id    # robotcode: ignore
     [Documentation]    Sends a GET request to the specified resource and Id.
     [Arguments]    ${resource}    ${id}
-    Start Session
+    Create API Session    ${HEADERS}
     ${response}    GET On Session
     ...    ${SESSION_NAME}
     ...    ${resource}/${id}
     RETURN    ${response}
+
+Build Authorized Header
+    [Documentation]    Builds the authorization header with the given token.
+    [Arguments]    ${token}
+    VAR    &{AUTH_HEADERS}    Authorization=${token}    Content-Type=${CONTENT_TYPE}
+    RETURN    ${AUTH_HEADERS}

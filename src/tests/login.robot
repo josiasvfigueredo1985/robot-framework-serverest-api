@@ -3,7 +3,7 @@ Documentation       This suite tests the login functionality with a new random u
 
 Resource            ../framework/base/base_test_resources.resource
 
-Test Teardown       End Session
+Test Teardown       End API Session
 
 
 *** Test Cases ***
