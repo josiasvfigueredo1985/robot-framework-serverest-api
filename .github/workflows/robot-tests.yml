@@ -26,7 +26,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          run: pip install -r requirements-linux.txt  # Instala dependências do projeto
+          pip install -r requirements-linux.txt  # Instala dependências do projeto
           pip install robotframework  # Instala Robot Framework caso não esteja listado
 
       - name: Run Robot Framework tests
