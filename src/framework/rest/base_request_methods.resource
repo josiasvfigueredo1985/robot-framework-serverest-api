@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       This resource file contains base request methods for REST API interactions.
 
-Resource            ./base_rest.resource
+Resource            ./base_session_manager.resource
 
 
 *** Keywords ***
@@ -15,7 +15,7 @@ POST Data
     ...    json=${data}
     RETURN    ${response}
 
-POST Data Authorized
+POST Data Authorized    # robotcode: ignore
     [Documentation]    Sends an authorized POST request to the specified resource with the given data.
     [Arguments]    ${resource}    ${data}    ${AUTH_TOKEN}
     Start Authenticated Session    ${AUTH_TOKEN}
@@ -25,7 +25,7 @@ POST Data Authorized
     ...    json=${data}
     RETURN    ${response}
 
-PUT Data
+PUT Data    # robotcode: ignore
     [Documentation]    Sends a PUT request to the specified resource with the given data.
     [Arguments]    ${resource}    ${id}    ${data}
     Start Session
@@ -35,7 +35,7 @@ PUT Data
     ...    json=${data}
     RETURN    ${response}
 
-PUT Data Authorized
+PUT Data Authorized    # robotcode: ignore
     [Documentation]    Sends an authorized PUT request to the specified resource with the given data.
     [Arguments]    ${resource}    ${id}    ${data}    ${AUTH_TOKEN}
     Start Authenticated Session    ${AUTH_TOKEN}
@@ -45,7 +45,7 @@ PUT Data Authorized
     ...    json=${data}
     RETURN    ${response}
 
-DELETE By Parameter Authorized
+DELETE By Parameter Authorized    # robotcode: ignore
     [Documentation]    Sends a DELETE request to the specified resource and parameter.
     [Arguments]    ${resource}    ${parameter}
     ${response}    DELETE On Session
@@ -71,7 +71,7 @@ DELETE By Id Authorized
     ...    ${resource}/${id}
     RETURN    ${response}
 
-GET All
+GET All    # robotcode: ignore
     [Documentation]    Sends a GET request to the specified resource.
     [Arguments]    ${resource}
     Start Session
@@ -80,7 +80,7 @@ GET All
     ...    ${resource}
     RETURN    ${response}
 
-GET By Query
+GET By Query    # robotcode: ignore
     [Documentation]    Sends a GET request to the specified resource and dynamic parameter.
     [Arguments]    ${resource}    ${dynamic_parameters}
     Start Session
@@ -90,7 +90,7 @@ GET By Query
     ...    ${query_parameters}
     RETURN    ${response}
 
-GET By Id
+GET By Id    # robotcode: ignore
     [Documentation]    Sends a GET request to the specified resource and Id.
     [Arguments]    ${resource}    ${id}
     Start Session

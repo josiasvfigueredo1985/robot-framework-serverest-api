@@ -250,6 +250,19 @@
         }
       },
       {
+        "key": 1739453058586,
+        "children": [],
+        "todo": {
+          "content": "Session improvements",
+          "id": 1739453058586,
+          "level": "default",
+          "done": true,
+          "start": 1739453058586,
+          "focus": false,
+          "end": 1739453078065
+        }
+      },
+      {
         "key": 1739371488980,
         "children": [],
         "todo": {
@@ -267,8 +280,10 @@
           "content": "Adding certificate verification",
           "id": 1738936874678,
           "level": "default",
-          "done": false,
-          "start": 1738936874678
+          "done": true,
+          "start": 1738936874678,
+          "focus": false,
+          "end": 1739406951727
         }
       },
       {
@@ -476,6 +491,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1739371674125"
+    "version": "1739453078132"
   }
 }

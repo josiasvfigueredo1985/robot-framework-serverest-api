@@ -3,9 +3,11 @@
     "python-envs.defaultEnvManager": "ms-python.python:system",
     "python-envs.pythonProjects": [],
     "cSpell.words": [
+        "certadmin",
         "descricao",
         "preco",
         "robocop",
+        "robotcode",
         "rtype",
         "serverest",
         "usuario",
