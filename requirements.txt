@@ -199,7 +199,6 @@ pyobjc-framework-IOSurface==11.0
 pyobjc-framework-iTunesLibrary==11.0
 pyobjc-framework-KernelManagement==11.0
 pyobjc-framework-LatentSemanticMapping==11.0
-pyobjc-framework-LaunchServices==11.0
 pyobjc-framework-libdispatch==11.0
 pyobjc-framework-libxpc==11.0
 pyobjc-framework-LinkPresentation==11.0
