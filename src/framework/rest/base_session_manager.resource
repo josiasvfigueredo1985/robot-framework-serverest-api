@@ -53,9 +53,10 @@ Check Certificate
     [Arguments]    ${environment}
     IF    '${environment}' == 'Test'
         Suppress Certificate Warnings
-        Set Variable    ${CERTIFICATE_PATH}    ${False}
+        ${CERTIFICATE_PATH}=    Set Variable    ${False}
+        Log    ${CERTIFICATE_PATH}
         Log    Certificate verification is disabled for the ${environment} environment.
     ELSE
-        Set Variable    ${CERTIFICATE_PATH}    ${CERTIFICATE_PATH}
+        ${CERTIFICATE_PATH}=    Set Variable    ${CERTIFICATE_PATH}
         Log    Certificate verification is enabled for the ${environment} environment.
     END

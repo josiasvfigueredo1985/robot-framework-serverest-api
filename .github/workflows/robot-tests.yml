@@ -13,7 +13,7 @@ jobs:
   run-tests:
     runs-on: ubuntu-latest  # Runner do GitHub Actions
     env:
-      ENVIRONMENT: ${{ secrets.ENVIRONMENT }}  # Variável de ambiente
+      ENVIRONMENT: ${{ vars.ENVIRONMENT }}  # Variável de ambiente
 
     steps:
       - name: Checkout repository
