@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Robot Framework tests
         run: |
-          robot --variable ENVIRONMENT:${ENVIRONMENT} --outputdir results tests/
+          robot --variable ENVIRONMENT:${ENVIRONMENT} --outputdir results src/tests/
 
       - name: Upload test results
         if: always()  # Garante que os logs sejam enviados, mesmo se os testes falharem
