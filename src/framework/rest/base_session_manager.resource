@@ -10,7 +10,7 @@ Library             ../utils/RestApiUtils.py
 Start Session
     [Documentation]    Starts a new session with the given headers and configuration.
     VAR    &{HEADERS}    accept=${CONTENT_TYPE}
-    Check Certificate    ${ENVIRONMENT}
+    ${verify_certificate}=    Check Certificate
     ${session}=    Session Exists    ${SESSION_NAME}
     IF    not ${session}
         Create Session
@@ -21,7 +21,7 @@ Start Session
         ...    max_retries=${MAX_RETRIES}
         ...    backoff_factor=${BACKOFF_FACTOR}
         ...    retry_status_list=${RETRIES_STATUS_LIST}
-        ...    verify=${CERTIFICATE_PATH}
+        ...    verify=${verify_certificate}
         Log    Session ${SESSION_NAME} started.
     END
 
@@ -29,7 +29,7 @@ Start Authenticated Session
     [Documentation]    Starts a new authenticated session with the given headers and configuration.
     [Arguments]    ${AUTH_TOKEN}
     VAR    &{AUTH_HEADERS}    Authorization=${AUTH_TOKEN}    Content-Type=${CONTENT_TYPE}
-    Check Certificate    ${ENVIRONMENT}
+    ${verify_certificate}=    Check Certificate
     ${auth_session}=    Session Exists    ${SESSION_NAME}
     IF    not ${auth_session}
         Create Session
@@ -40,7 +40,7 @@ Start Authenticated Session
         ...    max_retries=${MAX_RETRIES}
         ...    backoff_factor=${BACKOFF_FACTOR}
         ...    retry_status_list=${RETRIES_STATUS_LIST}
-        ...    verify=${CERTIFICATE_PATH}
+        ...    verify=${verify_certificate}
         Log    Authenticated session ${SESSION_NAME} started.
     END
 
@@ -50,13 +50,11 @@ End Session
 
 Check Certificate
     [Documentation]    Checks the certificate based on the given environment.
-    [Arguments]    ${environment}
-    IF    '${environment}' == 'Test'
+    IF    '${ENVIRONMENT}' == 'Test'
         Suppress Certificate Warnings
-        ${CERTIFICATE_PATH}=    Set Variable    ${False}
-        Log    ${CERTIFICATE_PATH}
-        Log    Certificate verification is disabled for the ${environment} environment.
-    ELSE
-        ${CERTIFICATE_PATH}=    Set Variable    ${CERTIFICATE_PATH}
-        Log    Certificate verification is enabled for the ${environment} environment.
+        Log    Certificate verification is disabled for the ${ENVIRONMENT} environment.
+        RETURN    ${False}
+    ELSE IF    '${ENVIRONMENT}' == 'Prod'
+        Log    Certificate verification is enabled for the ${ENVIRONMENT} environment.
+        RETURN    ${CERTIFICATE_PATH}
     END
