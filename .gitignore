@@ -2,3 +2,4 @@
 *.xml
 /test_results
 /results
+.vscode/settings.json
