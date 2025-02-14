@@ -5,7 +5,7 @@ from jsonschema import validate, ValidationError
 class SchemaUtils:
     SCHEMA = {}
 
-    def validate_response_with_schema(self, response, schema_name):
+    def validate_response_with_schema(self, schema_name, response):
         """
         Validates the response against the provided schema.
 

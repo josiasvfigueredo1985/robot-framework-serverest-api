@@ -1,12 +1,15 @@
+from typing import Union
 from robot.api.deco import library, keyword
 import warnings
 import urllib3
+from typing import Union
+import urllib.parse
 
 
 @library
 class RestApiUtils:
 
-    ROBOT_LIBRARY_SCOPE = "GLOBAL"
+    ROBOT_LIBRARY_SCOPE = "SUITE"
 
     @keyword
     def suppress_certificate_warnings(self):
@@ -15,22 +18,38 @@ class RestApiUtils:
         )
 
     @keyword
-    def build_resource_with_query_parameters(self, resource: str, parameters: dict):
+    def build_resource_with_query_parameters(
+        self, resource: str, parameters: Union[dict, str]
+    ):
         """
-        Construct a resource with the provided query parameters.
-        :param resource: The resource path without any query parameters.
-        :param parameters: A dictionary of query parameters.
-        :return: The constructed URL.
-        * Example:
-        ${params}=    Create List    id=123    nome=João    email=joao@exemplo.com
+        Build a resource URL with query parameters.
 
-        ${buildedParameters}=   Build Resource With Query Parameters ${params}
+        Args:
+            resource (str): The base URL or resource path.
+            parameters (Union[dict, str]): The query parameters as a dictionary or a single string.
 
-        * Output: usuarios?id=123&nome=João&email=joao@exemplo.com
+        Returns:
+            str: The constructed URL with query parameters.
+
+        Examples:
+            >>> build_resource_with_query_parameters('http://example.com/api', {'key1': 'value1', 'key2': 'value2'})
+            'http://example.com/api?key1=value1&key2=value2'
+
+            >>> build_resource_with_query_parameters('http://example.com/api', 'value')
+            'http://example.com/api/value'
         """
+
         url = resource
-        if parameters:
-            url += "?" + "&".join(
-                [f"{key}={value}" for key, value in parameters.items()]
+        if isinstance(parameters, dict):
+            query_string = "&".join(
+                [
+                    f"{urllib.parse.quote(key)}={urllib.parse.quote(str(value))}"
+                    for key, value in parameters.items()
+                ]
             )
+            url += "?" + query_string
+        elif isinstance(parameters, str):
+            url += "/" + urllib.parse.quote(parameters)
         return url
+
+    #
