@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       This resource file handles the authentication flow.
 
-Resource            ../../business/flow/login_flow.resource
+Resource            ../../../business/hooks/login/login_hooks.resource
 
 
 *** Keywords ***

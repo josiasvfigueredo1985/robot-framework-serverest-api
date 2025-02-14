@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       This resource file contains keywords for managing test data.
 
-Resource            ../../framework/data/test_data_manager.resource
+Resource            ../../../framework/data/test_data_manager.resource
 
 
 *** Keywords ***
