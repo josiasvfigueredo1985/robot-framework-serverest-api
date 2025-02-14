@@ -28,7 +28,7 @@ Delete All IDs From File
     ${id_list}    Get IDs From File    ${resource}
     FOR    ${id}    IN    @{id_list}
         Log    Deleting ID: ${id}
-        ${response}    DELETE By Id    ${resource}    ${id}
+        ${response}    DELETE Data    ${resource}    ${id}
         Log    ${response}
     END
     Remove File    ${ID_FILE}
@@ -40,7 +40,7 @@ Delete Authorized All IDs From File
     ${id_list}    Get IDs From File    ${resource}
     FOR    ${id}    IN    @{id_list}
         Log    Deletando ID: ${id}
-        ${response}    DELETE By Id Authorized    ${resource}    ${id}    ${auth_token}
+        ${response}    DELETE Data    ${resource}    ${id}    ${auth_token}
         Log    ${response}
     END
     Remove File    ${ID_FILE}
