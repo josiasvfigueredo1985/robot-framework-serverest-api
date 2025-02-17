@@ -30,7 +30,7 @@ Get IDs From File
 
 Delete All IDs From File
     [Documentation]    Delete all IDs from the file.
-    [Arguments]    ${resource}    ${auth_token}= ${EMPTY}
+    [Arguments]    ${resource}    ${auth_token}= ${EMPTY}    ${exclude_ids}= ${EMPTY}
     ${id_list}    Get IDs From File    ${resource}
     FOR    ${id}    IN    @{id_list}
         Log    Deleting ID: ${id}
@@ -39,8 +39,12 @@ Delete All IDs From File
     END
     Remove File    ${ID_FILE}
     Log    All Id's are deleted.
-    Delete ID File Directory    ${resource}
-    Log    Directory ${resource} is deleted.
+    IF    '${exclude_ids}' == 'False'
+        Log    Directory not deleted.
+    ELSE
+        Delete ID File Directory    ${resource}
+        Log    Directory ${resource} is deleted.
+    END
 
 Delete ID File Directory
     [Documentation]    Deletes the file directory associated with a given ID.
