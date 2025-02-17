@@ -6,3 +6,4 @@ Library             JSONLibrary
 Resource            ../../business/hooks/login/login_hooks.resource
 Resource            ../../business/hooks/usuarios/usuario_hooks.resource
 Resource            ../../business/hooks/authentication/authentication_hooks.resource
+Resource            ../data/test_data_manager.resource
