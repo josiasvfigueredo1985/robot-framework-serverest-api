@@ -9,5 +9,5 @@ Resource            ../requests/login/login_requests.resource
 Login With Random User
     [Documentation]    This keyword logs in with a randomly created user.
     [Arguments]    ${newLogin}
-    ${response}    Login With New User    ${newLogin}
+    ${response}    Post Login    ${newLogin}
     RETURN    ${response}

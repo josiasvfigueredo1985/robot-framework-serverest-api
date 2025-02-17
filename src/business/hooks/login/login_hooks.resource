@@ -9,7 +9,7 @@ Resource            ../../../business/steps/login_steps.resource
 Login With New Random User
     [Documentation]    This keyword logs in with a new user.
     ${new_random_user}    Create New User
-    ${_}    ${new_random_login}    Register New User    ${new_random_user}
+    ${_}    ${new_random_login}    Post New User    ${new_random_user}
     ${new_login_user}    Create Login    ${new_random_login}[email]    ${new_random_login}[password]
-    ${response}    Login With New User    ${new_login_user}
+    ${response}    Post Login    ${new_login_user}
     RETURN    ${response}

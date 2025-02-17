@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation       Suite for testing user registration
 
-Resource            ../business/flow/usuario_flow.resource
 Resource            ../framework/base/base_test_resources.resource
 
 Test Teardown       End API Session
