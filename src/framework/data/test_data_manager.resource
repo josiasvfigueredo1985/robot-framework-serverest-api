@@ -8,7 +8,7 @@ Resource            ../../framework/rest/base_request_methods.resource
 
 
 *** Variables ***
-${FOLDER_FILE_PATH}=    src/framework/data/
+${FOLDER_FILE_PATH}=    src/framework/files/
 
 
 *** Keywords ***
@@ -39,3 +39,11 @@ Delete All IDs From File
     END
     Remove File    ${ID_FILE}
     Log    All Id's are deleted.
+    Delete ID File Directory    ${resource}
+    Log    Directory ${resource} is deleted.
+
+Delete ID File Directory
+    [Documentation]    Deletes the file directory associated with a given ID.
+    [Arguments]    ${resource}
+    ${directory}    Set Variable    ${FOLDER_FILE_PATH}${resource}
+    Remove Directory    ${directory}    recursive=True

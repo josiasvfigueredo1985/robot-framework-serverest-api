@@ -3,3 +3,4 @@
 /test_results
 /results
 .vscode/settings.json
+src/framework/files/*
