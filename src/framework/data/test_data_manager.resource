@@ -39,7 +39,7 @@ Delete All IDs From File
     END
     Remove File    ${ID_FILE}
     Log    All Id's are deleted.
-    IF    '${exclude_ids}' == 'False'
+    IF    '${exclude_ids}' == '${DELETE_DATA_BY_IDS}'
         Log    Directory not deleted.
     ELSE
         Delete ID File Directory    ${resource}
