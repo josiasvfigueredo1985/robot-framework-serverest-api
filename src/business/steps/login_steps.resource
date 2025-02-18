@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation       This resource file contains keywords for the login flow.
 
-Resource            usuario_steps.resource
 Resource            ../requests/login/login_requests.resource
 
 
@@ -15,5 +14,5 @@ Login New User
 Get Login Request Body
     [Documentation]    Get the request body for a new user Login
     [Arguments]    ${email}    ${password}
-    ${new_login_user}    Create Login Body   ${email}    ${password}
+    ${new_login_user}    Create Login Body    ${email}    ${password}
     RETURN    ${new_login_user}

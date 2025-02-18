@@ -7,12 +7,6 @@ Resource            ../../../framework/data/test_data_manager.resource
 *** Keywords ***
 Delete Data After Testing
     [Documentation]    This keyword deletes data after testing.
-    [Arguments]    ${resource}
+    [Arguments]    ${resource}    ${auth_token}=${EMPTY}
     Get IDs From File    ${resource}
-    Delete All IDs From File    ${resource}
-
-Delete Authorized Data After Testing
-    [Documentation]    This keyword deletes authorized data after testing.
-    [Arguments]    ${resource}    ${auth_token}
-    Get IDs From File    ${resource}
-    Delete Authorized All IDs From File    ${resource}    ${auth_token}
+    Delete All IDs From File    ${resource}    ${auth_token}
