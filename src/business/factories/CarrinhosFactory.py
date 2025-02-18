@@ -15,7 +15,7 @@ class CarrinhosFactory:
     """
 
     @keyword
-    def create_carrinhos(self, produtos: List[ProdutosCarrinho]):
+    def create_carrinhos_body(self, produtos: List[ProdutosCarrinho]):
         """
         Create a new CarrinhosModel object with the given produtos.
 
@@ -29,7 +29,8 @@ class CarrinhosFactory:
         carrinho_obj = CarrinhosModel(produtos)
         return carrinho_obj.convert_object_to_dict(carrinho_obj)
 
-    def create_produto_carrinho(self, idProduto, quantidade):
+    @keyword
+    def create_produto_carrinho_body(self, idProduto, quantidade):
         """
         Create a new ProdutosCarrinho object with the given idProduto and quantidade.
 
