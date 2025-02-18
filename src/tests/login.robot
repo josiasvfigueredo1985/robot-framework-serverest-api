@@ -14,4 +14,3 @@ Login com novo usuário aleatório
     Should Be Equal As Numbers    ${response.status_code}    200
     Should Be Equal As Strings    ${response.json()}[message]    Login realizado com sucesso
     Dictionary Should Contain Key    ${response.json()}    authorization
-    Delete All IDs From File    usuarios

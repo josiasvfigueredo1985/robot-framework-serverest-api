@@ -1,4 +1,4 @@
-output-dir = "test_results"
+output-dir = "results"
 paths = "src/"
 [env]
 TEST_VAR = "test"
