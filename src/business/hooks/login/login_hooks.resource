@@ -8,7 +8,7 @@ Resource            ../../../business/steps/login_steps.resource
 *** Keywords ***
 Login With New Random User
     [Documentation]    This keyword logs in with a new user.
-    ${new_random_user}    Create New User
+    ${new_random_user}    Create Random User Body
     ${_}    ${new_random_login}    Post New User    ${new_random_user}
     ${new_login_user}    Create Login    ${new_random_login}[email]    ${new_random_login}[password]
     ${response}    Post Login    ${new_login_user}

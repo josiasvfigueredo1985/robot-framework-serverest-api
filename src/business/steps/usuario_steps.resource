@@ -5,23 +5,17 @@ Resource            ../requests/usuarios/usuarios_requests.resource
 
 
 *** Keywords ***
-Get Registered Users
-    [Documentation]    Retrieve all users
-    ...    - As optional, following parameters can be used as filter:
-    ...    - - _id
-    ...    - - nome
-    ...    - - email
-    ...    - - password
-    ...    - - administrador
-    [Arguments]    ${query}= ${EMPTY}
-    ${response}    Get All Users    ${query}
-    RETURN    ${response}
+Get User Request Body
+    [Documentation]    Get the request body for a new user
+    [Arguments]    ${isAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}
+    ${new_random_user}    Create Random User Body    isAdmin=${isAdmin}    emailDomain=${emailDomain}
+    RETURN     ${new_random_user}
 
 Register New User
     [Documentation]    Register a new random user and return the response and random user object.
-    ${randomUser}    Create New User
-    ${response}    Post New User    ${randomUser}
-    RETURN    ${response}    ${randomUser}
+    [Arguments]    ${userBody}
+    ${response}    Post New User    ${userBody}
+    RETURN    ${response}    ${userBody}
 
 Get Registered User
     [Documentation]    Retrieve user by id

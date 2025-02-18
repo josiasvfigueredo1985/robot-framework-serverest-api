@@ -13,19 +13,28 @@ faker = Faker()
 class UsuariosFactory:
 
     @keyword
-    def create_user(self, nome, email, password, administrador):
+    def _create_user_body(self, nome, email, password, administrador):
         """
-        Create a new UsuariosModel object with the given email and password.
+        Create a new UsuariosModel object with the given nome, email, password, and administrador.
         """
         usuarioObj = UsuariosModel(nome, email, password, administrador)
         return usuarioObj.convert_object_to_dict(usuarioObj)
 
     @keyword
-    def create_new_user(self):
+    def create_random_user_body(self, isAdmin="true", emailDomain="test.com"):
         """
-        Create a new UsuariosModel object with random name, email, password and administrator flag.
+        Create a new UsuariosModel object with random name, email, password and administrador flag.
+        If isAdmin is different from 'true' or 'false', it will default to True.
         """
-        randomUserObj = self.create_user(
-            faker.name(), faker.email(domain="test.com"), faker.password(), "true"
+        isAdmin = isAdmin.strip()
+        if isAdmin not in ["true", "false"]:
+            isAdmin = "true"
+        if not emailDomain.strip():
+            emailDomain = "test.com"
+        randomUserObj = self._create_user_body(
+            faker.name(),
+            faker.email(domain=emailDomain),
+            faker.password(),
+            isAdmin,
         )
         return randomUserObj
