@@ -13,7 +13,7 @@ faker = Faker()
 class UsuariosFactory:
 
     @keyword
-    def create_usuario(self, nome, email, password, administrador):
+    def create_user(self, nome, email, password, administrador):
         """
         Create a new UsuariosModel object with the given email and password.
         """
@@ -25,7 +25,7 @@ class UsuariosFactory:
         """
         Create a new UsuariosModel object with random name, email, password and administrator flag.
         """
-        randomUserObj = self.create_usuario(
+        randomUserObj = self.create_user(
             faker.name(), faker.email(domain="test.com"), faker.password(), "true"
         )
         return randomUserObj

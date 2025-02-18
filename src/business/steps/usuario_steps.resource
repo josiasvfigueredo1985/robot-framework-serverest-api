@@ -17,7 +17,7 @@ Get Registered Users
     ${response}    Get All Users    ${query}
     RETURN    ${response}
 
-Create New User
+Register New User
     [Documentation]    Register a new random user and return the response and random user object.
     ${randomUser}    Create New User
     ${response}    Post New User    ${randomUser}
