@@ -27,8 +27,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements-linux.txt  # Install project dependencies.
-          pip install allure-pytest
-          pip install allure-robotframework
       - name: Run Robot Framework tests
         run: |
           robot --variable ENVIRONMENT:${ENVIRONMENT} --listener allure_robotframework  --outputdir results src/tests/
