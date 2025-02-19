@@ -1,6 +1,8 @@
 *.html
 *.xml
-/test_results
-/results
+test_results
+results
 .vscode/settings.json
 src/framework/files/*
+output
+allure-report
