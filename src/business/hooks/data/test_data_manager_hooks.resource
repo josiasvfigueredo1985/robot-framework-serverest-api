@@ -9,4 +9,4 @@ Delete Data After Testing
     [Documentation]    This keyword deletes data after testing.
     [Arguments]    ${resource}    ${auth_token}=${EMPTY}
     Get IDs From File    ${resource}
-    Delete All IDs From File    ${resource}    ${auth_token}
+    Delete By Ids From File    ${resource}    ${auth_token}

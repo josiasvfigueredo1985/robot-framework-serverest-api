@@ -19,4 +19,3 @@ ${ID_FILE}=                 id_list.txt
 ${ENVIRONMENT}=             %{ENVIRONMENT}    # robotcode: ignore
 ${CERTIFICATE_PATH}=        src/framework/rest/certificate/certadmin.pem
 &{ENV_TYPE}=                tst='Test'    prd='Prod'    dev='Dev'    stg='Staging'
-${DELETE_DATA_BY_IDS}=      False

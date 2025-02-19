@@ -11,7 +11,7 @@ ${PRODUTOS_RESOURCE}    produtos
 *** Keywords ***
 Get All Products
     [Documentation]    Listar produtos cadastrados
-    [Arguments]    ${query}= ${EMPTY}
+    [Arguments]    ${query}=${EMPTY}
     ${response}    GET Data    ${PRODUTOS_RESOURCE}    ${query}
     RETURN    ${response}
 

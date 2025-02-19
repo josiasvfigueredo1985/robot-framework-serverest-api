@@ -2,8 +2,7 @@
 Documentation       Suite for testing user registration
 
 Resource            ../framework/base/base_test_resources.resource
-
-Test Teardown       End API Session
+# Suite Teardown    End API Session
 
 
 *** Test Cases ***

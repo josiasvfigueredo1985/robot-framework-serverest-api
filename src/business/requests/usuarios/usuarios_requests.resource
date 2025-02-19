@@ -11,7 +11,7 @@ ${USUARIOS_RESOURCE}    usuarios
 *** Keywords ***
 Get All Users
     [Documentation]    Listar usuários cadastrados
-    [Arguments]    ${query}= ${EMPTY}
+    [Arguments]    ${query}=${EMPTY}
     ${response}    GET Data    ${USUARIOS_RESOURCE}    ${query}
     RETURN    ${response}
 

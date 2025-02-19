@@ -2,8 +2,7 @@
 Documentation       This suite tests the login functionality with a new random user.
 
 Resource            ../framework/base/base_test_resources.resource
-
-Test Teardown       End API Session
+# Suite Teardown    End API Session
 
 
 *** Test Cases ***

@@ -14,7 +14,7 @@ ${CANCELAR_COMPRA}=         cancelar-compra
 Get All Carts
     [Documentation]    Listar carrinhos cadastrados
     ...    - Os carrinhos retornados são únicos por usuário
-    [Arguments]    ${query}= ${EMPTY}
+    [Arguments]    ${query}=${EMPTY}
     ${response}    GET Data    ${CARRINHOS_RESOURCE}    ${query}
     RETURN    ${response}
 

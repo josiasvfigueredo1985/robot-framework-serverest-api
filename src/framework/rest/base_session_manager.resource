@@ -11,7 +11,17 @@ Create API Session
     [Documentation]    Starts a new API session with the given headers and configuration.
     [Arguments]    ${headers}
     ${verify_certificate}=    Check Certificate
-    ${session}=    Session Exists    ${SESSION_NAME}
+    ${session}=    Check Active Session
+    ${check_auth_header}=    Run Keyword And Return Status    Should Contain    ${headers}    item=Authorization
+    IF    ${check_auth_header}
+        Log    ${headers['Authorization']}
+        IF    ${session}
+            Log    Ending all active sessions...
+            End API Session
+            Log    Creating a new authorized session...
+            Create New Session    ${headers}    ${verify_certificate}
+        END
+    END
     IF    not ${session}
         Create New Session    ${headers}    ${verify_certificate}
     END
@@ -37,7 +47,11 @@ Create New Session
 
 End API Session
     [Documentation]    Ends all active sessions.
-    Delete All Sessions
+    ${session}=    Check Active Session
+    WHILE    ${session}
+        Delete All Sessions
+        ${session}=    Check Active Session
+    END
 
 Check Certificate
     [Documentation]    Checks the certificate based on the given environment.
@@ -52,3 +66,9 @@ Check Certificate
         Log    "Environment not provided. Defaulting to Test settings."    WARN
         RETURN    ${False}
     END
+
+Check Active Session
+    [Documentation]    Checks the session status.
+    ${state}=    Session Exists    ${SESSION_NAME}
+    ${session}=    Convert To Boolean    ${state}
+    RETURN    ${session}

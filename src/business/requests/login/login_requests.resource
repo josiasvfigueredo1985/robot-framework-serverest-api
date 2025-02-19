@@ -15,4 +15,5 @@ Post Login
     ...    - Caso esteja expirado irá receber status code 401 (Unauthorized).
     [Arguments]    ${new_user_object}
     ${response}    POST Data    ${LOGIN_RESOURCE}    ${new_user_object}
+    Append ID To File    ${LOGIN_RESOURCE}    id=${response.json()}[authorization]
     RETURN    ${response}
