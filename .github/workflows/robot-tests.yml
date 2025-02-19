@@ -16,6 +16,9 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v3
 
+      - name: Instalar dependências do Python
+        run: pip install -r requirements.txt
+
       - name: Instalar Homebrew
         run: |
           sudo apt update
@@ -34,9 +37,6 @@ jobs:
           brew install allure
 
           allure --version
-
-      - name: Instalar dependências do Python
-        run: pip install -r requirements.txt
 
       - name: Rodar testes com Robot Framework
         run: robot --listener allure_robotframework --outputdir results tests/
