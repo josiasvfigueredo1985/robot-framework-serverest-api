@@ -26,6 +26,8 @@ jobs:
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          echo "/home/linuxbrew/.linuxbrew/bin" >> $GITHUB_PATH  # Adiciona o caminho do brew ao PATH
+          brew --version
           brew install allure
           allure --version
 
@@ -33,7 +35,9 @@ jobs:
         run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT}  --outputdir results src/tests/
 
       - name: Gerar relatório Allure
-        run: allure generate results/ -o allure-report --clean
+        run: |
+          sudo apt update
+          allure generate results/ -o allure-report --clean
 
       - name: Publicar relatório no GitHub Pages
         run: |
