@@ -10,39 +10,41 @@ on:
   workflow_dispatch: # Permite execução manual pelo GitHub Actions UI
 
 jobs:
-  run-tests:
-    runs-on: ubuntu-latest # Runner do GitHub Actions
-    env:
-      ENVIRONMENT: ${{ vars.ENVIRONMENT }} # Variável de ambiente
-
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4 # Baixa o código do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10" # Versão do Python que suporta Robot
-
-      - name: Install dependencies
+      - name: Instalar Homebrew
         run: |
-          pip install -r requirements-linux.txt  # Install project dependencies.
-      - name: Run Robot Framework tests
-        run: |
-          robot --variable ENVIRONMENT:${ENVIRONMENT} --listener allure_robotframework  --outputdir results src/tests/
+          sudo apt update
+          sudo apt install build-essential procps curl file git -y
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-      - name: Upload test results
-        if: always() # Assure that logs are sent even in fail.
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: results/
-
-      - name: Gerar relatório HTML do Allure
+      - name: Instalar Allure
         run: |
-          allure generate output/allure -o allure-report --clean
-      - name: Deploy do relatório no GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report
+          brew install allure
+          allure --version
+
+      - name: Instalar dependências do Python
+        run: pip install -r requirements.txt
+
+      - name: Rodar testes com Robot Framework
+        run: robot --listener allure_robotframework --outputdir results tests/
+
+      - name: Gerar relatório Allure
+        run: allure generate results/ -o allure-report --clean
+
+      - name: Publicar relatório no GitHub Pages
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions"
+          git checkout --orphan gh-pages
+          git rm -rf .
+          mv allure-report/* .
+          git add .
+          git commit -m "Atualizando relatório Allure"
+          git push --force origin gh-pages
