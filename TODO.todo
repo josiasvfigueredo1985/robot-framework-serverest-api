@@ -333,8 +333,10 @@
           "content": "Add Test data cleanup",
           "id": 1739371457857,
           "level": "default",
-          "done": false,
-          "start": 1739371457857
+          "done": true,
+          "start": 1739371457857,
+          "focus": false,
+          "end": 1739983131607
         }
       },
       {
@@ -530,6 +532,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1739822210677"
+    "version": "1739983131656"
   }
 }
