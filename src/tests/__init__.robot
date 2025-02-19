@@ -16,5 +16,4 @@ Data Cleanup
 
 Delete ID Files Directory
     [Documentation]    This keyword is used to remove ids file folder before test execution.
-    ${directory}    Set Variable    ${FOLDER_FILE_PATH}
-    Remove Directory    ${directory}    recursive=True
+    Remove Directory    ${FOLDER_FILE_PATH}    recursive=True

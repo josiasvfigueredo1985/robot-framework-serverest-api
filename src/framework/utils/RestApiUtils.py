@@ -9,8 +9,6 @@ import urllib.parse
 @library
 class RestApiUtils:
 
-    ROBOT_LIBRARY_SCOPE = "SUITE"
-
     @keyword
     def suppress_certificate_warnings(self):
         warnings.simplefilter(
