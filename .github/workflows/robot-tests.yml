@@ -37,7 +37,7 @@ jobs:
       - name: Generate Allure report
         run: |
           sudo apt update
-          allure generate results/ -o allure-report --clean
+          allure generate output/allure -o allure-report --clean
 
       - name: Publish report to GitHub Pages
         run: |
