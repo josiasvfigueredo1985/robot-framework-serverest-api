@@ -5,14 +5,14 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"
 from framework.utils.SchemaUtils import SchemaUtils
 
 
-class ProdutosGetAllSchema(SchemaUtils):
+class ProductsGetAllSchema(SchemaUtils):
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",
         "type": "object",
         "properties": {
             "quantidade": {"type": "number"},
-            "produtos": {
+            "products": {
                 "type": "array",
                 "items": {
                     "type": "object",
@@ -22,17 +22,16 @@ class ProdutosGetAllSchema(SchemaUtils):
                         "descricao": {"type": "string"},
                         "quantidade": {"type": "number"},
                         "_id": {"type": "string"},
-                        "imagem": {"type": "string"},
                     },
                     "required": ["nome", "preco", "descricao", "quantidade", "_id"],
                 },
             },
         },
-        "required": ["quantidade", "produtos"],
+        "required": ["quantidade", "products"],
     }
 
 
-class ProdutosGetByIdSchema(SchemaUtils):
+class ProductsGetByIdSchema(SchemaUtils):
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",
@@ -48,7 +47,7 @@ class ProdutosGetByIdSchema(SchemaUtils):
     }
 
 
-class ProdutosDeleteErrorSchema(SchemaUtils):
+class ProductsDeleteErrorSchema(SchemaUtils):
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",

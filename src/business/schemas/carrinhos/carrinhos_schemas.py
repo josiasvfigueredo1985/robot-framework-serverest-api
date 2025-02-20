@@ -12,7 +12,7 @@ class CarrinhosGetAllSchema(SchemaUtils):
         "type": "object",
         "properties": {
             "quantidade": {"type": "number"},
-            "carrinhos": {
+            "carts": {
                 "type": "array",
                 "items": {
                     "type": "object",
@@ -48,7 +48,7 @@ class CarrinhosGetAllSchema(SchemaUtils):
                 },
             },
         },
-        "required": ["quantidade", "carrinhos"],
+        "required": ["quantidade", "carts"],
     }
 
 

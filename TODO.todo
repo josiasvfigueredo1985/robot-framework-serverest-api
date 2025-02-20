@@ -316,17 +316,6 @@
         }
       },
       {
-        "key": 1739371488980,
-        "children": [],
-        "todo": {
-          "content": "Implement remaining flows",
-          "id": 1739371488980,
-          "level": "default",
-          "done": false,
-          "start": 1739371488980
-        }
-      },
-      {
         "key": 1739371457857,
         "children": [],
         "todo": {
@@ -337,6 +326,28 @@
           "start": 1739371457857,
           "focus": false,
           "end": 1739983131607
+        }
+      },
+      {
+        "key": 1740054522207,
+        "children": [],
+        "todo": {
+          "content": "Refactoring keywords with robot functions and conditional validations",
+          "id": 1740054522207,
+          "level": "default",
+          "done": false,
+          "start": 1740054522207
+        }
+      },
+      {
+        "key": 1739371488980,
+        "children": [],
+        "todo": {
+          "content": "Implement remaining flows",
+          "id": 1739371488980,
+          "level": "default",
+          "done": false,
+          "start": 1739371488980
         }
       },
       {
@@ -532,6 +543,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1739983131656"
+    "version": "1740054555048"
   }
 }

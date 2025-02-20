@@ -15,7 +15,7 @@ POST Data
     ELSE
         Create API Session    ${HEADERS}
     END
-    ${response}    Wait Until Keyword Succeeds    3x    200ms    POST On Session
+    ${response}    Wait Until Keyword Succeeds    3x    2000ms    POST On Session
     ...    ${SESSION_NAME}
     ...    ${resource}
     ...    json=${data}
@@ -31,7 +31,7 @@ PUT Data    # robotcode: ignore
         Create API Session    ${HEADERS}
     END
     ${url_path}    Build Resource With Query Parameters    ${resource}    ${parameter}
-    ${response}    Wait Until Keyword Succeeds    3x    200ms    PUT On Session
+    ${response}    Wait Until Keyword Succeeds    3x    2000ms    PUT On Session
     ...    ${SESSION_NAME}
     ...    ${url_path}
     ...    json=${data}
@@ -47,7 +47,7 @@ DELETE Data    # robotcode: ignore
         Create API Session    ${HEADERS}
     END
     ${url_path}    Build Resource With Query Parameters    ${resource}    ${parameter}
-    ${response}    Wait Until Keyword Succeeds    3x    200ms    DELETE On Session
+    ${response}    Wait Until Keyword Succeeds    3x    2000ms    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${url_path}
     RETURN    ${response}
@@ -57,7 +57,7 @@ GET Data    # robotcode: ignore
     [Arguments]    ${resource}    ${dynamic_parameters}=${EMPTY}
     Create API Session    ${HEADERS}
     ${url_path}    Build Resource With Query Parameters    ${resource}    ${dynamic_parameters}
-    ${response}    Wait Until Keyword Succeeds    3x    200ms    GET On Session
+    ${response}    Wait Until Keyword Succeeds    3x    2000ms    GET On Session
     ...    ${SESSION_NAME}
     ...    ${url_path}
     RETURN    ${response}

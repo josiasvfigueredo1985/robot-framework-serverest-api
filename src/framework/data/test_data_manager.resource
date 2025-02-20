@@ -22,15 +22,22 @@ Append ID To File
 Get IDs From File
     [Documentation]    Retrieve all IDs from the file.
     [Arguments]    ${resource}
-    ${folder_path}    Set Variable    ${FOLDER_FILE_PATH}${resource}
-    ${file_path}    Set Variable    ${resource}_${ID_FILE}
+    ${folder_path}    Set Variable    ${FOLDER_FILE_PATH}${resource}/${resource}_${ID_FILE}
     ${dir_exists}    Check If Directory Exists    ${resource}
     IF    ${dir_exists}
-        ${ids}    Get File    ${folder_path}/${file_path}
-        @{id_list}    Split String    ${ids}    \n
-        Remove Values From List    ${id_list}    ${EMPTY}
-        RETURN    ${id_list}
+        ${id_list}    Get IDs    ${folder_path}
+    ELSE
+        ${id_list}    Set Variable    ${None}
     END
+    RETURN    ${id_list}
+
+Get IDs
+    [Documentation]    Read and return ids from given folder.
+    [Arguments]    ${folder_path}
+    ${ids}    Get File    ${folder_path}
+    @{id_list}    Split String    ${ids}    \n
+    Remove Values From List    ${id_list}    ${EMPTY}
+    RETURN    ${id_list}
 
 Delete By Ids From File
     [Documentation]    Delete all IDs from the file.
@@ -38,25 +45,34 @@ Delete By Ids From File
     ${id_list}    Get IDs From File    ${resource}
     ${dir_exists}    Check If Directory Exists    ${resource}
     IF    ${dir_exists}
-        FOR    ${id}    IN    @{id_list}
-            Log    Deleting ID: ${id}
-            ${response}    DELETE Data    ${resource}    ${id}    ${auth_token}
-            Log    ${response}
-        END
+        Delete IDs    ${id_list}    ${resource}    ${auth_token}
+    END
+
+Delete IDs
+    [Documentation]    Delete Ids from given Ids list
+    [Arguments]    ${id_list}    ${resource}    ${auth_token}=${EMPTY}
+    FOR    ${id}    IN    @{id_list}
+        Log    Deleting ID: ${id}
+        ${response}    DELETE Data    ${resource}    ${id}    ${auth_token}
+        Log    ${response}
     END
 
 Delete By Token From File
-    [Documentation]    Delete all IDs from the file.
+    [Documentation]    Delete All tokens from the file.
     [Arguments]    ${resource}    ${parameter}    ${file_name}
     ${auth_list}    Get IDs From File    ${file_name}
     ${dir_exists}    Check If Directory Exists    ${resource}
     IF    ${dir_exists}
-        FOR    ${auth_token}    IN    @{auth_list}
-            Log    Deleting cart By Token: ${auth_token}
-            ${response}    DELETE Data    ${resource}    ${parameter}    auth_token=${auth_token}
-            Log    ${response}
-        END
-        Log    All Carts in ${resource} are deleted.
+        Delete Token    ${auth_list}    ${resource}    ${parameter}
+    END
+
+Delete Token
+    [Documentation]    Delete tokens
+    [Arguments]    ${auth_list}    ${resource}    ${parameter}
+    FOR    ${auth_token}    IN    @{auth_list}
+        Log    Deleting cart By Token: ${auth_token}
+        ${response}    DELETE Data    ${resource}    ${parameter}    auth_token=${auth_token}
+        Log    ${response}
     END
 
 Check If Directory Exists

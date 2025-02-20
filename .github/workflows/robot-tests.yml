@@ -13,33 +13,33 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do código
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Instalar dependências do Python
+      - name: Install Python dependencies
         run: pip install -r requirements-linux.txt
 
-      - name: Instalar Homebrew e Allure
+      - name: Install Homebrew and Allure
         run: |
           sudo apt update
           sudo apt install -y build-essential procps curl file git
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-          echo "/home/linuxbrew/.linuxbrew/bin" >> $GITHUB_PATH  # Adiciona o caminho do brew ao PATH
+          echo "/home/linuxbrew/.linuxbrew/bin" >> $GITHUB_PATH
           brew --version
           brew install allure
           allure --version
 
-      - name: Rodar testes com Robot Framework
+      - name: Run tests with Robot Framework
         run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT}  --outputdir results src/tests/
 
-      - name: Gerar relatório Allure
+      - name: Generate Allure report
         run: |
           sudo apt update
           allure generate results/ -o allure-report --clean
 
-      - name: Publicar relatório no GitHub Pages
+      - name: Publish report to GitHub Pages
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "github-actions"
@@ -47,5 +47,5 @@ jobs:
           git rm -rf .
           mv allure-report/* .
           git add .
-          git commit -m "Atualizando relatório Allure"
+          git commit -m "Updating Allure report"
           git push --force origin gh-pages

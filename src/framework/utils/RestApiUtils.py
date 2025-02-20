@@ -2,7 +2,6 @@ from typing import Union
 from robot.api.deco import library, keyword
 import warnings
 import urllib3
-from typing import Union
 import urllib.parse
 
 

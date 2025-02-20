@@ -1,7 +1,7 @@
 *** Settings ***
-Documentation       This resource file contains login request keywords.
+Documentation       Login - Authenticate your user to create a cart and, if you are an administrator, manage products
 
-Resource            ../usuarios/usuarios_requests.resource
+Resource            ../users/users_requests.resource
 
 
 *** Variables ***
@@ -10,9 +10,9 @@ ${LOGIN_RESOURCE}=      login
 
 *** Keywords ***
 Post Login
-    [Documentation]    Login user
-    ...    - A duração do token retornado em authorization é de 600 segundos (10 minutos).
-    ...    - Caso esteja expirado irá receber status code 401 (Unauthorized).
+    [Documentation]    Post /login - Login
+    ...    - The duration of the token returned in authorization is 600 seconds (10 minutes).
+    ...    If it has expired, you will receive status code 401 (Unauthorized).
     [Arguments]    ${new_user_object}
     ${response}    POST Data    ${LOGIN_RESOURCE}    ${new_user_object}
     Append ID To File    ${LOGIN_RESOURCE}    id=${response.json()}[authorization]

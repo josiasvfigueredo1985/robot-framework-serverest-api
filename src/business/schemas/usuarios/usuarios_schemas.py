@@ -5,7 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"
 from framework.utils.SchemaUtils import SchemaUtils
 
 
-class UsuariosGetAllSchema(SchemaUtils):
+class UsersGetAllSchema(SchemaUtils):
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",
@@ -31,7 +31,7 @@ class UsuariosGetAllSchema(SchemaUtils):
     }
 
 
-class UsuariosGetByIdSchema(SchemaUtils):
+class UsersGetByIdSchema(SchemaUtils):
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",
@@ -46,7 +46,7 @@ class UsuariosGetByIdSchema(SchemaUtils):
         "required": ["nome", "email", "password", "administrador", "_id"],
     }
 
-    class UsuariosDeleteErrorSchema(SchemaUtils):
+    class UsersDeleteErrorSchema(SchemaUtils):
         SCHEMA = {
             "$schema": "http://json-schema.org/draft-07/schema#",
             "title": "Generated schema for Root",
