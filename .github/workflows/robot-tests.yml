@@ -36,6 +36,8 @@ jobs:
 
       - name: Generate Robot Framework Report
         uses: joonvena/robotframework-reporter-action@v2.5
+        env:
+          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         with:
           results_path: results
 
