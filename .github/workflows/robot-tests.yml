@@ -36,14 +36,13 @@ jobs:
 
       - name: Generate Robot Framework Report
         uses: joonvena/robotframework-reporter-action@v2.5
-        env:
-          GH_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
         with:
           results_path: results
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v4.6
         with:
+          gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
           name: robot-results
           path: results
 
