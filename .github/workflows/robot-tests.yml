@@ -38,14 +38,14 @@ jobs:
       - name: Run tests with Robot Framework
         run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT} --outputdir reports src/tests/
 
-      - name: Upload Robot Framework test artifacts
+      - name: Upload Robot Framework test report artifacts
         uses: actions/upload-artifact@v4.6.0
         with:
           name: reports
           path: |
             reports
 
-      - name: Send report to commit
+      - name: Generate Summary Tests Results
         uses: joonvena/robotframework-reporter-action@v2.5
         with:
           gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
@@ -53,13 +53,20 @@ jobs:
       - name: Generate Allure report
         run: |
           allure generate --single-file output/allure -o allure-report --clean
-      - name: Publish report to GitHub Pages
+
+      - name: Upload Robot Framework Allure report test artifacts
+        uses: actions/upload-artifact@v4.6.0
+        with:
+            name: allure report
+            path: |
+                  allure-report
+
+      - name: Publish report to GitHub gh-pages branch
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "github-actions"
           git checkout --orphan gh-pages
           git rm -rf .
-          mv allure-report/* .
           git add .
           git commit -m "Updating Allure report"
           git push --force origin gh-pages
