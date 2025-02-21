@@ -38,7 +38,7 @@ jobs:
         run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT} --outputdir results src/tests/
 
       - name: Download reports
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.6
         with:
           name: reports
 
