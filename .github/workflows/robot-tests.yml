@@ -36,14 +36,14 @@ jobs:
           allure --version
 
       - name: Run tests with Robot Framework
-        run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT} --outputdir results src/tests/
+        run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT} --outputdir reports src/tests/
 
       - name: Upload Robot Framework test artifacts
         uses: actions/upload-artifact@v4.6.0
         with:
-          name: results
+          name: reports
           path: |
-            results
+            reports
 
       - name: Send report to commit
         uses: joonvena/robotframework-reporter-action@v2.5
