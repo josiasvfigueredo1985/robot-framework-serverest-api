@@ -39,7 +39,7 @@ jobs:
         run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT} --outputdir results src/tests/
 
       - name: Upload Robot Framework test artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4.6
         with:
           name: results
           path: |
