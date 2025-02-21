@@ -43,10 +43,7 @@ jobs:
         with:
           name: results
           path: |
-            results/output.xml
-            results/log.html
-            results/report.html
-
+            results/
       - name: Send report to commit
         uses: joonvena/robotframework-reporter-action@v2.5
         with:
