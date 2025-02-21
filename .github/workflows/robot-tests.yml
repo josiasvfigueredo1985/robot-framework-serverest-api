@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.2.2
 
       - name: Install Python dependencies
         run: pip install -r requirements-linux.txt
@@ -39,22 +39,20 @@ jobs:
         run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT} --outputdir results src/tests/
 
       - name: Upload Robot Framework test artifacts
-        uses: actions/upload-artifact@v4.6
+        uses: actions/download-artifact@v4.1.8
         with:
           name: results
           path: |
             results
+
       - name: Send report to commit
         uses: joonvena/robotframework-reporter-action@v2.5
         with:
           gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
-          name: results
-          path: results
 
       - name: Generate Allure report
         run: |
           allure generate --single-file output/allure -o allure-report --clean
-
       - name: Publish report to GitHub Pages
         run: |
           git config --global user.email "actions@github.com"
