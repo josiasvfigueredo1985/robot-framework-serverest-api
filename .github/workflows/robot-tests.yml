@@ -38,8 +38,15 @@ jobs:
       - name: Run tests with Robot Framework
         run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT} --outputdir results src/tests/
 
-      - name: Upload Robot Framework test artifacts
+      - name: Download Robot Framework test artifacts
         uses: actions/download-artifact@v4.1.8
+        with:
+          name: results
+          path: |
+            results
+
+      - name: Upload Robot Framework test artifacts
+        uses: actions/upload-artifact@v4.6.0
         with:
           name: results
           path: |
