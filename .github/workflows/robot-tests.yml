@@ -43,12 +43,12 @@ jobs:
         with:
           name: results
           path: |
-            results/
+            results
       - name: Send report to commit
         uses: joonvena/robotframework-reporter-action@v2.5
         with:
           gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
-          name: robot-results
+          name: results
           path: results
 
       - name: Generate Allure report
