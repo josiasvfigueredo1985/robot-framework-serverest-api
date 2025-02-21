@@ -35,16 +35,17 @@ jobs:
         run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT}  --outputdir results src/tests/
 
       - name: Generate Robot Framework Report
+      - uses: actions/checkout@v2
+      - name: Download reports
+        uses: actions/download-artifact@v1
+        with:
+          name: reports
+      - name: Send report to commit
         uses: joonvena/robotframework-reporter-action@v2.5
         with:
-          results_path: results
-
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v4.6
-        with:
-          gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
-          name: robot-results
-          path: results
+         gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
+         name: robot-results
+         path: results
 
       - name: Generate Allure report
         run: |
