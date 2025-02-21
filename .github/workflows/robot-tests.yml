@@ -41,7 +41,7 @@ jobs:
       - name: Upload Robot Framework test report artifacts
         uses: actions/upload-artifact@v4.6.0
         with:
-          name: reports
+          name: robot reports
           path: |
             reports
 
