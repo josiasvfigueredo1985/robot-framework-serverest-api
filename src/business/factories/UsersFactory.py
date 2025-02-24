@@ -18,24 +18,24 @@ class UsersFactory:
         Create a new UsersModel object with the given name, email, password, and administrator.
         """
 
-        userObj = UsersModel(name, email, password, administrator)
-        return userObj.convert_object_to_dict(userObj)
+        user_obj = UsersModel(name, email, password, administrator)
+        return user_obj.convert_object_to_dict(user_obj)
 
     @keyword
-    def create_random_user_body(self, isAdmin="true", emailDomain="test.com"):
+    def create_random_user_body(self, is_admin, email_domain):
         """
         Create a new UsersModel object with random name, email, password and administrator flag.
-        If isAdmin is different from 'true' or 'false', it will default to True.
+        If is_admin is different from 'true' or 'false', it will default to True.
         """
-        isAdmin = isAdmin.strip()
-        if isAdmin not in ["true", "false"]:
-            isAdmin = "true"
-        if not emailDomain.strip():
-            emailDomain = "test.com"
-        randomUserObj = self._create_user_body(
+        is_admin = is_admin.strip()
+        if is_admin not in ["true", "false"]:
+            is_admin = "true"
+        if not email_domain.strip():
+            email_domain = "test.com"
+        random_user_obj = self._create_user_body(
             faker.name(),
-            faker.email(domain=emailDomain),
+            faker.email(domain=email_domain),
             faker.password(),
-            isAdmin,
+            is_admin,
         )
-        return randomUserObj
+        return random_user_obj

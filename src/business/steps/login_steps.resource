@@ -7,8 +7,8 @@ Resource            ../requests/login/login_requests.resource
 *** Keywords ***
 Login New User
     [Documentation]    Logs in with a created user.
-    [Arguments]    ${data}
-    ${response}    Post Login    ${data}
+    [Arguments]    ${login_body}
+    ${response}    Post Login    ${login_body}
     RETURN    ${response}
 
 Get Login Request Body

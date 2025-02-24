@@ -30,7 +30,7 @@ class ProductsFactory:
         return productObj.convert_object_to_dict(productObj)
 
     @keyword
-    def create_random_product_body(self):
+    def create_random_product_body(self, price, quantity):
         """
         Create a new Random ProductsModel object.
 
@@ -43,10 +43,15 @@ class ProductsFactory:
         Returns:
             Random ProductsModel object with the given attributes.
         """
+        if isinstance(price, str):
+            price = faker.pyfloat(left_digits=2, right_digits=2, positive=True)
+        if isinstance(quantity, str):
+            quantity = faker.random_number()
+
         productObj = self.create_product_body(
             faker.random_company_product(),
-            faker.pyfloat(left_digits=2, right_digits=2, positive=True),
+            price,
             faker.text(max_nb_chars=20),
-            faker.random_number(),
+            quantity,
         )
         return productObj.convert_object_to_dict(productObj)

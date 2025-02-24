@@ -9,6 +9,6 @@ Resource            ../../../business/steps/login_steps.resource
 Register New Random User
     [Documentation]    This keyword logs in with a new user.
     [Arguments]    ${idAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}
-    ${new_random_user}    Get User Request Body    isAdmin=${idAdmin}    emailDomain= ${emailDomain}
+    ${new_random_user}    Get User Request Body    ${idAdmin}    ${emailDomain}
     ${response}    ${registered_user}    Register New User    ${new_random_user}
     RETURN    ${response}    ${registered_user}

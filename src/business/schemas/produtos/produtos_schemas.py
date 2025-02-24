@@ -12,7 +12,7 @@ class ProductsGetAllSchema(SchemaUtils):
         "type": "object",
         "properties": {
             "quantidade": {"type": "number"},
-            "products": {
+            "produtos": {
                 "type": "array",
                 "items": {
                     "type": "object",
@@ -27,7 +27,7 @@ class ProductsGetAllSchema(SchemaUtils):
                 },
             },
         },
-        "required": ["quantidade", "products"],
+        "required": ["quantidade", "produtos"],
     }
 
 
