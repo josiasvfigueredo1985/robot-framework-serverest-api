@@ -8,7 +8,7 @@ Resource            ../requests/carts/carts_requests.resource
 Get Cart Request Body
     [Documentation]    Get the request body for a new cart with product id and quantity
     [Arguments]    ${id_product}    ${quantity}
-    ${new_cart_body}    Create Product Cart Body    idProduct=${id_product}    quantity=${quantity}
+    ${new_cart_body}    Create Product Cart Body    ${id_product}    ${quantity}
     RETURN    ${new_cart_body}
 
 Register New Cart

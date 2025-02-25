@@ -29,7 +29,7 @@ Delete Registered Product
     ${response}    Delete Product By Id    ${product_id}    ${token}
     RETURN    ${response}
 
-Update Registered USer
+Update Registered Product
     [Documentation]    Update product by id
     [Arguments]    ${product_id}    ${product_body}    ${token}
     ${response}    Put Product By Id    ${product_id}    ${product_body}    ${token}
