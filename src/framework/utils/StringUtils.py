@@ -8,7 +8,7 @@ class StringUtils:
     """
 
     @staticmethod
-    def is_valid_string(s: Any, isId=False) -> bool:
+    def is_valid_string(s: Any, isAlphaNumeric=False) -> bool:
         """# Method that validates if a string is valid, without spaces, None or other types
 
         Args:
@@ -23,10 +23,10 @@ class StringUtils:
         Returns:
             bool: _description_
         """
-        pattern = r"[a-zA-Z]+"
-        if isId:
-            pattern = r"[a-zA-Z].*[0-9]"
+        pattern = r"(?=.+[a-z]+)|(?=.*[A-Z])"
+        if isAlphaNumeric:
+            pattern = r"(?=.+[a-z])(?=.+[A-Z])(?=.+[0-9])"
         c = re.compile(pattern)
         if isinstance(s, str) and s.strip():
-            return bool(c.match(s))
+            return bool(c.search(s))
         return False

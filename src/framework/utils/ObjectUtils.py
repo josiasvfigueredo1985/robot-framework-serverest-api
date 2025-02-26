@@ -1,4 +1,3 @@
-from typing import Any
 import json
 
 
@@ -7,10 +6,8 @@ class ObjectUtils:
     Base class to provide access to_dict function
     """
 
-    def convert_object_to_dict(
-        self,
-        obj: Any,
-    ):
+    @staticmethod
+    def convert_object_to_dict(obj: object):
         """
         Convert object to dictionary
         Args:
@@ -20,3 +17,7 @@ class ObjectUtils:
 
         """
         return json.loads(json.dumps(obj, default=lambda o: o.__dict__, indent=4))
+
+    @staticmethod
+    def create_object(obj: object) -> dict:
+        return {key: value for key, value in vars(obj).items() if value is not None}

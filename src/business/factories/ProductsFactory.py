@@ -54,4 +54,4 @@ class ProductsFactory:
             faker.text(max_nb_chars=20),
             quantity,
         )
-        return productObj.convert_object_to_dict(productObj)
+        return productObj

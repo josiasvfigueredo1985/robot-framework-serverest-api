@@ -3,7 +3,6 @@ import sys
 from typing import List
 from robot.api.deco import library, keyword
 
-
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from business.models.carts.carts_model import CartsModel, ProductsCart
 

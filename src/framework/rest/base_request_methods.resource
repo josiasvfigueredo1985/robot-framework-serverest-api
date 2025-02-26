@@ -21,7 +21,7 @@ POST Data
     ...    json=${data}
     RETURN    ${response}
 
-PUT Data    # robotcode: ignore
+PUT Data
     [Documentation]    Sends a PUT request to the specified resource with the given data.
     [Arguments]    ${resource}    ${parameter}    ${data}    ${auth_token}=${EMPTY}
     IF    '${auth_token}' != '${EMPTY}'
@@ -37,7 +37,7 @@ PUT Data    # robotcode: ignore
     ...    json=${data}
     RETURN    ${response}
 
-DELETE Data    # robotcode: ignore
+DELETE Data
     [Documentation]    Sends a DELETE request to the specified resource and parameter.
     [Arguments]    ${resource}    ${parameter}    ${auth_token}=${EMPTY}
     IF    '${auth_token}' != '${EMPTY}'
@@ -47,17 +47,17 @@ DELETE Data    # robotcode: ignore
         Create API Session    ${HEADERS}
     END
     ${url_path}    Build Resource With Query Parameters    ${resource}    ${parameter}
-    ${response}    Wait Until Keyword Succeeds    3x    2000ms    DELETE On Session
+    ${response}    Wait Until Keyword Succeeds    5x    3000ms    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${url_path}
     RETURN    ${response}
 
-GET Data    # robotcode: ignore
+GET Data
     [Documentation]    Sends a GET request to the specified resource with or without ID or query.
     [Arguments]    ${resource}    ${dynamic_parameters}=${EMPTY}
     Create API Session    ${HEADERS}
     ${url_path}    Build Resource With Query Parameters    ${resource}    ${dynamic_parameters}
-    ${response}    Wait Until Keyword Succeeds    3x    2000ms    GET On Session
+    ${response}    Wait Until Keyword Succeeds    5x    3000ms    GET On Session
     ...    ${SESSION_NAME}
     ...    ${url_path}
     RETURN    ${response}
