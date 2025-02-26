@@ -2,11 +2,10 @@
 Documentation       This suite tests the login functionality with a new random user.
 
 Resource            ../framework/base/base_test_resources.resource
-# Suite Teardown    End API Session
 
 
 *** Test Cases ***
-Login com novo usuário aleatório
+Login Com Novo Usuário Aleatório
     [Documentation]    This test case logs in with a new random user and verifies the response.
     ${response}=    Login With New Random User
     Log    ${response}

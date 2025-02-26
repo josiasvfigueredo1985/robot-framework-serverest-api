@@ -4,5 +4,5 @@ from framework.utils.ObjectUtils import ObjectUtils
 
 
 class CartsModel(ObjectUtils):
-    def __init__(self, products: List[ProductsCart]):
-        self.products = products
+    def __init__(self, produtos: List[ProductsCart]):
+        self.produtos = produtos

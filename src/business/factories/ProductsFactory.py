@@ -3,8 +3,10 @@ import sys
 from robot.api.deco import library, keyword
 from faker import Faker
 
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from business.models.products.products_model import ProductsModel  # noqa: E402
+from framework.utils.StringUtils import StringUtils
 
 faker = Faker()
 
@@ -13,7 +15,9 @@ faker = Faker()
 class ProductsFactory:
 
     @keyword
-    def create_product_body(self, name, price, description, quantity):
+    def create_product_body(
+        self, name: str, price: float, description: str, quantity: int
+    ):
         """
         Create a new ProductsModel object with the given attributes.
 
@@ -26,7 +30,7 @@ class ProductsFactory:
         Returns:
             ProductsModel object with the given attributes.
         """
-        productObj = ProductsModel(name, float(price), description, int(quantity))
+        productObj = ProductsModel(name, int(price), description, int(quantity))
         return productObj.convert_object_to_dict(productObj)
 
     @keyword
@@ -43,13 +47,13 @@ class ProductsFactory:
         Returns:
             Random ProductsModel object with the given attributes.
         """
-        if isinstance(price, str):
+        if StringUtils.is_empty_string(price):
             price = faker.pyfloat(left_digits=2, right_digits=2, positive=True)
-        if isinstance(quantity, str):
+        if StringUtils.is_empty_string(quantity):
             quantity = faker.random_number()
 
         productObj = self.create_product_body(
-            faker.random_company_product(),
+            faker.company(),
             price,
             faker.text(max_nb_chars=20),
             quantity,

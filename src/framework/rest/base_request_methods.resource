@@ -15,11 +15,18 @@ POST Data
     ELSE
         Create API Session    ${HEADERS}
     END
-    ${response}    Wait Until Keyword Succeeds    3x    2000ms    POST On Session
-    ...    ${SESSION_NAME}
-    ...    ${resource}
-    ...    json=${data}
-    RETURN    ${response}
+    TRY
+        ${response}    Wait Until Keyword Succeeds    3x    2000ms    POST On Session
+        ...    ${SESSION_NAME}
+        ...    ${resource}
+        ...    json=${data}
+        RETURN    ${response}
+    EXCEPT    Error
+        Log    Error while sending Post request. \n
+        ...    Details: \n
+        ...    Resource: \n ${response}
+        ...    Request Body: \n ${data}
+    END
 
 PUT Data
     [Documentation]    Sends a PUT request to the specified resource with the given data.
@@ -65,8 +72,8 @@ GET Data
 Build Authorized Header
     [Documentation]    Builds the authorization header with the given token.
     [Arguments]    ${token}    ${idDeleteMethod}=False
-    VAR    &{AUTH_HEADERS}    Authorization=${token}
-    ${CONTENT_TYPE}    Set Variable    application/json
+    &{AUTH_HEADERS}    Create Dictionary    Authorization=${token}
+    VAR    ${CONTENT_TYPE}=    application/json
     IF    ${idDeleteMethod}
         Set To Dictionary    ${AUTH_HEADERS}    accept=${CONTENT_TYPE}
     ELSE

@@ -2,11 +2,10 @@
 Documentation       Suite for testing user registration
 
 Resource            ../framework/base/base_test_resources.resource
-# Suite Teardown    End API Session
 
 
 *** Test Cases ***
-Cadastrar um novo usuário aleatório
+Cadastrar Novo Usuário Aleatório
     [Documentation]    This test case registers a new random user and verifies the response.
     ${response}    ${random_user}    Register New Random User
     Log    ${random_user}

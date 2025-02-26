@@ -420,28 +420,6 @@
         }
       },
       {
-        "key": 1738958936098,
-        "children": [],
-        "todo": {
-          "content": "Implement Contract Test models",
-          "id": 1738958936098,
-          "level": "default",
-          "done": false,
-          "start": 1738958936098
-        }
-      },
-      {
-        "key": 1739371596533,
-        "children": [],
-        "todo": {
-          "content": "Add Contract Tests",
-          "id": 1739371596533,
-          "level": "default",
-          "done": false,
-          "start": 1739371596533
-        }
-      },
-      {
         "key": 1739369402482,
         "children": [],
         "todo": {
@@ -545,6 +523,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1740083800514"
+    "version": "1740580015535"
   }
 }
