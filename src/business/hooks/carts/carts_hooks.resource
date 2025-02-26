@@ -13,10 +13,11 @@ Register New Cart With Random Product
     ${response_product}    ${product_body}    ${response_user}    Register New Random Product
     ...    ${price}
     ...    ${quantity}
-    ${new_cart}    Get Cart Request Body
+    ${new_products}    Get Cart Product Request Body
     ...    ${response_product.json()}[_id]
-    ...    ${product_body.json()}[quantidade]
+    ...    ${product_body}[quantidade]
+    ${new_cart}    Get Cart Request Body    ${new_products}
     ${response}    ${registered_product}    Register New Cart
     ...    ${new_cart}
     ...    ${response_user.json()}[authorization]
-    RETURN    ${response}    ${registered_product}    ${response_user}
+    RETURN    ${response[0]}    ${registered_product}    ${response_user}

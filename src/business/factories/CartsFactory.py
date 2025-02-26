@@ -15,30 +15,11 @@ class CartsFactory:
 
     @keyword
     def create_carts_body(self, products: List[ProductsCart]):
-        """
-        Create a new CartsModel object with the given products.
-
-        Args:
-            products: List of ProductsCart objects
-
-        Returns:
-            CartsModel object with the given products.
-        """
-        # Use random data
         cart_obj = CartsModel(products)
         return cart_obj.convert_object_to_dict(cart_obj)
 
     @keyword
     def create_product_cart_body(self, idProduct, quantity):
-        """
-        Create a new ProductsCart object with the given idProduct and quantity.
-
-        Args:
-            idProduct: The id of the product.
-            quantity: The quantity of the product.
-
-        Returns:
-            ProductsCart object with the given idProduct and quantity.
-        """
-        product_cart_obj = ProductsCart(idProduct, int(quantity))
-        return product_cart_obj
+        cart_prods = []
+        cart_prods.append(ProductsCart(idProduct, int(quantity)))
+        return cart_prods

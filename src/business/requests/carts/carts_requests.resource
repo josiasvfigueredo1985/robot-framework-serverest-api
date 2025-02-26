@@ -27,8 +27,8 @@ Post New Cart
     ...    in the cart is reduced.
     [Arguments]    ${new_cart_object}    ${token}
     ${response}    POST Data    ${CART_RESOURCE}    ${new_cart_object}    ${token}
-    VAR    ${userId}    ${response.json()}[_id]
-    Append ID To File    ${CART_RESOURCE}    ${userId}
+    VAR    ${user_id}    ${response.json()}[_id]
+    Append ID To File    ${CART_RESOURCE}    ${user_id}
     RETURN    ${response}    ${new_cart_object}
 
 Get Cart By Id

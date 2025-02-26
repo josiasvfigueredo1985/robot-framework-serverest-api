@@ -5,10 +5,16 @@ Resource            ../requests/carts/carts_requests.resource
 
 
 *** Keywords ***
-Get Cart Request Body
+Get Cart Product Request Body
     [Documentation]    Get the request body for a new cart with product id and quantity
     [Arguments]    ${id_product}    ${quantity}
-    ${new_cart_body}    Create Product Cart Body    ${id_product}    ${quantity}
+    @{new_product_cart_body}    Create Product Cart Body    ${id_product}    ${quantity}
+    RETURN    ${new_product_cart_body}
+
+Get Cart Request Body
+    [Documentation]    Get the request body for a new cart with product id and quantity
+    [Arguments]    ${products}
+    ${new_cart_body}    Create Carts Body    ${products}
     RETURN    ${new_cart_body}
 
 Register New Cart

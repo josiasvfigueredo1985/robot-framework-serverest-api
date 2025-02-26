@@ -15,4 +15,4 @@ Register New Random Product
     ${response}    ${registered_product}    Register New Product
     ...    ${new_random_product}
     ...    ${response_user.json()}[authorization]
-    RETURN    ${response}    ${registered_product}    ${response_user}
+    RETURN    ${response[0]}    ${registered_product}    ${response_user}

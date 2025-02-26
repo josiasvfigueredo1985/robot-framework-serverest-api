@@ -16,7 +16,7 @@ POST Data
         Create API Session    ${HEADERS}
     END
     TRY
-        ${response}    Wait Until Keyword Succeeds    3x    2000ms    POST On Session
+        ${response}    Wait Until Keyword Succeeds    5s    1s    POST On Session
         ...    ${SESSION_NAME}
         ...    ${resource}
         ...    json=${data}
@@ -38,7 +38,7 @@ PUT Data
         Create API Session    ${HEADERS}
     END
     ${url_path}    Build Resource With Query Parameters    ${resource}    ${parameter}
-    ${response}    Wait Until Keyword Succeeds    3x    2000ms    PUT On Session
+    ${response}    Wait Until Keyword Succeeds    5s    1s    PUT On Session
     ...    ${SESSION_NAME}
     ...    ${url_path}
     ...    json=${data}
@@ -54,7 +54,7 @@ DELETE Data
         Create API Session    ${HEADERS}
     END
     ${url_path}    Build Resource With Query Parameters    ${resource}    ${parameter}
-    ${response}    Wait Until Keyword Succeeds    5x    3000ms    DELETE On Session
+    ${response}    Wait Until Keyword Succeeds    5s    1s    DELETE On Session
     ...    ${SESSION_NAME}
     ...    ${url_path}
     RETURN    ${response}
@@ -64,7 +64,7 @@ GET Data
     [Arguments]    ${resource}    ${dynamic_parameters}=${EMPTY}
     Create API Session    ${HEADERS}
     ${url_path}    Build Resource With Query Parameters    ${resource}    ${dynamic_parameters}
-    ${response}    Wait Until Keyword Succeeds    5x    3000ms    GET On Session
+    ${response}    Wait Until Keyword Succeeds    5s    1s    GET On Session
     ...    ${SESSION_NAME}
     ...    ${url_path}
     RETURN    ${response}
