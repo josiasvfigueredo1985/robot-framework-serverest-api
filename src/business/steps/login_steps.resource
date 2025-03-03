@@ -6,13 +6,13 @@ Resource            ../requests/login/login_requests.resource
 
 *** Keywords ***
 Login New User
-    [Documentation]    Logs in with a created user.
+    [Documentation]    STEP - Logs in with a created user and returns response.
     [Arguments]    ${login_body}
     ${response}    Post Login    ${login_body}
     RETURN    ${response}
 
 Get Login Request Body
-    [Documentation]    Get the request body for a new user Login
+    [Documentation]    STEP - Get the request body for a new user Login.
     [Arguments]    ${email}    ${password}
-    ${new_login_user}    Create Login Body    ${email}    ${password}
-    RETURN    ${new_login_user}
+    ${login_request_body}    Create Login Body    ${email}    ${password}
+    RETURN    ${login_request_body}

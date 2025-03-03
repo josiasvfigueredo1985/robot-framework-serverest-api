@@ -25,13 +25,14 @@ Post New Cart
     ...    be registered per user.
     ...    - When a cart is successfully registered, the quantity in the registration of each product inserted
     ...    in the cart is reduced.
-    [Arguments]    ${new_cart_object}    ${token}
-    ${response}    POST Data    ${CART_RESOURCE}    ${new_cart_object}    ${token}
+    ...    - returns ${response}    and    ${cart_request_body}.
+    [Arguments]    ${cart_request_body}    ${token}
+    ${response}    POST Data    ${CART_RESOURCE}    ${cart_request_body}    ${token}
     VAR    ${user_id}    ${response.json()}[_id]
     Append ID To File    ${CART_RESOURCE}    ${user_id}
-    RETURN    ${response}    ${new_cart_object}
+    RETURN    ${response}
 
-Get Cart By Id
+Get Cart By ID
     [Documentation]    GET /carts /{_id} - Search cart by ID
     [Arguments]    ${id}
     ${response}    GET Data    ${CART_RESOURCE}    ${id}

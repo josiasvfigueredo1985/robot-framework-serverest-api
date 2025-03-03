@@ -7,8 +7,7 @@ Resource            ../framework/base/base_test_resources.resource
 *** Test Cases ***
 Cadastrar Novo Produto Aleatório
     [Documentation]    This test case logs in with a new random user and verifies the response.
-    ${response}    ${_}    ${_}    Register New Random Product
-    Log    ${response}
-    Should Be Equal As Numbers    ${response.status_code}    201
-    Should Be Equal As Strings    ${response.json()}[message]    Cadastro realizado com sucesso
-    Dictionary Should Contain Key    ${response.json()}    _id
+    Register New Random Product
+    Should Be Equal As Numbers    ${PRODUCTS_NEW_PRODUCT_RESPONSE.status_code}    201
+    Should Be Equal As Strings    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}[message]    Cadastro realizado com sucesso
+    Dictionary Should Contain Key    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}    _id

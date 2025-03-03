@@ -1,42 +1,48 @@
 *** Settings ***
-Documentation       This resource file contains keywords for user flow operations.
+Documentation       This resource file contains keywords for carts flow operations.
 
 Resource            ../requests/carts/carts_requests.resource
 
 
 *** Keywords ***
 Get Cart Product Request Body
-    [Documentation]    Get the request body for a new cart with product id and quantity
-    [Arguments]    ${id_product}    ${quantity}
-    @{new_product_cart_body}    Create Product Cart Body    ${id_product}    ${quantity}
-    RETURN    ${new_product_cart_body}
+    [Documentation]    STEP - Get the request body for a new cart with product id and quantity.
+    [Arguments]    ${id_product}    ${quantity}=${EMPTY}
+    @{product_request_body}    Create Product Cart Body    ${id_product}    ${quantity}
+    RETURN    ${product_request_body}
 
 Get Cart Request Body
-    [Documentation]    Get the request body for a new cart with product id and quantity
-    [Arguments]    ${products}
-    ${new_cart_body}    Create Carts Body    ${products}
-    RETURN    ${new_cart_body}
+    [Documentation]    STEP - Get the request body for a new cart with product id and quantity.
+    [Arguments]    ${cart_products_request_body}
+    ${cart_request_body}    Create Carts Body    ${cart_products_request_body}
+    RETURN    ${cart_request_body}
+
+Get Registered Carts
+    [Documentation]    STEP - Retrieve carts by specific query or all registered carts by user and returns response.
+    [Arguments]    ${query}=${EMPTY}
+    ${response}    Get Cart By Id    ${query}
+    RETURN    ${response}
 
 Register New Cart
-    [Documentation]    Register a new random cart and return the response and random cart object.
-    [Arguments]    ${cart_body}    ${token}
-    ${response}    Post New Cart    ${cart_body}    ${token}
-    RETURN    ${response}    ${cart_body}
+    [Documentation]    STEP - Register a new random cart and returns response.
+    [Arguments]    ${cart_request_body}    ${token}
+    ${response}    Post New Cart    ${cart_request_body}    ${token}
+    RETURN    ${response}
 
-Get Registered Cart
-    [Documentation]    Retrieve user by id
+Get Registered Cart By ID
+    [Documentation]    STEP - Retrieve carts by id and returns response.
     [Arguments]    ${cart_id}
     ${response}    Get Cart By Id    ${cart_id}
     RETURN    ${response}
 
 Conclude Purchase
-    [Documentation]    Delete user by id
-    [Arguments]    ${user_token}
-    ${response}    Delete Cart - Conclude Order    ${user_token}
+    [Documentation]    STEP - Delete carts by id and returns response.
+    [Arguments]    ${carts_token}
+    ${response}    Delete Cart - Conclude Order    ${carts_token}
     RETURN    ${response}
 
 Cancel Purchase
-    [Documentation]    Update user by id
-    [Arguments]    ${user_token}
-    ${response}    Delete Cart - Cancel Order    ${user_token}
+    [Documentation]    STEP - Update carts by id and returns response.
+    [Arguments]    ${carts_token}
+    ${response}    Delete Cart - Cancel Order    ${carts_token}
     RETURN    ${response}

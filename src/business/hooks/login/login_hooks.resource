@@ -3,14 +3,21 @@ Documentation       This resource file contains keywords for the login flow.
 
 Resource            ../../../business/steps/users_steps.resource
 Resource            ../../../business/steps/login_steps.resource
+Resource            ../users/users_hooks.resource
+
+
+*** Variables ***
+${LOGIN_NEW_LOGIN_RESPONSE}=    ${EMPTY}
 
 
 *** Keywords ***
 Login With New Random User
-    [Documentation]    This keyword logs in with a new user.
+    [Documentation]    This hook logs in with a new user
+    ...    and sets suite variables LOGIN_NEW_LOGIN_RESPONSE.
     [Arguments]    ${idAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}
-    ${new_random_user}    Get User Request Body    ${idAdmin}    ${emailDomain}
-    ${_}    ${new_random_login}    Register New User    ${new_random_user}
-    ${new_login_user}    Get Login Request Body    ${new_random_login}[email]    ${new_random_login}[password]
-    ${response}    Login New User    ${new_login_user}
-    RETURN    ${response}
+    Register New Random User    ${idAdmin}    ${emailDomain}
+    ${login_request_body}    Get Login Request Body
+    ...    ${USERS_NEW_USER_REQUEST_BODY}[email]
+    ...    ${USERS_NEW_USER_REQUEST_BODY}[password]
+    ${response_login}    Login New User    ${login_request_body}
+    VAR    ${LOGIN_NEW_LOGIN_RESPONSE}=    ${response_login}    scope=SUITE

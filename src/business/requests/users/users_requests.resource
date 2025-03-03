@@ -16,13 +16,13 @@ Get All Users
     RETURN    ${response}
 
 Post New User
-    [Documentation]    POST /users - Register user
+    [Documentation]    POST /users - Register user - returns    ${response}    and    ${user_request_body}
     ...    - It is not allowed to register a user with an email already used.
-    [Arguments]    ${new_user_object}
-    ${response}    POST Data    ${USERS_RESOURCE}    ${new_user_object}
+    [Arguments]    ${user_request_body}
+    ${response}    POST Data    ${USERS_RESOURCE}    ${user_request_body}
     VAR    ${userId}    ${response.json()}[_id]
     Append ID To File    ${USERS_RESOURCE}    ${userId}
-    RETURN    ${response}    ${new_user_object}
+    RETURN    ${response}
 
 Get User By Id
     [Documentation]    GET /users /{_id} - Search user by ID
@@ -41,6 +41,6 @@ Put User By Id
     [Documentation]    PUT/users /{_id} - Edit user
     ...    - It is not permitted to register a user with an email address that has already been used.
     ...    - If a user with the provided ID is not found, a new registration will be performed instead of changing it.
-    [Arguments]    ${id}    ${data}
-    ${response}    PUT Data    ${USERS_RESOURCE}    ${id}    ${data}
+    [Arguments]    ${id}    ${user_request_body}
+    ${response}    PUT Data    ${USERS_RESOURCE}    ${id}    ${user_request_body}
     RETURN    ${response}

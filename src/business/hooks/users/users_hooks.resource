@@ -5,10 +5,18 @@ Resource            ../../../business/steps/users_steps.resource
 Resource            ../../../business/steps/login_steps.resource
 
 
+*** Variables ***
+${USERS_NEW_USER_RESPONSE}=         ${EMPTY}
+${USERS_NEW_USER_REQUEST_BODY}=     ${EMPTY}
+
+
 *** Keywords ***
 Register New Random User
-    [Documentation]    This keyword logs in with a new user.
+    [Documentation]    This hook register a new user
+    ...    and sets suite variable USERS_NEW_USER_RESPONSE
+    ...    and USERS_NEW_USER_REQUEST_BODY.
     [Arguments]    ${idAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}
-    ${new_random_user}    Get User Request Body    ${idAdmin}    ${emailDomain}
-    ${response}    ${registered_user}    Register New User    ${new_random_user}
-    RETURN    ${response[0]}    ${registered_user}
+    ${user_request_body}    Get User Request Body    ${idAdmin}    ${emailDomain}
+    ${response}    Register New User    ${user_request_body}
+    VAR    ${USERS_NEW_USER_REQUEST_BODY}=    ${user_request_body}    scope=SUITE
+    VAR    ${USERS_NEW_USER_RESPONSE}=    ${response}    scope=SUITE

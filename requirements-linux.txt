@@ -39,6 +39,7 @@ executing==2.2.0
 Faker==35.2.0
 filelock==3.17.0
 Flask==3.1.0
+furl==2.1.3
 gherkin-official==29.0.0
 glob2==0.7
 gql==3.5.0
@@ -82,9 +83,11 @@ null==0.6.1
 numpy==2.2.2
 opencv-python==4.11.0.86
 openpyxl==3.1.5
+orderedmultidict==1.0.1
 outcome==1.3.0.post0
 packaging==24.2
 pandas==2.2.3
+pandocfilters==1.5.1
 parse==1.20.2
 parse_type==0.6.4
 parso==0.8.4
@@ -120,6 +123,7 @@ PyMsgBox==1.0.9
 pyodbc==5.2.0
 pyOpenSSL==25.0.0
 pyotp==2.9.0
+pypandoc==1.15
 pyparsing==3.2.1
 PyPDF2==3.0.1
 pyperclip==1.9.0
@@ -145,6 +149,7 @@ requests==2.32.3
 requests-toolbelt==1.0.0
 rich==13.9.4
 rich-click==1.8.5
+robocorp-storage==1.0.5
 robotframework==7.2.2
 robotframework-datadriver==1.11.2
 robotframework-debuglibrary==2.5.0
@@ -156,6 +161,7 @@ robotframework-requests==0.9.7
 robotframework-robocop==5.8.1
 robotframework-screencaplibrary==1.6.0
 robotframework-seleniumlibrary==6.7.0
+robotframework-seleniumtestability==2.1.0
 robotframework-tidy==4.16.0
 rpds-py==0.22.3
 rsa==4.9
@@ -168,6 +174,7 @@ sortedcontainers==2.4.0
 soupsieve==2.6
 stack-data==0.6.3
 tabulate==0.9.0
+tenacity==8.5.0
 testobject==1.0.0.post1
 toml==0.10.2
 tomli==2.2.1

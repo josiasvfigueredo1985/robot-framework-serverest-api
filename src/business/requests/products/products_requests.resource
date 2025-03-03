@@ -18,11 +18,11 @@ Get All Products
 Post New Product
     [Documentation]    POST /products - Register product
     ...    It is not permitted to register a product with a name already in use.
-    [Arguments]    ${new_product_object}    ${token}
-    ${response}    POST Data    ${PRODUCTS_RESOURCE}    ${new_product_object}    ${token}
+    [Arguments]    ${product_request_body}    ${token}
+    ${response}    POST Data    ${PRODUCTS_RESOURCE}    ${product_request_body}    ${token}
     VAR    ${userId}    ${response.json()}[_id]
     Append ID To File    ${PRODUCTS_RESOURCE}    ${userId}
-    RETURN    ${response}    ${new_product_object}
+    RETURN    ${response}
 
 Get Product By Id
     [Documentation]    GET /products /{_id} - Search for product by ID
@@ -41,6 +41,6 @@ Put Product By Id
     [Documentation]    PUT /products /{_id} - Edit product
     ...    - It is not permitted to register a product with a name that is already in use.
     ...    - If a user with the provided ID is not found, a new registration will be performed instead of changing it.
-    [Arguments]    ${id}    ${data}    ${token}
-    ${response}    PUT Data    ${PRODUCTS_RESOURCE}    ${id}    ${data}    ${token}
+    [Arguments]    ${id}    ${product_request_body}    ${token}
+    ${response}    PUT Data    ${PRODUCTS_RESOURCE}    ${id}    ${product_request_body}    ${token}
     RETURN    ${response}

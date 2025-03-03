@@ -13,7 +13,7 @@ Post Login
     [Documentation]    Post /login - Login
     ...    - The duration of the token returned in authorization is 600 seconds (10 minutes).
     ...    If it has expired, you will receive status code 401 (Unauthorized).
-    [Arguments]    ${new_user_object}
-    ${response}    POST Data    ${LOGIN_RESOURCE}    ${new_user_object}
+    [Arguments]    ${login_request_body}
+    ${response}    POST Data    ${LOGIN_RESOURCE}    ${login_request_body}
     Append ID To File    ${LOGIN_RESOURCE}    id=${response.json()}[authorization]
     RETURN    ${response}

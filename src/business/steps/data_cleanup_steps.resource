@@ -10,14 +10,14 @@ Resource            ../../business/requests/login/login_requests.resource
 
 *** Keywords ***
 Delete Carts
-    [Documentation]    Delete all created carts during testing.
+    [Documentation]    STEP - Delete all created carts during testing.
     VAR    @{parameters}=    ${CANCEL_PURCHASE}    ${CHECK-OUT}
     FOR    ${param}    IN    @{parameters}
         Delete By Token From File    ${CART_RESOURCE}    ${param}    ${LOGIN_RESOURCE}
     END
 
 Delete Products
-    [Documentation]    Delete all created products during testing.
+    [Documentation]    STEP - Delete all created products during testing.
     VAR    ${last_token}=    ${EMPTY}
     VAR    ${ids_length}=    ${EMPTY}
     ${ids}=    Get IDs From File    ${LOGIN_RESOURCE}
@@ -33,5 +33,5 @@ Delete Products
     END
 
 Delete Users
-    [Documentation]    Delete all created users during testing.
+    [Documentation]    STEP - Delete all created users during testing.
     Delete By Ids From File    ${USERS_RESOURCE}
