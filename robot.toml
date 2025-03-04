@@ -1,5 +1,5 @@
 output-dir = "reports"
 paths = "src/"
 [env]
-TEST_VAR = "test"
-PROD_VAR = "prod"
+TEST_ENV = "Test"
+PROD_ENV = "Prod"

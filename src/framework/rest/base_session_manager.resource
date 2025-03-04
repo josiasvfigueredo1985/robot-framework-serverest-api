@@ -4,6 +4,7 @@ Documentation       This resource file contains keywords for managing REST API s
 Resource            ../base/base_rest_api_variables.resource
 Library             RequestsLibrary
 Library             ../utils/RestApiUtils.py
+Library             OperatingSystem
 
 
 *** Keywords ***
@@ -55,16 +56,14 @@ End API Session
 
 Check Certificate
     [Documentation]    Checks the certificate based on the given environment.
-    IF    '${ENVIRONMENT}' == ${ENV_TYPE.tst}
+    ${env_variable}=    Check Environment Variable
+    IF    '${env_variable}' == ${ENV_TYPE.tst}
         Suppress Certificate Warnings
-        Log    Certificate verification is disabled for the ${ENVIRONMENT} environment.
+        Log    Certificate verification is disabled for the ${env_variable} environment.
         RETURN    ${False}
-    ELSE IF    '${ENVIRONMENT}' == ${ENV_TYPE.prd}
-        Log    Certificate verification is enabled for the ${ENVIRONMENT} environment.
+    ELSE IF    '${env_variable}' == ${ENV_TYPE.prd}
+        Log    Certificate verification is enabled for the ${env_variable} environment.
         RETURN    ${CERTIFICATE_PATH}
-    ELSE
-        Log    "Environment not provided. Defaulting to Test settings."    WARN
-        RETURN    ${False}
     END
 
 Check Active Session
@@ -72,3 +71,8 @@ Check Active Session
     ${state}=    Session Exists    ${SESSION_NAME}
     ${session}=    Convert To Boolean    ${state}
     RETURN    ${session}
+
+Check Environment Variable
+    ${test_env}=    Get Environment Variable    TEST_ENV
+    ${env_var}=    Get Environment Variable    ENVIRONMENT    default=${test_env}
+    RETURN    ${env_var}
