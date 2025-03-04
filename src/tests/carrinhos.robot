@@ -31,3 +31,26 @@ Consultar Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
     Get Carts From User    query=&{user_id}
     ${productsQty}    Get Length    ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE.json()}[carrinhos][0][produtos]
     Should Be Equal As Integers    ${productsQty}    ${qty}
+
+Consultar Por Id Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
+    [Documentation]    This test case logs in with a new random user and verifies the response.
+    VAR    ${qty}=    2
+    Register New Cart With Random Products
+    ...    cart_products_qty=${qty}
+    ...    product_quantity=${qty}
+    ...    cart_products_unity=${qty}
+    ${qty_total}    Evaluate    ${qty} * ${qty}
+    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    201
+    Should Be Equal As Strings    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[message]    Cadastro realizado com sucesso
+    Dictionary Should Contain Key    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}    _id
+    VAR    ${cart_id}    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[_id]
+    Get By Id Cart From USer    id=${cart_id}
+    ${productsQty}    Get Length    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[produtos]
+    Should Be Equal As Integers    ${productsQty}    ${qty}
+    Should Be Equal As Strings
+    ...    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[idUsuario]
+    ...    ${USERS_NEW_USER_RESPONSE.json()}[_id]
+    Should Be Equal As Strings    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[_id]    ${cart_id}
+    VAR    ${bdy}=    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}
+    Should Be Equal As Integers
+    ...    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[quantidadeTotal]    ${qty_total}

@@ -3,6 +3,7 @@ Documentation       This resource file contains keywords for carts operations.
 
 Resource            ../../../business/steps/carts_steps.resource
 Resource            ../products/products_hooks.resource
+Library             ../../../framework/utils/StringUtils.py
 
 
 *** Variables ***
@@ -19,11 +20,15 @@ Register New Cart With Random Product
     [Documentation]    This hook register a new cart
     ...    and sets suite variables CARTS_NEW_CART_PRODUCT_RESPONSE
     ...    and CARTS_NEW_CART_REQUEST_BODY.
-    [Arguments]    ${price}=${EMPTY}    ${product_quantity}=${EMPTY}
+    [Arguments]    ${price}=${EMPTY}    ${product_quantity}=${EMPTY}    ${cart_products_unity}=${EMPTY}
     Register New Random Product    ${price}    ${product_quantity}
+    ${check_cart_product_unity}    Is Empty String    ${cart_products_unity}
+    IF    ${check_cart_product_unity}
+        VAR    ${cart_products_qty}=    ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}[quantidade]
+    END
     ${cart_product_request_body}    Get Cart Product Request Body
     ...    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}[_id]
-    ...    ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}[quantidade]
+    ...    ${cart_products_unity}
     ${cart_request_body}    Get Cart Request Body    ${cart_product_request_body}
     ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_NEW_LOGIN_RESPONSE.json()}[authorization]
     VAR    ${CARTS_NEW_CART_REQUEST_BODY}=    ${cart_request_body}    scope=SUITE
@@ -33,16 +38,28 @@ Register New Cart With Random Products
     [Documentation]    This hook creates a new cart with given products quantity
     ...    and sets suite variables CARTS_NEW_CART_PRODUCT_RESPONSE
     ...    and CARTS_NEW_CART_REQUEST_BODY
-    [Arguments]    ${price}=${EMPTY}    ${product_quantity}=${EMPTY}    ${cart_products_qty}=1
+    [Arguments]
+    ...    ${price}=${EMPTY}
+    ...    ${product_quantity}=${EMPTY}
+    ...    ${cart_products_qty}=${EMPTY}
+    ...    ${cart_products_unity}=${EMPTY}
     VAR    @{cart_products_ids}    ${EMPTY}
     VAR    ${count_start}    1
+    ${check_cart_product}    Is Empty String    ${cart_products_qty}
+    IF    ${check_cart_product}
+        VAR    ${cart_products_qty}=    1
+    END
+    ${check_cart_product_unity}    Is Empty String    ${cart_products_unity}
+
     WHILE    ${count_start} <= ${cart_products_qty}
         Register New Random Product    ${price}    ${product_quantity}
+        IF    ${check_cart_product_unity}
+            VAR    ${cart_products_unity}=    ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}[quantidade]
+        END
         Append To List    ${cart_products_ids}    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}[_id]
         ${count_start}    Evaluate    ${count_start} + 1
     END
-    ${cart_product_request_body}    Get Cart Product Request Body
-    ...    ${cart_products_ids}
+    ${cart_product_request_body}    Get Cart Product Request Body    ${cart_products_ids}    ${cart_products_unity}
     ${cart_request_body}    Get Cart Request Body    ${cart_product_request_body}
     ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_NEW_LOGIN_RESPONSE.json()}[authorization]
     VAR    ${CARTS_NEW_CART_PRODUCTS_REQUEST_BODY}=    ${cart_request_body}    scope=SUITE
