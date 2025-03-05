@@ -3,3 +3,6 @@ paths = "src/"
 [env]
 TEST_ENV = "Test"
 PROD_ENV = "Prod"
+STG_ENV = "Stage"
+DPLY_ENV = "Deploy"
+DEV_ENV = 'Development'

@@ -36,7 +36,7 @@ jobs:
           allure --version
 
       - name: Run tests with Robot Framework
-        run: robot --listener allure_robotframework --variable ENVIRONMENT:${ENVIRONMENT} --outputdir reports src/tests/
+        run: robot --listener allure_robotframework --variable ENVIRONMENT_VAR:${QA_ENVIRONMENT} --outputdir reports src/tests/
 
       - name: Upload Robot Framework test report artifacts
         uses: actions/upload-artifact@v4.6.0

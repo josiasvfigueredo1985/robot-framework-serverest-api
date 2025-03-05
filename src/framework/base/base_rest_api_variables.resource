@@ -16,6 +16,6 @@ ${RETRIES_STATUS_LIST}=     [500, 502, 503, 504, 400, 401, 403, 404]
 ${DISABLE_WARNINGS}=        0    # robotcode: ignore
 ${RETRIES_METHODS_LIST}=    ['HEAD', 'TRACE', 'DELETE', 'GET', 'PUT', 'OPTIONS']    # robotcode: ignore
 ${ID_FILE}=                 id_list.txt
-${ENVIRONMENT}=             %{ENVIRONMENT}    # robotcode: ignore
+${ENVIRONMENT_VAR}=         %{QA_ENVIRONMENT}    # robotcode: ignore
 ${CERTIFICATE_PATH}=        src/framework/rest/certificate/certadmin.pem
-&{ENV_TYPE}=                tst='Test'    prd='Prod'    dev='Dev'    stg='Staging'
+&{ENV_TYPE}=                tst='Test'    prd='Prod'    dev='Dev'    stg='Stage'    dply='Deploy'    qa='QA'

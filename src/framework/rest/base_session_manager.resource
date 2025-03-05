@@ -57,11 +57,12 @@ End API Session
 Check Certificate
     [Documentation]    Checks the certificate based on the given environment.
     ${env_variable}=    Check Environment Variable
+
     IF    '${env_variable}' == ${ENV_TYPE.tst}
         Suppress Certificate Warnings
         Log    Certificate verification is disabled for the ${env_variable} environment.
         RETURN    ${False}
-    ELSE IF    '${env_variable}' == ${ENV_TYPE.prd}
+    ELSE IF    '${env_variable}' == ${ENV_TYPE.qa}
         Log    Certificate verification is enabled for the ${env_variable} environment.
         RETURN    ${CERTIFICATE_PATH}
     END
@@ -74,5 +75,5 @@ Check Active Session
 
 Check Environment Variable
     ${test_env}=    Get Environment Variable    TEST_ENV
-    ${env_var}=    Get Environment Variable    ENVIRONMENT    default=${test_env}
+    ${env_var}=    Get Environment Variable    ENVIRONMENT_VAR    default=${test_env}
     RETURN    ${env_var}
