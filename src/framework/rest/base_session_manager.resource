@@ -1,10 +1,11 @@
 *** Settings ***
 Documentation       This resource file contains keywords for managing REST API sessions.
 
-Resource            ../base/base_rest_api_variables.resource
+# Resource    ../base/base_rest_api_variables.resource
 Library             RequestsLibrary
 Library             ../utils/RestApiUtils.py
 Library             OperatingSystem
+Resource            ../base/base_rest_api_variables.resource
 
 
 *** Keywords ***
@@ -40,6 +41,8 @@ Create New Session
         ...    backoff_factor=${BACKOFF_FACTOR}
         ...    retry_status_list=${RETRIES_STATUS_LIST}
         ...    verify=${verify_certificate}
+        ...    disable_warnings=${DISABLE_WARNINGS}
+        ...    debug=${DEBUG_MODE}
         Log    Session ${SESSION_NAME} started.
     EXCEPT    HTTP errors    AS    ${error}
         Log    Could not start session ${SESSION_NAME}.    WARN
@@ -61,6 +64,7 @@ Check Certificate
     IF    $env_variable == $test_env
         Suppress Certificate Warnings
         Log    Certificate verification is disabled for the ${env_variable} environment.
+        VAR    ${DISABLE_WARNINGS}=    1
         RETURN    ${False}
     ELSE
         Log    Certificate verification is enabled for the ${env_variable} environment.
@@ -77,5 +81,5 @@ Check Environment Variable
     [Documentation]    Checks if tests are running on CI, if QA_ENVIRONMENT is found,
     ...    so it returns it's value, otherwise will return 'Test' as environment
     ${test_env}=    Get Environment Variable    TEST_ENV
-    ${env_var}=    Get Environment Variable    QA_ENVIRONMENT    default=${test_env}
+    ${env_var}=    Get Environment Variable    ENVIRONMENT_VAR    default=${test_env}
     RETURN    ${env_var}
