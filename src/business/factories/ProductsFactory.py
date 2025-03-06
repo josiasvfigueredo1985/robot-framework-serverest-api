@@ -48,7 +48,9 @@ class ProductsFactory:
             Random ProductsModel object with the given attributes.
         """
         if StringUtils.is_empty_string(price):
-            price = faker.pyfloat(left_digits=2, right_digits=2, positive=True)
+            price = faker.pyfloat(
+                left_digits=2, right_digits=2, positive=True, min_value=1
+            )
         if StringUtils.is_empty_string(quantity):
             quantity = faker.random_number()
 
