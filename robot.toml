@@ -1,5 +1,7 @@
 output-dir = "reports"
 paths = "src/"
+[variable]
+
 [env]
 TEST_ENV = "Test"
 PROD_ENV = "Prod"

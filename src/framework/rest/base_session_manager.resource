@@ -57,12 +57,12 @@ End API Session
 Check Certificate
     [Documentation]    Checks the certificate based on the given environment.
     ${env_variable}=    Check Environment Variable
-
-    IF    '${env_variable}' == ${ENV_TYPE.tst}
+    ${test_env}=    Get Environment Variable    TEST_ENV
+    IF    $env_variable == $test_env
         Suppress Certificate Warnings
         Log    Certificate verification is disabled for the ${env_variable} environment.
         RETURN    ${False}
-    ELSE IF    '${env_variable}' == ${ENV_TYPE.qa}
+    ELSE
         Log    Certificate verification is enabled for the ${env_variable} environment.
         RETURN    ${CERTIFICATE_PATH}
     END
@@ -74,6 +74,8 @@ Check Active Session
     RETURN    ${session}
 
 Check Environment Variable
+    [Documentation]    Checks if tests are running on CI, if QA_ENVIRONMENT is found,
+    ...    so it returns it's value, otherwise will return 'Test' as environment
     ${test_env}=    Get Environment Variable    TEST_ENV
-    ${env_var}=    Get Environment Variable    ENVIRONMENT_VAR    default=${test_env}
+    ${env_var}=    Get Environment Variable    QA_ENVIRONMENT    default=${test_env}
     RETURN    ${env_var}
