@@ -5,17 +5,4 @@ paths = "src/"
 DEBUG_MODE = "1"
 
 [env]
-DEPLOY_ENV = "Deploy"
-DEV_ENV = "Development"
-PRODUCTION_ENV = "Prod"
-STG_ENV = "Stage"
 TEST_ENV = "Test"
-
-# TODO
-# [profiles.base]
-# log-level = "INFO"
-# variables = { TIMEOUT = "20s" }
-
-# [profiles.test]
-# inherits = ["base"]
-# variables = { ENVIRONMENT = "testing", API_URL = "http://test-api.example.com" }
