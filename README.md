@@ -1,2 +1,6 @@
-allure generate output/allure -o allure-report --clean
-allure open allure-report/
+Architecture for API testing with Robot Framework
+
+Target: serverest.dev
+Programming Language: Python
+
+

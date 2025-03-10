@@ -3,6 +3,7 @@ Documentation       Carts - Check the registered shopping carts, create one for 
 ...                 give up on the purchase because you were just taking a look
 
 Resource            ../base/base_requests.resource
+Resource            ../../../framework/base/base_data_manager_resources.resource
 
 
 *** Variables ***

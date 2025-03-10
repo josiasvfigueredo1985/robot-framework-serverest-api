@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Resource responsible for run cleanup keywords.
 
-Resource            ../../framework/data/test_data_manager.resource
+Resource            ../../framework/base/base_data_manager_resources.resource
 Resource            ../../business/requests/carts/carts_requests.resource
 Resource            ../../business/requests/users/users_requests.resource
 Resource            ../../business/requests/products/products_requests.resource
