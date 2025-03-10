@@ -17,9 +17,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
 
-      - name: Install Python dependencies
-        run: pip install -r requirements-linux.txt
-
       - name: Install Homebrew
         run: |
           sudo apt update
@@ -29,6 +26,9 @@ jobs:
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           echo "/home/linuxbrew/.linuxbrew/bin" >> $GITHUB_PATH
           brew --version
+
+      - name: Install Python dependencies
+        run: uv install --group qa-ci
 
       - name: Install Allure
         run: |
