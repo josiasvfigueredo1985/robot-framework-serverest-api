@@ -27,7 +27,7 @@ Get IDs From File
     IF    ${dir_exists}
         ${id_list}    Get IDs    ${folder_path}
     ELSE
-        ${id_list}    Set Variable    ${None}
+        ${id_list}    Set Variable    ${False}
     END
     RETURN    ${id_list}
 
@@ -43,10 +43,7 @@ Delete By Ids From File
     [Documentation]    Delete all IDs from the file.
     [Arguments]    ${resource}    ${auth_token}=${EMPTY}
     ${id_list}    Get IDs From File    ${resource}
-    ${dir_exists}    Check If Directory Exists    ${resource}
-    IF    ${dir_exists}
-        Delete IDs    ${id_list}    ${resource}    ${auth_token}
-    END
+    IF    ${id_list}    Delete IDs    ${id_list}    ${resource}    ${auth_token}
 
 Delete IDs
     [Documentation]    Delete Ids from given Ids list
@@ -61,8 +58,7 @@ Delete By Token From File
     [Documentation]    Delete All tokens from the file.
     [Arguments]    ${resource}    ${parameter}    ${file_name}
     ${auth_list}    Get IDs From File    ${file_name}
-    ${dir_exists}    Check If Directory Exists    ${resource}
-    IF    ${dir_exists}
+    IF    ${auth_list}
         Delete Token    ${auth_list}    ${resource}    ${parameter}
     END
 

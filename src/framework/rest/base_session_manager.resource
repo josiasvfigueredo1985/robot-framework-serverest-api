@@ -6,6 +6,7 @@ Library             RequestsLibrary
 Library             ../utils/RestApiUtils.py
 Library             OperatingSystem
 Resource            ../base/base_rest_api_variables.resource
+Library             Collections
 
 
 *** Keywords ***
@@ -14,17 +15,15 @@ Create API Session
     [Arguments]    ${headers}
     ${verify_certificate}=    Check Certificate
     ${session}=    Check Active Session
-    ${check_auth_header}=    Run Keyword And Return Status    Should Contain    ${headers}    item=Authorization
-    IF    ${check_auth_header}
-        Log    ${headers['Authorization']}
-        IF    ${session}
-            Log    Ending all active sessions...
-            End API Session
-            Log    Creating a new authorized session...
-            Create New Session    ${headers}    ${verify_certificate}
-        END
-    END
+    ${is_auth_header}=    Check Authorization Header    &{headers}
+
     IF    not ${session}
+        Create New Session    ${headers}    ${verify_certificate}
+    ELSE IF    ${session} and ${is_auth_header}
+        Log    ${headers['Authorization']}
+        Log    Ending all active sessions...
+        End API Session
+        Log    Creating a new authorized session...
         Create New Session    ${headers}    ${verify_certificate}
     END
 
@@ -83,3 +82,9 @@ Check Environment Variable
     ${test_env}=    Get Environment Variable    TEST_ENV
     ${env_var}=    Get Environment Variable    ENVIRONMENT_VAR    default=${test_env}
     RETURN    ${env_var}
+
+Check Authorization Header
+    [Documentation]    Checks if the Authorization header is present in the headers.
+    [Arguments]    &{headers}
+    IF    'Authorization' in ${headers}    RETURN    ${True}
+    RETURN    ${False}

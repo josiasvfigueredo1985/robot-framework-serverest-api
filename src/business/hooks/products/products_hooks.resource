@@ -20,6 +20,6 @@ Register New Random Product
     ${product_request_body}    Get Product Request Body    ${price}    ${quantity}
     ${response_product}    Register New Product
     ...    ${product_request_body}
-    ...    ${LOGIN_NEW_LOGIN_RESPONSE.json()}[authorization]
+    ...    ${LOGIN_BEARER_TOKEN}
     VAR    ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}=    ${product_request_body}    scope=SUITE
     VAR    ${PRODUCTS_NEW_PRODUCT_RESPONSE}=    ${response_product}    scope=SUITE

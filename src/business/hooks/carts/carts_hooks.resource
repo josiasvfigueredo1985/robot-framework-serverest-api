@@ -30,7 +30,7 @@ Register New Cart With Random Product
     ...    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}[_id]
     ...    ${cart_products_unity}
     ${cart_request_body}    Get Cart Request Body    ${cart_product_request_body}
-    ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_NEW_LOGIN_RESPONSE.json()}[authorization]
+    ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_BEARER_TOKEN}
     VAR    ${CARTS_NEW_CART_REQUEST_BODY}=    ${cart_request_body}    scope=SUITE
     VAR    ${CARTS_NEW_CART_PRODUCT_RESPONSE}=    ${response_cart}    scope=SUITE
 
@@ -61,7 +61,7 @@ Register New Cart With Random Products
     END
     ${cart_product_request_body}    Get Cart Product Request Body    ${cart_products_ids}    ${cart_products_unity}
     ${cart_request_body}    Get Cart Request Body    ${cart_product_request_body}
-    ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_NEW_LOGIN_RESPONSE.json()}[authorization]
+    ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_BEARER_TOKEN}
     VAR    ${CARTS_NEW_CART_PRODUCTS_REQUEST_BODY}=    ${cart_request_body}    scope=SUITE
     VAR    ${CARTS_NEW_CART_PRODUCTS_RESPONSE}=    ${response_cart}    scope=SUITE
 
