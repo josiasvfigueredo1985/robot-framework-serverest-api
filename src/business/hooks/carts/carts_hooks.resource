@@ -8,7 +8,7 @@ Library             ../../../framework/utils/StringUtils.py
 
 *** Variables ***
 ${CARTS_NEW_CART_PRODUCT_RESPONSE}          ${EMPTY}
-${CARTS_NEW_CART_PRODUCT_REQUEST_BODY}      ${EMPTY}
+${CARTS_NEW_CART_REQUEST_BODY}              ${EMPTY}
 ${CARTS_NEW_CART_PRODUCTS_RESPONSE}         ${EMPTY}
 ${CARTS_NEW_CART_PRODUCTS_REQUEST_BODY}     ${EMPTY}
 ${CARTS_REGISTERED_CARTS_ID_RESPONSE}       ${EMPTY}
@@ -24,15 +24,15 @@ Register New Cart With Random Product
     Register New Random Product    ${price}    ${product_quantity}
     ${check_cart_product_unity}    Is Empty String    ${cart_products_unity}
     IF    ${check_cart_product_unity}
-        VAR    ${cart_products_qty}=    ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}[quantidade]
+        VAR    ${cart_products_unity}=    ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}[quantidade]
     END
     ${cart_product_request_body}    Get Cart Product Request Body
     ...    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}[_id]
     ...    ${cart_products_unity}
     ${cart_request_body}    Get Cart Request Body    ${cart_product_request_body}
     ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_BEARER_TOKEN}
-    VAR    ${CARTS_NEW_CART_REQUEST_BODY}=    ${cart_request_body}    scope=SUITE
-    VAR    ${CARTS_NEW_CART_PRODUCT_RESPONSE}=    ${response_cart}    scope=SUITE
+    Set Suite Variable    ${CARTS_NEW_CART_REQUEST_BODY}    ${cart_request_body}
+    Set Suite Variable    ${CARTS_NEW_CART_PRODUCT_RESPONSE}    ${response_cart}
 
 Register New Cart With Random Products
     [Documentation]    This hook creates a new cart with given products quantity
@@ -62,8 +62,8 @@ Register New Cart With Random Products
     ${cart_product_request_body}    Get Cart Product Request Body    ${cart_products_ids}    ${cart_products_unity}
     ${cart_request_body}    Get Cart Request Body    ${cart_product_request_body}
     ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_BEARER_TOKEN}
-    VAR    ${CARTS_NEW_CART_PRODUCTS_REQUEST_BODY}=    ${cart_request_body}    scope=SUITE
-    VAR    ${CARTS_NEW_CART_PRODUCTS_RESPONSE}=    ${response_cart}    scope=SUITE
+    Set Suite Variable    ${CARTS_NEW_CART_PRODUCTS_REQUEST_BODY}    ${cart_request_body}
+    Set Suite Variable    ${CARTS_NEW_CART_PRODUCTS_RESPONSE}    ${response_cart}
 
 Get By Id Cart From USer
     [Documentation]    This hook retrieves data from a cart
@@ -71,7 +71,7 @@ Get By Id Cart From USer
     ...    and sets suite variable CARTS_REGISTERED_CARTS_ID_RESPONSE.
     [Arguments]    ${id}
     ${response}    Get Registered Cart By ID    ${id}
-    VAR    ${CARTS_REGISTERED_CARTS_ID_RESPONSE}=    ${response}    scope=SUITE
+    Set Suite Variable    ${CARTS_REGISTERED_CARTS_ID_RESPONSE}    ${response}
 
 Get Carts From User
     [Documentation]    This hook retrieves data from a cart
@@ -79,4 +79,4 @@ Get Carts From User
     ...    and sets suite variable CARTS_REGISTERED_CARTS_QUERY_RESPONSE.
     [Arguments]    ${query}=${EMPTY}
     ${response}    Get Registered Carts    ${query}
-    VAR    ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE}=    ${response}    scope=SUITE
+    Set Suite Variable    ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE}    ${response}

@@ -36,13 +36,13 @@ Get Registered Cart By ID
     RETURN    ${response}
 
 Conclude Purchase
-    [Documentation]    STEP - Delete carts by id and returns response.
-    [Arguments]    ${carts_token}
-    ${response}    Delete Cart - Conclude Order    ${carts_token}
+    [Documentation]    STEP - Delete carts by user token and returns response.
+    [Arguments]    ${user_token}
+    ${response}    Delete Cart - Conclude Order    ${user_token}
     RETURN    ${response}
 
 Cancel Purchase
-    [Documentation]    STEP - Update carts by id and returns response.
-    [Arguments]    ${carts_token}
-    ${response}    Delete Cart - Cancel Order    ${carts_token}
+    [Documentation]    STEP - Update carts by user token and returns response.
+    [Arguments]    ${user_token}
+    ${response}    Delete Cart - Cancel Order    ${user_token}
     RETURN    ${response}

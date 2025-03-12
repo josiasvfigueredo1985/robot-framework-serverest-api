@@ -2,36 +2,60 @@
 Documentation       Resource responsible for run cleanup keywords.
 
 Resource            ../../framework/base/base_data_manager_resources.resource
-Resource            ../../business/requests/carts/carts_requests.resource
-Resource            ../../business/requests/users/users_requests.resource
-Resource            ../../business/requests/products/products_requests.resource
-Resource            ../../business/requests/login/login_requests.resource
+Resource            ../../business/steps/carts_steps.resource
+Resource            ../../business/steps/users_steps.resource
+Resource            ../../business/steps/products_steps.resource
+Resource            ../../business/steps/login_steps.resource
+
+
+*** Variables ***
+${user_tokens}      ${EMPTY}
 
 
 *** Keywords ***
+Get User Tokens
+    [Documentation]    STEP - Get all user tokens from LOGIN file.
+    ${user_tokens}=    Get IDs From File    ${LOGIN_RESOURCE}
+    Set Suite Variable    @{user_tokens}
+
 Delete Carts
     [Documentation]    STEP - Delete all created carts during testing.
-    VAR    @{parameters}=    ${CANCEL_PURCHASE}    ${CHECK-OUT}
-    FOR    ${param}    IN    @{parameters}
-        Delete By Token From File    ${CART_RESOURCE}    ${param}    ${LOGIN_RESOURCE}
+    Get User Tokens
+    FOR    ${user_token}    IN    @{user_tokens}
+        Log    Canceling Cart from user with id: ${user_token}
+        ${response_cancel}=    Cancel Purchase    ${user_token}
+        Log    ${response_cancel}
+        Log    Concluding purchase from user with id: ${user_token}
+        ${response_conclude}=    Conclude Purchase    ${user_token}
+        Log    ${response_conclude}
     END
 
 Delete Products
     [Documentation]    STEP - Delete all created products during testing.
     VAR    ${last_token}=    ${EMPTY}
     VAR    ${ids_length}=    ${EMPTY}
-    ${ids}=    Get IDs From File    ${LOGIN_RESOURCE}
-    ${is_empty}=    Run Keyword And Return Status    Should Not Be Empty    ${ids}
-    IF    ${is_empty}
-        ${ids_length}=    Get Length    ${ids}
+    Get User Tokens
+    ${is_tokens_empty}=    Run Keyword And Return Status    Should Not Be Empty    ${user_tokens}
+    IF    ${is_tokens_empty}
+        ${ids_length}=    Get Length    ${user_tokens}
         IF    ${ids_length} > 1
-            ${last_token}=    Get From List    ${ids}    -1
+            ${last_token}=    Get From List    ${user_tokens}    -1
         ELSE IF    ${ids_length} == 1
-            ${last_token}=    Get From List    ${ids}    0
+            ${last_token}=    Get From List    ${user_tokens}    0
         END
-        Delete By Ids From File    ${PRODUCTS_RESOURCE}    ${last_token}
+        ${products_ids}=    Get IDs From File    ${PRODUCTS_RESOURCE}
+        FOR    ${product_id}    IN    @{products_ids}
+            Log    Deleting product with id: ${product_id}
+            ${response}=    Delete Registered Product    ${product_id}    ${last_token}
+            Log    ${response}
+        END
     END
 
 Delete Users
     [Documentation]    STEP - Delete all created users during testing.
-    Delete By Ids From File    ${USERS_RESOURCE}
+    ${user_ids}=    Get IDs From File    ${USERS_RESOURCE}
+    FOR    ${user_id}    IN    @{user_ids}
+        Log    Deleting user with id: ${user_id}
+        ${response}=    Delete Registered User    ${user_id}
+        Log    ${response}
+    END

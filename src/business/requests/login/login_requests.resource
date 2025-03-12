@@ -16,6 +16,6 @@ Post Login
     ...    If it has expired, you will receive status code 401 (Unauthorized).
     [Arguments]    ${login_request_body}
     ${response}    POST Data    ${LOGIN_RESOURCE}    ${login_request_body}
-    VAR    ${LOGIN_BEARER_TOKEN}=    ${response.json()}[authorization]    scope=SUITE
+    Set Suite Variable    ${LOGIN_BEARER_TOKEN}    ${response.json()}[authorization]
     Append ID To File    ${LOGIN_RESOURCE}    id=${LOGIN_BEARER_TOKEN}
     RETURN    ${response}

@@ -51,6 +51,5 @@ Consultar Por Id Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
     ...    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[idUsuario]
     ...    ${USERS_NEW_USER_RESPONSE.json()}[_id]
     Should Be Equal As Strings    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[_id]    ${cart_id}
-    VAR    ${bdy}=    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}
     Should Be Equal As Integers
     ...    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[quantidadeTotal]    ${qty_total}

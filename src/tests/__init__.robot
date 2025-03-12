@@ -23,4 +23,4 @@ Data Cleanup
     ...    a clean state for subsequent tests.
     Wait Until Keyword Succeeds
     ...    5s
-    ...    1s    Run Data Cleanup
+    ...    1s    Run Test Data Cleanup

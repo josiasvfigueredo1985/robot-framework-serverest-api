@@ -18,5 +18,5 @@ Register New Random User
     [Arguments]    ${idAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}
     ${user_request_body}    Get User Request Body    ${idAdmin}    ${emailDomain}
     ${response}    Register New User    ${user_request_body}
-    VAR    ${USERS_NEW_USER_REQUEST_BODY}=    ${user_request_body}    scope=SUITE
-    VAR    ${USERS_NEW_USER_RESPONSE}=    ${response}    scope=SUITE
+    Set Suite Variable    ${USERS_NEW_USER_REQUEST_BODY}    ${user_request_body}
+    Set Suite Variable    ${USERS_NEW_USER_RESPONSE}    ${response}

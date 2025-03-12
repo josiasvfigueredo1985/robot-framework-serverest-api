@@ -39,38 +39,6 @@ Get IDs
     Remove Values From List    ${id_list}    ${EMPTY}
     RETURN    ${id_list}
 
-Delete By Ids From File
-    [Documentation]    Delete all IDs from the file.
-    [Arguments]    ${resource}    ${auth_token}=${EMPTY}
-    ${id_list}    Get IDs From File    ${resource}
-    IF    ${id_list}    Delete IDs    ${id_list}    ${resource}    ${auth_token}
-
-Delete IDs
-    [Documentation]    Delete Ids from given Ids list
-    [Arguments]    ${id_list}    ${resource}    ${auth_token}=${EMPTY}
-    FOR    ${id}    IN    @{id_list}
-        Log    Deleting ID: ${id}
-        ${response}    DELETE Data    ${resource}    ${id}    ${auth_token}
-        Log    ${response}
-    END
-
-Delete By Token From File
-    [Documentation]    Delete All tokens from the file.
-    [Arguments]    ${resource}    ${parameter}    ${file_name}
-    ${auth_list}    Get IDs From File    ${file_name}
-    IF    ${auth_list}
-        Delete Token    ${auth_list}    ${resource}    ${parameter}
-    END
-
-Delete Token
-    [Documentation]    Delete tokens
-    [Arguments]    ${auth_list}    ${resource}    ${parameter}
-    FOR    ${auth_token}    IN    @{auth_list}
-        Log    Deleting cart By Token: ${auth_token}
-        ${response}    DELETE Data    ${resource}    ${parameter}    auth_token=${auth_token}
-        Log    ${response}
-    END
-
 Check If Directory Exists
     [Documentation]    Check if Ids were created along it's folder
     [Arguments]    ${resource}

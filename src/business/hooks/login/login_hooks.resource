@@ -20,4 +20,4 @@ Login With New Random User
     ...    ${USERS_NEW_USER_REQUEST_BODY}[email]
     ...    ${USERS_NEW_USER_REQUEST_BODY}[password]
     ${response_login}    Login New User    ${login_request_body}
-    VAR    ${LOGIN_NEW_LOGIN_RESPONSE}=    ${response_login}    scope=SUITE
+    Set Suite Variable    ${LOGIN_NEW_LOGIN_RESPONSE}    ${response_login}    
