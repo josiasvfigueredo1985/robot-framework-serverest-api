@@ -73,8 +73,7 @@ Check Certificate
 Check Active Session
     [Documentation]    Checks the session status.
     ${state}=    Session Exists    ${SESSION_NAME}
-    ${session}=    Convert To Boolean    ${state}
-    RETURN    ${session}
+    RETURN    ${state}
 
 Check Environment Variable
     [Documentation]    Checks if tests are running on CI, if QA_ENVIRONMENT is found,
