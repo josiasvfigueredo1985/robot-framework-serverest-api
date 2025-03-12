@@ -4,5 +4,7 @@ from framework.utils.ObjectUtils import ObjectUtils
 
 
 class CartsModel(ObjectUtils):
+    """Class to represent the cart model."""
+
     def __init__(self, produtos: List[ProductsCart]):
         self.produtos = produtos

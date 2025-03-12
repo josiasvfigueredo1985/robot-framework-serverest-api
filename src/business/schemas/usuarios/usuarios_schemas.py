@@ -6,6 +6,8 @@ from framework.utils.SchemaUtils import SchemaUtils
 
 
 class UsersGetAllSchema(SchemaUtils):
+    """Schema for UsersGetAll"""
+
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",
@@ -32,6 +34,8 @@ class UsersGetAllSchema(SchemaUtils):
 
 
 class UsersGetByIdSchema(SchemaUtils):
+    """Schema for UsersGetById"""
+
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",
@@ -47,6 +51,8 @@ class UsersGetByIdSchema(SchemaUtils):
     }
 
     class UsersDeleteErrorSchema(SchemaUtils):
+        """Schema for UsersDeleteError"""
+
         SCHEMA = {
             "$schema": "http://json-schema.org/draft-07/schema#",
             "title": "Generated schema for Root",

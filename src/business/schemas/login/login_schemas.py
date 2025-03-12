@@ -6,6 +6,8 @@ from framework.utils.SchemaUtils import SchemaUtils
 
 
 class LoginPostSchema(SchemaUtils):
+    """Schema for LoginPost"""
+
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",

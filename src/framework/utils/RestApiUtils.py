@@ -19,22 +19,7 @@ class RestApiUtils:
     def build_resource_with_query_parameters(
         self, resource: str, parameters: Union[dict, str], isAlphanumeric: bool = False
     ):
-        """
-        Build a resource URL with query parameters.
-
-        Args:
-            resource (str): The base URL or resource path.
-            parameters (Union[dict, str]): The query parameters as a dictionary or a single string.
-            isAlphanumeric: Optional argument to validate alphanumeric strings
-        Returns:
-            str: The constructed URL with query parameters.
-        Example:
-            - resource = https://api.exemplo.com
-            - id = 123
-            - searchById = { '_id': '123abc'}
-            - build_resource_with_query_parameters(resource, id) # https://api.exemplo.com/123
-            - build_resource_with_query_parameters(resource, searchById) # https://api.exemplo.com?_id=123abc
-        """
+        ''''Builds a resource URL with query parameters. '''
         url = resource
         if isinstance(parameters, dict):
             if not parameters:

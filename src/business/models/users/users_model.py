@@ -3,6 +3,8 @@ from business.models.login.login_model import LoginModel
 
 
 class UsersModel(LoginModel):
+    """Class to represent the user model."""
+
     def __init__(
         self,
         nome: str,

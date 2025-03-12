@@ -6,6 +6,8 @@ from framework.utils.SchemaUtils import SchemaUtils
 
 
 class CommonGenericMessageSchema(SchemaUtils):
+    """Schema for CommonGenericMessage"""
+
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",
@@ -16,6 +18,8 @@ class CommonGenericMessageSchema(SchemaUtils):
 
 
 class CommonErrorMessageSchema(SchemaUtils):
+    """Schema for CommonErrorMessage"""
+
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",

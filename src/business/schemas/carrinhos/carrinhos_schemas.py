@@ -6,6 +6,8 @@ from framework.utils.SchemaUtils import SchemaUtils
 
 
 class CarrinhosGetAllSchema(SchemaUtils):
+    """Schema for CarrinhosGetAll"""
+
     SCHEMA = {
         "$schema": "http://json-schema.org/draft-07/schema#",
         "title": "Generated schema for Root",
