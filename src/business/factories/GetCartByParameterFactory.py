@@ -14,7 +14,7 @@ from business.models.dataclass import (
 
 
 @library
-class GetByParameterFactory:
+class GetCartByParameterFactory:
     @keyword
     def get_users_by_parameters(
         self,

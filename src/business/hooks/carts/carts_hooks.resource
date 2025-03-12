@@ -17,7 +17,7 @@ ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE}    ${EMPTY}
 
 *** Keywords ***
 Register New Cart With Random Product
-    [Documentation]    This hook register a new cart
+    [Documentation]    HOOKS - Register a new cart
     ...    and sets suite variables CARTS_NEW_CART_PRODUCT_RESPONSE
     ...    and CARTS_NEW_CART_REQUEST_BODY.
     [Arguments]    ${price}=${EMPTY}    ${product_quantity}=${EMPTY}    ${cart_products_unity}=${EMPTY}
@@ -35,7 +35,7 @@ Register New Cart With Random Product
     Set Suite Variable    ${CARTS_NEW_CART_PRODUCT_RESPONSE}    ${response_cart}
 
 Register New Cart With Random Products
-    [Documentation]    This hook creates a new cart with given products quantity
+    [Documentation]    HOOKS - Creates a new cart with given products quantity
     ...    and sets suite variables CARTS_NEW_CART_PRODUCT_RESPONSE
     ...    and CARTS_NEW_CART_REQUEST_BODY
     [Arguments]
@@ -43,7 +43,7 @@ Register New Cart With Random Products
     ...    ${product_quantity}=${EMPTY}
     ...    ${cart_products_qty}=${EMPTY}
     ...    ${cart_products_unity}=${EMPTY}
-    VAR    @{cart_products_ids}    ${EMPTY}
+    VAR    @{cart_products_ids}    @{EMPTY}
     VAR    ${count_start}    1
     ${check_cart_product}    Is Empty String    ${cart_products_qty}
     IF    ${check_cart_product}
@@ -66,7 +66,7 @@ Register New Cart With Random Products
     Set Suite Variable    ${CARTS_NEW_CART_PRODUCTS_RESPONSE}    ${response_cart}
 
 Get By Id Cart From USer
-    [Documentation]    This hook retrieves data from a cart
+    [Documentation]    HOOKS - Retrieves data from a user's cart by id
     ...    registered by user given cart id
     ...    and sets suite variable CARTS_REGISTERED_CARTS_ID_RESPONSE.
     [Arguments]    ${id}
@@ -74,7 +74,7 @@ Get By Id Cart From USer
     Set Suite Variable    ${CARTS_REGISTERED_CARTS_ID_RESPONSE}    ${response}
 
 Get Carts From User
-    [Documentation]    This hook retrieves data from a cart
+    [Documentation]    HOOKS - Retrieves data from current user's cart
     ...    registered by user given optional query
     ...    and sets suite variable CARTS_REGISTERED_CARTS_QUERY_RESPONSE.
     [Arguments]    ${query}=${EMPTY}

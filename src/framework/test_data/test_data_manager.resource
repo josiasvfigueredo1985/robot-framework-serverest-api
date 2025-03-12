@@ -5,6 +5,7 @@ Library             Collections
 Library             OperatingSystem
 Library             String
 Resource            ../../framework/rest/base_request_methods.resource
+Library             ../../framework/utils/DirectoryUtils.py
 
 
 *** Variables ***
@@ -24,17 +25,16 @@ Get IDs From File
     [Arguments]    ${resource}
     ${folder_path}    Set Variable    ${FOLDER_FILE_PATH}${resource}/${resource}_${ID_FILE}
     ${dir_exists}    Check If Directory Exists    ${resource}
-    IF    ${dir_exists}
+    ${id_list}    Set Variable    @{EMPTY}
+    IF    $dir_exists
         ${id_list}    Get IDs    ${folder_path}
-    ELSE
-        ${id_list}    Set Variable    ${False}
     END
     RETURN    ${id_list}
 
 Get IDs
     [Documentation]    Read and return ids from given folder.
     [Arguments]    ${folder_path}
-    ${ids}    Get File    ${folder_path}
+    ${ids}    Get File    ${folder_path}    encoding=UTF-8
     @{id_list}    Split String    ${ids}    \n
     Remove Values From List    ${id_list}    ${EMPTY}
     RETURN    ${id_list}
@@ -43,6 +43,5 @@ Check If Directory Exists
     [Documentation]    Check if Ids were created along it's folder
     [Arguments]    ${resource}
     ${folder_path}    Set Variable    ${FOLDER_FILE_PATH}${resource}
-    ${dir_exists}    Run Keyword And Return Status    Directory Should Exist    ${folder_path}
-    IF    not ${dir_exists}    Log    Files for ${resource} not found.
-    RETURN    ${dir_exists}
+    ${is_dir_exists}    Directory Exists    ${folder_path}
+    RETURN    ${is_dir_exists}

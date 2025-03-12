@@ -24,3 +24,9 @@ Data Cleanup
     Wait Until Keyword Succeeds
     ...    5s
     ...    1s    Run Test Data Cleanup
+
+Run Test Data Cleanup
+    [Documentation]    This keyword runs all hooks for test data cleanup.
+    Delete Carts From User
+    Delete Products From User
+    Delete Created Users

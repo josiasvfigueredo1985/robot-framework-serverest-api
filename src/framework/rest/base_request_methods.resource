@@ -74,7 +74,7 @@ Build Authorized Header
     [Arguments]    ${token}    ${idDeleteMethod}=False
     &{AUTH_HEADERS}    Create Dictionary    Authorization=${token}
     VAR    ${CONTENT_TYPE}=    application/json
-    IF    ${idDeleteMethod}
+    IF    $idDeleteMethod
         Set To Dictionary    ${AUTH_HEADERS}    accept=${CONTENT_TYPE}
     ELSE
         Set To Dictionary    ${AUTH_HEADERS}    Content-Type=${CONTENT_TYPE}

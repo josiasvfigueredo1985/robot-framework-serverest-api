@@ -12,7 +12,7 @@ ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}=       ${EMPTY}
 
 *** Keywords ***
 Register New Random Product
-    [Documentation]    This hook register a new product
+    [Documentation]    HOOKS - Register a new product
     ...    and sets suite variables PRODUCTS_NEW_PRODUCT_RESPONSE
     ...    and PRODUCTS_NEW_PRODUCT_REQUEST_BODY.
     [Arguments]    ${price}=${EMPTY}    ${quantity}=${EMPTY}

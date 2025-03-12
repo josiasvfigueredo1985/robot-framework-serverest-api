@@ -17,9 +17,9 @@ Create API Session
     ${session}=    Check Active Session
     ${is_auth_header}=    Check Authorization Header    &{headers}
 
-    IF    not ${session}
+    IF    not $session
         Create New Session    ${headers}    ${verify_certificate}
-    ELSE IF    ${session} and ${is_auth_header}
+    ELSE IF    $session and $is_auth_header
         Log    ${headers['Authorization']}
         Log    Ending all active sessions...
         End API Session

@@ -12,7 +12,7 @@ ${USERS_NEW_USER_REQUEST_BODY}=     ${EMPTY}
 
 *** Keywords ***
 Register New Random User
-    [Documentation]    This hook register a new user
+    [Documentation]    HOOKS - Register a new user
     ...    and sets suite variable USERS_NEW_USER_RESPONSE
     ...    and USERS_NEW_USER_REQUEST_BODY.
     [Arguments]    ${idAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}

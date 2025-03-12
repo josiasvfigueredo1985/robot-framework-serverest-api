@@ -8,28 +8,35 @@ Resource            ../framework/base/base_test_resources.resource
 Cadastrar Carrinho Com Novo Produto Aleatório
     [Documentation]    This test case logs in with a new random user and verifies the response.
     Register New Cart With Random Product
-    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCT_RESPONSE.status_code}    201
-    Should Be Equal As Strings    ${CARTS_NEW_CART_PRODUCT_RESPONSE.json()}[message]    Cadastro realizado com sucesso
-    Dictionary Should Contain Key    ${CARTS_NEW_CART_PRODUCT_RESPONSE.json()}    _id
+    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCT_RESPONSE.status_code}    ${CREATED_STATUS}
+    Should Be Equal As Strings
+    ...    ${CARTS_NEW_CART_PRODUCT_RESPONSE.json()}[${MESSAGE_KEY}]
+    ...    ${SUCCESS_CREATED_MESSAGE}
+    Dictionary Should Contain Key    ${CARTS_NEW_CART_PRODUCT_RESPONSE.json()}    ${ID_KEY}
 
 Cadastrar Carrinho Com Novos Produtos Aleatórios
     [Documentation]    This test case logs in with a new random user and verifies the response.
     VAR    ${qty}=    2
     Register New Cart With Random Products    cart_products_qty=${qty}
-    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    201
-    Should Be Equal As Strings    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[message]    Cadastro realizado com sucesso
-    Dictionary Should Contain Key    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}    _id
+    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    ${CREATED_STATUS}
+    Should Be Equal As Strings
+    ...    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[${MESSAGE_KEY}]
+    ...    ${SUCCESS_CREATED_MESSAGE}
+    Dictionary Should Contain Key    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}    ${ID_KEY}
 
 Consultar Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
     [Documentation]    This test case logs in with a new random user and verifies the response.
     VAR    ${qty}=    2
     Register New Cart With Random Products    cart_products_qty=${qty}
-    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    201
-    Should Be Equal As Strings    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[message]    Cadastro realizado com sucesso
-    Dictionary Should Contain Key    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}    _id
-    &{user_id}    Create Dictionary    idUsuario=${USERS_NEW_USER_RESPONSE.json()}[_id]
+    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    ${CREATED_STATUS}
+    Should Be Equal As Strings
+    ...    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[${MESSAGE_KEY}]
+    ...    ${SUCCESS_CREATED_MESSAGE}
+    Dictionary Should Contain Key    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}    ${ID_KEY}
+    &{user_id}    Create Dictionary    ${USER_ID_KEY}=${USERS_NEW_USER_RESPONSE.json()}[${ID_KEY}]
     Get Carts From User    query=&{user_id}
-    ${productsQty}    Get Length    ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE.json()}[carrinhos][0][produtos]
+    ${productsQty}    Get Length
+    ...    ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE.json()}[${CART_RESOURCE}][0][${PRODUCTS_RESOURCE}]
     Should Be Equal As Integers    ${productsQty}    ${qty}
 
 Consultar Por Id Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
@@ -40,16 +47,18 @@ Consultar Por Id Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
     ...    product_quantity=${qty}
     ...    cart_products_unity=${qty}
     ${qty_total}    Evaluate    ${qty} * ${qty}
-    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    201
-    Should Be Equal As Strings    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[message]    Cadastro realizado com sucesso
-    Dictionary Should Contain Key    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}    _id
-    VAR    ${cart_id}    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[_id]
+    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    ${CREATED_STATUS}
+    Should Be Equal As Strings
+    ...    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[${MESSAGE_KEY}]
+    ...    ${SUCCESS_CREATED_MESSAGE}
+    Dictionary Should Contain Key    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}    ${ID_KEY}
+    VAR    ${cart_id}    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[${ID_KEY}]
     Get By Id Cart From USer    id=${cart_id}
-    ${productsQty}    Get Length    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[produtos]
+    ${productsQty}    Get Length    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[${PRODUCTS_RESOURCE}]
     Should Be Equal As Integers    ${productsQty}    ${qty}
     Should Be Equal As Strings
-    ...    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[idUsuario]
-    ...    ${USERS_NEW_USER_RESPONSE.json()}[_id]
-    Should Be Equal As Strings    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[_id]    ${cart_id}
+    ...    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[${USER_ID_KEY}]
+    ...    ${USERS_NEW_USER_RESPONSE.json()}[${ID_KEY}]
+    Should Be Equal As Strings    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[${ID_KEY}]    ${cart_id}
     Should Be Equal As Integers
-    ...    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[quantidadeTotal]    ${qty_total}
+    ...    ${CARTS_REGISTERED_CARTS_ID_RESPONSE.json()}[${CART_TOTAL_QTY_KEY}]    ${qty_total}
