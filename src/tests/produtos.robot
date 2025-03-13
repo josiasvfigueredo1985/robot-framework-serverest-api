@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       This suite tests the login functionality with a new random user.
 
-Resource            ../framework/base/base_test_resources.resource
+Resource            ./test_resources/base_test_resources.resource
 
 
 *** Test Cases ***

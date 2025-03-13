@@ -5,7 +5,6 @@ Library             Collections
 Resource            ../../business/hooks/login/login_hooks.resource
 Resource            ../../business/hooks/products/products_hooks.resource
 Resource            ../../business/hooks/carts/carts_hooks.resource
-Resource            ../../business/hooks/common/common_hooks.resource
 
 
 *** Variables ***

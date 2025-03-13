@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       This resource file contains keywords for carts operations.
 
-Resource            ../../../business/steps/carts_steps.resource
+Resource            ../../steps/carts_steps.resource
 Resource            ../products/products_hooks.resource
 Library             ../../../framework/utils/StringUtils.py
 

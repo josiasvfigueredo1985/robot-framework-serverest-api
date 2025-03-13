@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Users - Manage users, view login details and register administrators
 
-Resource            ../base/base_requests.resource
+Resource            ../../base_business_resources/base_requests.resource
 
 
 *** Variables ***

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Products - View registered products or, as an administrator, manage store products
 
-Resource            ../base/base_requests.resource
+Resource            ../../base_business_resources/base_requests.resource
 
 
 *** Variables ***

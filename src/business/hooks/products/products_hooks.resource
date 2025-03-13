@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       This resource file contains keywords for carts operations.
 
-Resource            ../../../business/steps/products_steps.resource
+Resource            ../../steps/products_steps.resource
 Resource            ../login/login_hooks.resource
 
 

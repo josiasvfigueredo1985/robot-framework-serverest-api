@@ -1,12 +1,10 @@
 *** Settings ***
 Documentation       This resource file contains keywords for managing REST API sessions.
 
-# Resource    ../base/base_rest_api_variables.resource
 Library             RequestsLibrary
 Library             ../utils/RestApiUtils.py
-Library             OperatingSystem
-Resource            ../base/base_rest_api_variables.resource
-Library             Collections
+Resource            ../framework_resources/base_rest_api_variables.resource
+Resource            ../framework_resources/base_common_resources.resource
 
 
 *** Keywords ***

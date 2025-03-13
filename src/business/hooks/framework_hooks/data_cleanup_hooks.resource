@@ -1,10 +1,10 @@
 *** Settings ***
 Documentation       Resource responsible for run cleanup keywords.
 
-Resource            ../../../business/steps/carts_steps.resource
-Resource            ../../../business/steps/users_steps.resource
-Resource            ../../../business/steps/products_steps.resource
-Resource            ../../../business/steps/login_steps.resource
+Resource            ../../steps/carts_steps.resource
+Resource            ../../steps/users_steps.resource
+Resource            ../../steps/products_steps.resource
+Resource            ../../steps/login_steps.resource
 
 
 *** Variables ***

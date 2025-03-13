@@ -2,7 +2,7 @@
 Documentation       Carts - Check the registered shopping carts, create one for your user and, in the end,
 ...                 give up on the purchase because you were just taking a look
 
-Resource            ../base/base_requests.resource
+Resource            ../../base_business_resources/base_requests.resource
 
 
 *** Variables ***

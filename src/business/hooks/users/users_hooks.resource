@@ -1,8 +1,8 @@
 *** Settings ***
 Documentation       This resource file contains keywords for user flow operations.
 
-Resource            ../../../business/steps/users_steps.resource
-Resource            ../../../business/steps/login_steps.resource
+Resource            ../../steps/users_steps.resource
+Resource            ../../steps/login_steps.resource
 Resource            ../common/common_hooks.resource
 
 

@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Suite for testing user registration
 
-Resource            ../framework/base/base_test_resources.resource
+Resource            ./test_resources/base_test_resources.resource
 
 
 *** Test Cases ***
