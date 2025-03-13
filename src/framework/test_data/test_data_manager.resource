@@ -1,9 +1,8 @@
 *** Settings ***
 Documentation       This resource file contains keywords for managing test data.
 
-Resource            ../rest/base_request_methods.resource
 Library             ../utils/DirectoryUtils.py
-Resource            ../framework_resources/base_common_resources.resource
+Resource            ../rest/base_request_methods.resource
 
 
 *** Variables ***

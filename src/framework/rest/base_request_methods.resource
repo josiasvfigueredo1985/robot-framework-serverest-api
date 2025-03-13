@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation       This resource file contains base request methods for REST API interactions.
 
+
 Resource            ./base_session_manager.resource
 
 
