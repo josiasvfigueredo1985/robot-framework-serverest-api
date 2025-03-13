@@ -11,3 +11,4 @@ Login Com Novo Usuário Aleatório
     Should Be Equal As Numbers    ${LOGIN_NEW_LOGIN_RESPONSE.status_code}    ${SUCCESS_STATUS}
     Should Be Equal As Strings    ${LOGIN_NEW_LOGIN_RESPONSE.json()}[${MESSAGE_KEY}]    ${SUCCESS_LOGIN_MESSAGE}
     Dictionary Should Contain Key    ${LOGIN_NEW_LOGIN_RESPONSE.json()}    ${AUTH_KEY}
+    Validate Login Response Schema    ${LOGIN_NEW_LOGIN_RESPONSE.json()}    ${REQ_METHODS}[POST]

@@ -21,3 +21,8 @@ Login With New Random User
     ...    ${USERS_NEW_USER_REQUEST_BODY}[password]
     ${response_login}    Login New User    ${login_request_body}
     Set Suite Variable    ${LOGIN_NEW_LOGIN_RESPONSE}    ${response_login}
+
+Validate Login Response Schema
+    [Documentation]    HOOKS - Validate response by schema file.
+    [Arguments]    ${response}    ${request_method}
+    Validate Response By Schema File    ${response}    ${LOGIN_RESOURCE}    ${request_method}

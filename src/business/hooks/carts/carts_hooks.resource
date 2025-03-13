@@ -80,3 +80,8 @@ Get Carts From User
     [Arguments]    ${query}=${EMPTY}
     ${response}    Get Registered Carts    ${query}
     Set Suite Variable    ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE}    ${response}
+
+Validate Carts Response Schema
+    [Documentation]    HOOKS - Validate response by schema file.
+    [Arguments]    ${response}    ${request_method}
+    Validate Response By Schema File    ${response}    ${CART_RESOURCE}    ${request_method}

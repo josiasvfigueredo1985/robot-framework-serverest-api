@@ -11,3 +11,4 @@ Cadastrar Novo Usuário Aleatório
     Should Be Equal As Numbers    ${USERS_NEW_USER_RESPONSE.status_code}    ${CREATED_STATUS}
     Should Be Equal As Strings    ${USERS_NEW_USER_RESPONSE.json()}[${MESSAGE_KEY}]    ${SUCCESS_CREATED_MESSAGE}
     Dictionary Should Contain Key    ${USERS_NEW_USER_RESPONSE.json()}    ${ID_KEY}
+    Validate Common Response    ${USERS_NEW_USER_RESPONSE.json()}    ${COMM_MESSAGE}[SUCCESS]

@@ -3,6 +3,7 @@ Documentation       This resource file contains keywords for user flow operation
 
 Resource            ../../../business/steps/users_steps.resource
 Resource            ../../../business/steps/login_steps.resource
+Resource            ../common/common_hooks.resource
 
 
 *** Variables ***
@@ -20,3 +21,8 @@ Register New Random User
     ${response}    Register New User    ${user_request_body}
     Set Suite Variable    ${USERS_NEW_USER_REQUEST_BODY}    ${user_request_body}
     Set Suite Variable    ${USERS_NEW_USER_RESPONSE}    ${response}
+
+Validate Users Response Schema
+    [Documentation]    HOOKS - Validate response by schema file.
+    [Arguments]    ${response}    ${request_method}
+    Validate Response By Schema File    ${response}    ${USERS_RESOURCE}    ${request_method}

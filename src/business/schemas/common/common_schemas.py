@@ -5,7 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"
 from framework.utils.SchemaUtils import SchemaUtils
 
 
-class CommonGenericMessageSchema(SchemaUtils):
+class CommonSuccessMessageSchema(SchemaUtils):
     """Schema for CommonGenericMessage"""
 
     SCHEMA = {

@@ -23,3 +23,8 @@ Register New Random Product
     ...    ${LOGIN_BEARER_TOKEN}
     Set Suite Variable    ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}    ${product_request_body}
     Set Suite Variable    ${PRODUCTS_NEW_PRODUCT_RESPONSE}    ${response_product}
+
+Validate Products Response Schema
+    [Documentation]    HOOKS - Validate response by schema file.
+    [Arguments]    ${response}    ${request_method}
+    Validate Response By Schema File    ${response}    ${PRODUCTS_RESOURCE}    ${request_method}
