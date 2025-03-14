@@ -34,7 +34,9 @@ Consultar Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
     Should Be Equal As Strings
     ...    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[${MESSAGE_KEY}]
     ...    ${SUCCESS_CREATED_MESSAGE}
-    &{cart_user_id}    Create Dictionary    ${USER_ID_KEY}=${USERS_NEW_USER_RESPONSE.json()}[${ID_KEY}]
+    # robocop: off
+    &{cart_user_id}    Create Dictionary
+    ...    ${USER_ID_KEY}=${USERS_NEW_USER_RESPONSE.json()}[${ID_KEY}]
     Get Carts From User    query=&{cart_user_id}
     ${productsQty}    Set Variable
     ...    ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE.json()}[${CART_RESOURCE}][0][quantidadeTotal]

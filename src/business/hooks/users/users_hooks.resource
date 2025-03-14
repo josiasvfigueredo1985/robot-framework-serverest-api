@@ -17,8 +17,8 @@ Register New Random User
     ...    and sets suite variable USERS_NEW_USER_RESPONSE
     ...    and USERS_NEW_USER_REQUEST_BODY.
     [Arguments]    ${idAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}
-    ${user_request_body}    Get User Request Body    ${idAdmin}    ${emailDomain}
-    ${response}    Register New User    ${user_request_body}
+    ${user_request_body}=    Get User Request Body    ${idAdmin}    ${emailDomain}
+    ${response}=    Register New User    ${user_request_body}
     Set Suite Variable    ${USERS_NEW_USER_REQUEST_BODY}    ${user_request_body}    # robocop: off
     Set Suite Variable    ${USERS_NEW_USER_RESPONSE}    ${response}    # robocop: off
 
