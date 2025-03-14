@@ -11,6 +11,7 @@ ${QTY}      2
 *** Test Cases ***
 Cadastrar Carrinho Com Novo Produto Aleatório
     [Documentation]    This test case logs in with a new random user and verifies the response.
+    [Tags]    -smoke
     Register New Cart With Random Product
     Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCT_RESPONSE.status_code}    ${CREATED_STATUS}
     Should Be Equal As Strings
@@ -20,6 +21,7 @@ Cadastrar Carrinho Com Novo Produto Aleatório
 
 Cadastrar Carrinho Com Novos Produtos Aleatórios
     [Documentation]    This test case logs in with a new random user and verifies the response.
+    [Tags]    -smoke
     Register New Cart With Random Products    cart_products_qty=${QTY}
     Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    ${CREATED_STATUS}
     Should Be Equal As Strings
@@ -29,6 +31,7 @@ Cadastrar Carrinho Com Novos Produtos Aleatórios
 
 Consultar Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
     [Documentation]    This test case logs in with a new random user and verifies the response.
+    [Tags]    -smoke
     Register New Cart With Random Products    cart_products_qty=${QTY}
     Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    ${CREATED_STATUS}
     Should Be Equal As Strings
@@ -44,6 +47,7 @@ Consultar Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
 
 Consultar Por Id Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
     [Documentation]    This test case logs in with a new random user and verifies the response.
+    [Tags]    -smoke
     ${qty_total}    Evaluate    ${QTY} * ${QTY}
     Register New Cart With Random Products
     ...    cart_products_qty=${QTY}
