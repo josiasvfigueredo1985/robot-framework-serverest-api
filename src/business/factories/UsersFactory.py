@@ -1,3 +1,6 @@
+"""Docstring for business.factories.UsersFactory
+This class is responsible for creating UsersModel objects."""
+
 import os
 import sys
 from faker import Faker
@@ -11,6 +14,8 @@ faker = Faker()
 
 @library
 class UsersFactory:
+    """Docstring for UsersFactory
+    This class is responsible for creating UsersModel objects."""
 
     @keyword
     def _create_user_body(self, name, email, password, administrator):

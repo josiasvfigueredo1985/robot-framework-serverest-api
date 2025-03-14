@@ -8,19 +8,21 @@ Resource            ../users/users_hooks.resource
 
 *** Variables ***
 ${LOGIN_NEW_LOGIN_RESPONSE}=    ${EMPTY}
+${LOGIN_BEARER_TOKEN}=          ${EMPTY}
 
 
 *** Keywords ***
 Login With New Random User
     [Documentation]    HOOKS - Logs in with a new user
-    ...    and sets suite variables LOGIN_NEW_LOGIN_RESPONSE.
+    ...    and sets suite variables LOGIN_NEW_LOGIN_RESPONSE and LOGIN_BEARER_TOKEN.
     [Arguments]    ${idAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}
     Register New Random User    ${idAdmin}    ${emailDomain}
-    ${login_request_body}    Get Login Request Body
+    ${login_request_body}=    Get Login Request Body
     ...    ${USERS_NEW_USER_REQUEST_BODY}[email]
     ...    ${USERS_NEW_USER_REQUEST_BODY}[password]
-    ${response_login}    Login New User    ${login_request_body}
-    Set Suite Variable    ${LOGIN_NEW_LOGIN_RESPONSE}    ${response_login}
+    ${response_login}=    Login New User    ${login_request_body}
+    Set Suite Variable    ${LOGIN_NEW_LOGIN_RESPONSE}    ${response_login}    # robocop: off
+    Set Suite Variable    ${LOGIN_BEARER_TOKEN}    ${response_login.json()}[authorization]    # robocop: off
 
 Validate Login Response Schema
     [Documentation]    HOOKS - Validate response by schema file.

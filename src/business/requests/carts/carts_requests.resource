@@ -16,7 +16,7 @@ Get All Carts
     [Documentation]    GET /carts - List registered carts
     ...    - Returned carts are unique per user
     [Arguments]    ${query}=${EMPTY}
-    ${response}    GET Data    ${CART_RESOURCE}    ${query}
+    ${response}=    GET Data    ${CART_RESOURCE}    ${query}
     RETURN    ${response}
 
 Post New Cart
@@ -27,15 +27,15 @@ Post New Cart
     ...    in the cart is reduced.
     ...    - returns ${response}    and    ${cart_request_body}.
     [Arguments]    ${cart_request_body}    ${token}
-    ${response}    POST Data    ${CART_RESOURCE}    ${cart_request_body}    ${token}
-    VAR    ${user_id}    ${response.json()}[_id]
-    Append ID To File    ${CART_RESOURCE}    ${user_id}
+    ${response}=    POST Data    ${CART_RESOURCE}    ${cart_request_body}    ${token}
+    ${cart_id}=    Set Variable    ${response.json()}[_id]
+    Append ID To File    ${CART_RESOURCE}    ${cart_id}
     RETURN    ${response}
 
 Get Cart By ID
     [Documentation]    GET /carts /{_id} - Search cart by ID
     [Arguments]    ${id}
-    ${response}    GET Data    ${CART_RESOURCE}    ${id}
+    ${response}=    GET Data    ${CART_RESOURCE}    ${id}
     RETURN    ${response}
 
 Delete Cart - Conclude Order
@@ -43,7 +43,7 @@ Delete Cart - Conclude Order
     ...    - When completing a purchase, the cart is deleted.
     ...    - The deleted cart will be the one linked to the user token used.
     [Arguments]    ${token}
-    ${response}    DELETE Data    ${CART_RESOURCE}    ${CHECK-OUT}    ${token}
+    ${response}=    DELETE Data    ${CART_RESOURCE}    ${CHECK-OUT}    ${token}
     RETURN    ${response}
 
 Delete Cart - Cancel Order
@@ -51,5 +51,5 @@ Delete Cart - Cancel Order
     ...    - When you cancel a purchase, the cart is deleted and the stock of the products in that cart is replenished.
     ...    - The deleted cart will be the one linked to the user who token used it.
     [Arguments]    ${token}
-    ${response}    DELETE Data    ${CART_RESOURCE}    ${CANCEL_PURCHASE}    ${token}
+    ${response}=    DELETE Data    ${CART_RESOURCE}    ${CANCEL_PURCHASE}    ${token}
     RETURN    ${response}

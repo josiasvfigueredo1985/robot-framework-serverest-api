@@ -22,64 +22,68 @@ Register New Cart With Random Product
     ...    and CARTS_NEW_CART_REQUEST_BODY.
     [Arguments]    ${price}=${EMPTY}    ${product_quantity}=${EMPTY}    ${cart_products_unity}=${EMPTY}
     Register New Random Product    ${price}    ${product_quantity}
-    ${check_cart_product_unity}    Is Empty String    ${cart_products_unity}
+    ${check_cart_product_unity}=    Is Empty String    ${cart_products_unity}
     IF    ${check_cart_product_unity}
         VAR    ${cart_products_unity}=    ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}[quantidade]
     END
-    ${cart_product_request_body}    Get Cart Product Request Body
+    ${cart_product_request_body}=    Get Cart Product Request Body
     ...    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}[_id]
     ...    ${cart_products_unity}
-    ${cart_request_body}    Get Cart Request Body    ${cart_product_request_body}
-    ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_BEARER_TOKEN}
-    Set Suite Variable    ${CARTS_NEW_CART_REQUEST_BODY}    ${cart_request_body}
-    Set Suite Variable    ${CARTS_NEW_CART_PRODUCT_RESPONSE}    ${response_cart}
+    ${cart_request_body}=    Get Cart Request Body    ${cart_product_request_body}
+    ${response_cart}=    Register New Cart    ${cart_request_body}    ${LOGIN_BEARER_TOKEN}
+    Set Suite Variable    ${CARTS_NEW_CART_REQUEST_BODY}    ${cart_request_body}    # robocop: off
+    Set Suite Variable    ${CARTS_NEW_CART_PRODUCT_RESPONSE}    ${response_cart}    # robocop: off
 
 Register New Cart With Random Products
     [Documentation]    HOOKS - Creates a new cart with given products quantity
     ...    and sets suite variables CARTS_NEW_CART_PRODUCT_RESPONSE
     ...    and CARTS_NEW_CART_REQUEST_BODY
-    [Arguments]
-    ...    ${price}=${EMPTY}
+    [Arguments]    ${price}=${EMPTY}
     ...    ${product_quantity}=${EMPTY}
     ...    ${cart_products_qty}=${EMPTY}
     ...    ${cart_products_unity}=${EMPTY}
-    VAR    @{cart_products_ids}    @{EMPTY}
-    VAR    ${count_start}    1
-    ${check_cart_product}    Is Empty String    ${cart_products_qty}
+    @{cart_products_ids}=    Create List    @{EMPTY}
+    ${count_start}=    Set Variable    1
+    ${check_cart_product}=    Is Empty String    ${cart_products_qty}
     IF    ${check_cart_product}
         VAR    ${cart_products_qty}=    1
     END
-    ${check_cart_product_unity}    Is Empty String    ${cart_products_unity}
-
+    ${check_cart_product_unity}=    Is Empty String    ${cart_products_unity}
     WHILE    ${count_start} <= ${cart_products_qty}
         Register New Random Product    ${price}    ${product_quantity}
         IF    ${check_cart_product_unity}
             VAR    ${cart_products_unity}=    ${PRODUCTS_NEW_PRODUCT_REQUEST_BODY}[quantidade]
         END
         Append To List    ${cart_products_ids}    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}[_id]
-        ${count_start}    Evaluate    ${count_start} + 1
+        ${count_start}=    Evaluate    ${count_start} + 1
     END
-    ${cart_product_request_body}    Get Cart Product Request Body    ${cart_products_ids}    ${cart_products_unity}
-    ${cart_request_body}    Get Cart Request Body    ${cart_product_request_body}
-    ${response_cart}    Register New Cart    ${cart_request_body}    ${LOGIN_BEARER_TOKEN}
-    Set Suite Variable    ${CARTS_NEW_CART_PRODUCTS_REQUEST_BODY}    ${cart_request_body}
-    Set Suite Variable    ${CARTS_NEW_CART_PRODUCTS_RESPONSE}    ${response_cart}
+    HELPER - REGISTER CART    ${cart_products_ids}    ${cart_products_unity}
+
+HELPER - REGISTER CART
+    [Documentation]    HELPER - Helper keyword for "Register New Cart With Random Products" hooks.
+    ...    Register a new cart with given product ids and products unit quantity
+    [Arguments]    ${cart_products_ids}    ${cart_products_unity}
+    ${cart_product_request_body}=    Get Cart Product Request Body    ${cart_products_ids}    ${cart_products_unity}
+    ${cart_request_body}=    Get Cart Request Body    ${cart_product_request_body}
+    ${response_cart}=    Register New Cart    ${cart_request_body}    ${LOGIN_BEARER_TOKEN}
+    Set Suite Variable    ${CARTS_NEW_CART_PRODUCTS_REQUEST_BODY}    ${cart_request_body}    # robocop: off
+    Set Suite Variable    ${CARTS_NEW_CART_PRODUCTS_RESPONSE}    ${response_cart}    # robocop: off
 
 Get By Id Cart From USer
     [Documentation]    HOOKS - Retrieves data from a user's cart by id
     ...    registered by user given cart id
     ...    and sets suite variable CARTS_REGISTERED_CARTS_ID_RESPONSE.
     [Arguments]    ${id}
-    ${response}    Get Registered Cart By ID    ${id}
-    Set Suite Variable    ${CARTS_REGISTERED_CARTS_ID_RESPONSE}    ${response}
+    ${response}=    Get Registered Cart By ID    ${id}
+    Set Suite Variable    ${CARTS_REGISTERED_CARTS_ID_RESPONSE}    ${response}    # robocop: off
 
 Get Carts From User
     [Documentation]    HOOKS - Retrieves data from current user's cart
     ...    registered by user given optional query
     ...    and sets suite variable CARTS_REGISTERED_CARTS_QUERY_RESPONSE.
     [Arguments]    ${query}=${EMPTY}
-    ${response}    Get Registered Carts    ${query}
-    Set Suite Variable    ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE}    ${response}
+    ${response}=    Get Registered Carts    ${query}
+    Set Suite Variable    ${CARTS_REGISTERED_CARTS_QUERY_RESPONSE}    ${response}    # robocop: off
 
 Validate Carts Response Schema
     [Documentation]    HOOKS - Validate response by schema file.

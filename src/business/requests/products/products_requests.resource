@@ -12,29 +12,29 @@ ${PRODUCTS_RESOURCE}    produtos
 Get All Products
     [Documentation]    GET /products - List registered products
     [Arguments]    ${query}=${EMPTY}
-    ${response}    GET Data    ${PRODUCTS_RESOURCE}    ${query}
+    ${response}=    GET Data    ${PRODUCTS_RESOURCE}    ${query}
     RETURN    ${response}
 
 Post New Product
     [Documentation]    POST /products - Register product
     ...    It is not permitted to register a product with a name already in use.
     [Arguments]    ${product_request_body}    ${token}
-    ${response}    POST Data    ${PRODUCTS_RESOURCE}    ${product_request_body}    ${token}
-    VAR    ${userId}    ${response.json()}[_id]
-    Append ID To File    ${PRODUCTS_RESOURCE}    ${userId}
+    ${response}=    POST Data    ${PRODUCTS_RESOURCE}    ${product_request_body}    ${token}
+    ${product_id}=    Set Variable    ${response.json()}[_id]
+    Append ID To File    ${PRODUCTS_RESOURCE}    ${product_id}
     RETURN    ${response}
 
 Get Product By Id
     [Documentation]    GET /products /{_id} - Search for product by ID
     [Arguments]    ${id}
-    ${response}    GET Data    ${PRODUCTS_RESOURCE}    ${id}
+    ${response}=    GET Data    ${PRODUCTS_RESOURCE}    ${id}
     RETURN    ${response}
 
 Delete Product By Id
     [Documentation]    DELETE /products /{_id} - Delete product
     ...    - It is not allowed to delete a product that is part of the cart.
     [Arguments]    ${id}    ${token}
-    ${response}    DELETE Data    ${PRODUCTS_RESOURCE}    ${id}    ${token}
+    ${response}=    DELETE Data    ${PRODUCTS_RESOURCE}    ${id}    ${token}
     RETURN    ${response}
 
 Put Product By Id
@@ -42,5 +42,5 @@ Put Product By Id
     ...    - It is not permitted to register a product with a name that is already in use.
     ...    - If a user with the provided ID is not found, a new registration will be performed instead of changing it.
     [Arguments]    ${id}    ${product_request_body}    ${token}
-    ${response}    PUT Data    ${PRODUCTS_RESOURCE}    ${id}    ${product_request_body}    ${token}
+    ${response}=    PUT Data    ${PRODUCTS_RESOURCE}    ${id}    ${product_request_body}    ${token}
     RETURN    ${response}

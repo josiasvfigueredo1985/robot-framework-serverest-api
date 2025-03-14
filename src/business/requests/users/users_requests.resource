@@ -5,36 +5,36 @@ Resource            ../../base_business_resources/base_requests.resource
 
 
 *** Variables ***
-${USERS_RESOURCE}       usuarios
+${USERS_RESOURCE}=      usuarios
 
 
 *** Keywords ***
 Get All Users
     [Documentation]    GET /users - List registered users
     [Arguments]    ${query}=${EMPTY}
-    ${response}    GET Data    ${USERS_RESOURCE}    ${query}
+    ${response}=    GET Data    ${USERS_RESOURCE}    ${query}
     RETURN    ${response}
 
 Post New User
     [Documentation]    POST /users - Register user - returns    ${response}    and    ${user_request_body}
     ...    - It is not allowed to register a user with an email already used.
     [Arguments]    ${user_request_body}
-    ${response}    POST Data    ${USERS_RESOURCE}    ${user_request_body}
-    VAR    ${userId}    ${response.json()}[_id]
-    Append ID To File    ${USERS_RESOURCE}    ${userId}
+    ${response}=    POST Data    ${USERS_RESOURCE}    ${user_request_body}
+    ${created_user_id}=    Set Variable    ${response.json()}[_id]
+    Append ID To File    ${USERS_RESOURCE}    ${created_user_id}
     RETURN    ${response}
 
 Get User By Id
     [Documentation]    GET /users /{_id} - Search user by ID
     [Arguments]    ${id}
-    ${response}    GET Data    ${USERS_RESOURCE}    ${id}
+    ${response}=    GET Data    ${USERS_RESOURCE}    ${id}
     RETURN    ${response}
 
 Delete User By Id
     [Documentation]    DELETE/users /{_id} - Delete user
     ...    - It is not allowed to delete user with cart.
     [Arguments]    ${id}
-    ${response}    DELETE Data    ${USERS_RESOURCE}    ${id}
+    ${response}=    DELETE Data    ${USERS_RESOURCE}    ${id}
     RETURN    ${response}
 
 Put User By Id
@@ -42,5 +42,5 @@ Put User By Id
     ...    - It is not permitted to register a user with an email address that has already been used.
     ...    - If a user with the provided ID is not found, a new registration will be performed instead of changing it.
     [Arguments]    ${id}    ${user_request_body}
-    ${response}    PUT Data    ${USERS_RESOURCE}    ${id}    ${user_request_body}
+    ${response}=    PUT Data    ${USERS_RESOURCE}    ${id}    ${user_request_body}
     RETURN    ${response}

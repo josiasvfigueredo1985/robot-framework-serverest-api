@@ -19,8 +19,8 @@ Register New Random User
     [Arguments]    ${idAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}
     ${user_request_body}    Get User Request Body    ${idAdmin}    ${emailDomain}
     ${response}    Register New User    ${user_request_body}
-    Set Suite Variable    ${USERS_NEW_USER_REQUEST_BODY}    ${user_request_body}
-    Set Suite Variable    ${USERS_NEW_USER_RESPONSE}    ${response}
+    Set Suite Variable    ${USERS_NEW_USER_REQUEST_BODY}    ${user_request_body}    # robocop: off
+    Set Suite Variable    ${USERS_NEW_USER_RESPONSE}    ${response}    # robocop: off
 
 Validate Users Response Schema
     [Documentation]    HOOKS - Validate response by schema file.

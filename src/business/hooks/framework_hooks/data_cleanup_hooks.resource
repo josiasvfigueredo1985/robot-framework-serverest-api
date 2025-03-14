@@ -8,25 +8,26 @@ Resource            ../../steps/login_steps.resource
 
 
 *** Variables ***
-@{user_tokens}      @{EMPTY}
+@{USER_TOKEN}=      @{EMPTY}
 
 
 *** Keywords ***
 Get Tokens From Created Users
     [Documentation]    HOOKS - Get all user tokens from LOGIN file.
-    ${user_tokens_length}=    Get Length    ${user_tokens}
-    IF    $user_tokens_length<= 0    Get Tokens
+    ${user_token_length}=    Get Length    ${USER_TOKEN}
+    IF    $user_token_length<= 0    Get Tokens
 
 Get Tokens
-    ${user_tokens}=    Get IDs From File    ${LOGIN_RESOURCE}
-    Set Suite Variable    ${user_tokens}
+    [Documentation]    HOOKS - Get user token
+    ${tokens}=    Get IDs From File    ${LOGIN_RESOURCE}
+    Set Suite Variable    $USER_TOKEN    ${tokens}    # robocop: off
 
 Delete Carts From User
     [Documentation]    HOOKS - Delete all created carts during testing.
     ${dir_exists}=    Check If Directory Exists    ${CART_RESOURCE}
     Get Tokens From Created Users
     IF    $dir_exists
-        FOR    ${user_token}    IN    @{user_tokens}
+        FOR    ${user_token}    IN    @{USER_TOKEN}
             Log    Canceling Cart from user with id: ${user_token}
             ${response_cancel}=    Cancel Purchase    ${user_token}
             Log    ${response_cancel}
@@ -43,18 +44,23 @@ Delete Products From User
     ${dir_exists}=    Check If Directory Exists    ${PRODUCTS_RESOURCE}
     IF    $dir_exists
         Get Tokens From Created Users
-        ${ids_length}=    Get Length    ${user_tokens}
+        ${ids_length}=    Get Length    ${USER_TOKEN}
         IF    $ids_length > 1
-            ${last_token}=    Get From List    ${user_tokens}    -1
+            ${last_token}=    Get From List    ${USER_TOKEN}    -1
         ELSE IF    $ids_length == 1
-            ${last_token}=    Get From List    ${user_tokens}    0
+            ${last_token}=    Get From List    ${USER_TOKEN}    0
         END
         ${products_ids}=    Get IDs From File    ${PRODUCTS_RESOURCE}
-        FOR    ${product_id}    IN    @{products_ids}
-            Log    Deleting product with id: ${product_id}
-            ${response}=    Delete Registered Product    ${product_id}    ${last_token}
-            Log    ${response}
-        END
+        Delete Products    ${products_ids}    ${last_token}
+    END
+
+Delete Products
+    [Documentation]    Delete products given id list
+    [Arguments]    ${products_ids}    ${user_token}
+    FOR    ${product_id}    IN    @{products_ids}
+        Log    Deleting product with id: ${product_id}
+        ${response}=    Delete Registered Product    ${product_id}    ${user_token}
+        Log    ${response}
     END
 
 Delete Created Users
