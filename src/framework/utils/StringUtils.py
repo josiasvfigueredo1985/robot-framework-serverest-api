@@ -8,11 +8,11 @@ class StringUtils:
     """
 
     @staticmethod
-    def is_valid_string(value: Any, isAlphaNumeric=False) -> bool:
+    def is_valid_string(value: Any, is_alphanumeric=False) -> bool:
         """Check if a string is valid based on the given criteria"""
 
         pattern = r"(?=.+[a-z]+)|(?=.*[A-Z])"
-        if isAlphaNumeric:
+        if is_alphanumeric:
             pattern = r"(?=.+[a-z])(?=.+[A-Z])(?=.+[0-9])"
         c = re.compile(pattern)
         if not StringUtils.is_empty_string(value):

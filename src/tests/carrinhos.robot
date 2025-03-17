@@ -13,7 +13,7 @@ Cadastrar Carrinho Com Novo Produto Aleatório
     [Documentation]    This test case logs in with a new random user and verifies the response.
     [Tags]    -smoke
     Register New Cart With Random Product
-    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCT_RESPONSE.status_code}    ${CREATED_STATUS}
+    Status Should Be     ${CREATED_STATUS}    ${CARTS_NEW_CART_PRODUCT_RESPONSE}   
     Should Be Equal As Strings
     ...    ${CARTS_NEW_CART_PRODUCT_RESPONSE.json()}[${MESSAGE_KEY}]
     ...    ${SUCCESS_CREATED_MESSAGE}
@@ -23,7 +23,7 @@ Cadastrar Carrinho Com Novos Produtos Aleatórios
     [Documentation]    This test case logs in with a new random user and verifies the response.
     [Tags]    -smoke
     Register New Cart With Random Products    cart_products_qty=${QTY}
-    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    ${CREATED_STATUS}
+    Status Should Be     ${CREATED_STATUS}    ${CARTS_NEW_CART_PRODUCTS_RESPONSE}   
     Should Be Equal As Strings
     ...    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[${MESSAGE_KEY}]
     ...    ${SUCCESS_CREATED_MESSAGE}
@@ -33,7 +33,7 @@ Consultar Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
     [Documentation]    This test case logs in with a new random user and verifies the response.
     [Tags]    -smoke
     Register New Cart With Random Products    cart_products_qty=${QTY}
-    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    ${CREATED_STATUS}
+    Status Should Be     ${CREATED_STATUS}    ${CARTS_NEW_CART_PRODUCTS_RESPONSE} 
     Should Be Equal As Strings
     ...    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[${MESSAGE_KEY}]
     ...    ${SUCCESS_CREATED_MESSAGE}
@@ -53,7 +53,7 @@ Consultar Por Id Carrinho Do Usuário Cadastrados Com Produtos Aleatórios
     ...    cart_products_qty=${QTY}
     ...    product_quantity=${QTY}
     ...    cart_products_unity=${QTY}
-    Should Be Equal As Numbers    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.status_code}    ${CREATED_STATUS}
+    Status Should Be     ${CREATED_STATUS}    ${CARTS_NEW_CART_PRODUCTS_RESPONSE}
     Should Be Equal As Strings
     ...    ${CARTS_NEW_CART_PRODUCTS_RESPONSE.json()}[${MESSAGE_KEY}]
     ...    ${SUCCESS_CREATED_MESSAGE}

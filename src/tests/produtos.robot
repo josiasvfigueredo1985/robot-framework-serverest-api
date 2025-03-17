@@ -9,6 +9,6 @@ Cadastrar Novo Produto Aleatório
     [Documentation]    This test case logs in with a new random user and verifies the response.
     [Tags]    -smoke
     Register New Random Product
-    Should Be Equal As Numbers    ${PRODUCTS_NEW_PRODUCT_RESPONSE.status_code}    ${CREATED_STATUS}
+    Status Should Be    ${CREATED_STATUS}      ${PRODUCTS_NEW_PRODUCT_RESPONSE}  
     Should Be Equal As Strings    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}[${MESSAGE_KEY}]    ${SUCCESS_CREATED_MESSAGE}
     Dictionary Should Contain Key    ${PRODUCTS_NEW_PRODUCT_RESPONSE.json()}    ${ID_KEY}
