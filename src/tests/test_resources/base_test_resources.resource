@@ -5,6 +5,7 @@ Resource            ../../framework/framework_resources/base_common_resources.re
 Resource            ../../business/hooks/login/login_hooks.resource
 Resource            ../../business/hooks/products/products_hooks.resource
 Resource            ../../business/hooks/carts/carts_hooks.resource
+Resource            ../../business/hooks/mock/login_hooks_mock.resource
 
 
 *** Variables ***
@@ -12,6 +13,7 @@ ${CREATED_STATUS}=                  201
 ${SUCCESS_STATUS}=                  200
 ${NOT_FOUND_STATUS}=                404
 ${DUPLICATED_STATUS}=               400
+${INVALID_DATA_STATUS}=             401
 ${SUCCESS_LOGIN_MESSAGE}=           Login realizado com sucesso
 ${SUCCESS_CREATED_MESSAGE}=         Cadastro realizado com sucesso
 ${EMAIL_IN_USE_MESSAGE}=            Este email já está sendo usado
@@ -29,6 +31,7 @@ ${PRODUCT_NOT_FOUND}=               Produto não encontrado
 ${PRODUCT_QTY_NOT_ENOUGH}=          Produto não possui quantidade suficiente
 ${CART_NOT_FOUND}=                  Carrinho não encontrado
 ${NOT_FOUND_CART_FOR_USER}=         Não foi encontrado carrinho para esse usuário
+${LOGIN_401}=                       Email e/ou senha inválidos
 ${AUTH_KEY}=                        authorization
 ${MESSAGE_KEY}=                     message
 ${ID_KEY}=                          _id

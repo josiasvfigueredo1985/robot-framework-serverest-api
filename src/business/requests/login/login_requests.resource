@@ -18,3 +18,16 @@ Post Login
     ${bearer_token}=    Set Variable    ${response.json()}[authorization]
     Append ID To File    ${LOGIN_RESOURCE}    id=${bearer_token}
     RETURN    ${response}
+
+Mock Post Login
+    [Arguments]    ${login_request_body}    ${login_response_body}    ${status_code}
+    Mock Post Request
+    ...    ${BASE_URL}${LOGIN_RESOURCE}
+    ...    ${login_request_body}
+    ...    ${login_response_body}
+    ...    status_code=${status_code}
+    ${response}=    POST
+    ...    url=${BASE_URL}${LOGIN_RESOURCE}
+    ...    json=${login_request_body}
+    ...    expected_status=any
+    RETURN    ${response}
