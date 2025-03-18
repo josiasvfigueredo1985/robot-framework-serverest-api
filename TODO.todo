@@ -368,6 +368,53 @@
         }
       },
       {
+        "key": 1738861457738,
+        "children": [],
+        "todo": {
+          "content": "Implement Shemas validation keyword",
+          "id": 1738861457738,
+          "level": "default",
+          "done": true,
+          "start": 1738861457738,
+          "focus": false,
+          "end": 1741899320338
+        }
+      },
+      {
+        "key": 1739369402482,
+        "children": [
+          {
+            "key": 1742301396835,
+            "children": [],
+            "todo": {
+              "content": "Refactor to separate requests from requests-mock",
+              "id": 1742301396835,
+              "level": "default",
+              "done": false,
+              "start": 1742301396835
+            }
+          }
+        ],
+        "todo": {
+          "content": "Add Mock Tests",
+          "id": 1739369402482,
+          "level": "default",
+          "done": false,
+          "start": 1739369402482
+        }
+      },
+      {
+        "key": 1739369419598,
+        "children": [],
+        "todo": {
+          "content": "Add Integration with DB tests",
+          "id": 1739369419598,
+          "level": "default",
+          "done": false,
+          "start": 1739369419598
+        }
+      },
+      {
         "key": 1738861738546,
         "children": [
           {
@@ -430,41 +477,6 @@
         }
       },
       {
-        "key": 1738861457738,
-        "children": [],
-        "todo": {
-          "content": "Implement Shemas validation keyword",
-          "id": 1738861457738,
-          "level": "default",
-          "done": true,
-          "start": 1738861457738,
-          "focus": false,
-          "end": 1741899320338
-        }
-      },
-      {
-        "key": 1739369402482,
-        "children": [],
-        "todo": {
-          "content": "Add Mock Tests",
-          "id": 1739369402482,
-          "level": "default",
-          "done": false,
-          "start": 1739369402482
-        }
-      },
-      {
-        "key": 1739369419598,
-        "children": [],
-        "todo": {
-          "content": "Add Integration with DB tests",
-          "id": 1739369419598,
-          "level": "default",
-          "done": false,
-          "start": 1739369419598
-        }
-      },
-      {
         "key": 1739369433661,
         "children": [],
         "todo": {
@@ -507,11 +519,23 @@
           "done": false,
           "start": 1739154368943
         }
+      },
+      {
+        "key": 1742301373148,
+        "children": [],
+        "todo": {
+          "content": "",
+          "id": 1742301373148,
+          "level": "default",
+          "done": false,
+          "start": 1742301373148
+        }
       }
     ],
     "expandKeys": [
       1738861913176,
-      1738861435236
+      1738861435236,
+      1739369402482
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -524,6 +548,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1741899320400"
+    "version": "1742301618180"
   }
 }

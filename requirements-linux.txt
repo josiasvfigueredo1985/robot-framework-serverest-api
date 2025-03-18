@@ -60,6 +60,7 @@ identify==2.6.6
 idna==3.10
 imageio==2.37.0
 IMAPClient==3.0.1
+importlib-resources==5.13.0
 iniconfig==2.0.0
 installer==0.7.0
 ipykernel==6.29.5
@@ -122,8 +123,6 @@ pkginfo==1.12.1.2
 platformdirs==4.3.6
 pluggy==1.5.0
 ply==3.11
-poetry==2.1.1
-poetry-core==2.1.1
 pre_commit==4.1.0
 prompt_toolkit==3.0.50
 propcache==0.2.1
@@ -132,12 +131,9 @@ ptyprocess==0.7.0
 pure_eval==0.2.3
 py==1.11.0
 pyasn1==0.6.1
-PyAutoGUI==0.9.54
 pycodestyle==2.12.1
 pycparser==2.22
-pydantic==2.10.6
 pydantic_core==2.27.2
-PyGetWindow==0.0.9
 Pygments==2.19.1
 PyHamcrest==2.1.0
 pyinstaller==6.12.0
@@ -172,6 +168,7 @@ pyzmq==26.2.1
 RapidFuzz==3.12.2
 referencing==0.36.2
 requests==2.32.3
+requests-mock==1.12.1
 requests-toolbelt==1.0.0
 rich==13.9.4
 rich-click==1.8.5

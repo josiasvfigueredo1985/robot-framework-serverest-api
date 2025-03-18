@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation       This resource file contains base settings and libraries for the project.
+Documentation       This resource file contains base settings and resources for the project.
 
 Resource            ../../framework/framework_resources/base_common_resources.resource
 Resource            ../../business/hooks/login/login_hooks.resource

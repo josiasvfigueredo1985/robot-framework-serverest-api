@@ -1,6 +1,4 @@
 *** Settings ***
-Library             ../framework/mock/MockApi.py
-Library             RequestsLibrary
 Resource            ./test_resources/base_test_resources.resource
 
 Test Setup          Start Mocking
