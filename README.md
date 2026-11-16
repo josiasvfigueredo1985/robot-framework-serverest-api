@@ -5,17 +5,55 @@ Programming Language: Python
 
 ## Install dependencies
 
-On Windows and Linux, install the cross-platform dependencies with:
+The pinned dependencies in `requirements.txt` are a snapshot of the project's
+virtual environment, tested locally with Python 3.15 on Windows. Use the same
+Python version when possible; installation on Linux and macOS has not been
+verified with this snapshot.
+
+From the project root, create and activate a virtual environment:
+
+**Windows (PowerShell):**
+
+```powershell
+py -3.15 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+**Linux / macOS:**
+
+```bash
+python3.15 -m venv .venv
+source .venv/bin/activate
+```
+
+With the environment active, install and check the pinned packages:
 
 ```shell
 python -m pip install -r requirements.txt
+python -m pip check
+robotcode discover info
+robotcode robot --dryrun --output NONE --log NONE --report NONE
 ```
 
-On macOS, install the macOS dependencies with:
+In VS Code, select `.venv` as the Python interpreter so the editor and terminal
+resolve the same libraries. To leave the environment, run `deactivate`.
+
+The snapshot includes the Allure Robot Framework listener used by CI. The
+standalone Allure CLI is only needed to generate Allure reports; it is not
+installed by pip. RobotCode 1.0.0's static analyzer currently crashes with
+Robot Framework 7.5.1; the dry-run above checks keyword resolution but is not
+a replacement for a successful static analysis or live API tests.
+
+To refresh the snapshot after intentionally changing dependencies, run these
+commands from the active project environment:
 
 ```shell
-python -m pip install -r requirements-macos.txt
+python -m pip check
+python -c "import pathlib, subprocess, sys; pathlib.Path('requirements.txt').write_bytes(subprocess.check_output([sys.executable, '-m', 'pip', 'freeze']))"
 ```
+
+Then validate the project and review the diff. `pip freeze` includes every
+package installed in that environment, including development tools.
 
 ## Code organization and imports
 
