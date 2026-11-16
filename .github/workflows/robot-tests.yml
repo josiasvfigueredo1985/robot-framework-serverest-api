@@ -12,6 +12,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      allure_available: ${{ steps.upload_pages.outcome == 'success' }}
 
     steps:
       - name: Checkout code
@@ -44,20 +48,6 @@ jobs:
         id: run_tests
         run: robotcode robot --listener allure_robotframework:output/allure --variable ENVIRONMENT_VAR:${QA_ENVIRONMENT} src/tests/
 
-      - name: Upload Robot Framework test report artifacts
-        id: upload_robot_report
-        if: ${{ !cancelled() && steps.run_tests.outcome != 'skipped' }}
-        uses: actions/upload-artifact@v4.6.0
-        with:
-          name: robot reports
-          path: |
-            reports
-
-      - name: Generate Summary Tests Results
-        uses: joonvena/robotframework-reporter-action@v2.5
-        with:
-          gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
-
       - name: Generate Allure report
         id: allure_report
         if: ${{ !cancelled() && steps.run_tests.outcome != 'skipped' }}
@@ -68,41 +58,34 @@ jobs:
           fi
           allure generate --single-file output/allure -o allure-report --clean
 
-      - name: Upload Robot Framework Allure report test artifacts
-        id: upload_allure_report
-        if: ${{ !cancelled() && steps.allure_report.outcome == 'success' }}
-        uses: actions/upload-artifact@v4.6.0
+      - name: Upload Allure report for GitHub Pages
+        id: upload_pages
+        if: ${{ !cancelled() && github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && steps.allure_report.outcome == 'success' }}
+        uses: actions/upload-pages-artifact@v4
         with:
-            name: allure report
-            path: |
-                  allure-report
+          path: allure-report
 
-      - name: Summarize test reports
-        if: ${{ !cancelled() && steps.run_tests.outcome != 'skipped' }}
+  publish:
+    needs: test
+    if: ${{ !cancelled() && needs.test.outputs.allure_available == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Allure report
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Summarize Allure report
         env:
-          ROBOT_REPORT_URL: ${{ steps.upload_robot_report.outputs.artifact-url }}
-          ALLURE_REPORT_URL: ${{ steps.upload_allure_report.outputs.artifact-url }}
+          ALLURE_REPORT_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
-          {
-            echo "## Test reports"
-            if [ -n "$ROBOT_REPORT_URL" ]; then
-              echo "- [Robot Framework report]($ROBOT_REPORT_URL)"
-            else
-              echo "- Robot Framework report unavailable."
-            fi
-            if [ -n "$ALLURE_REPORT_URL" ]; then
-              echo "- [Allure report]($ALLURE_REPORT_URL)"
-            else
-              echo "- Allure report unavailable."
-            fi
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Publish report to GitHub gh-pages branch
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "github-actions"
-          git checkout --orphan gh-pages
-          git rm -rf .
-          git add .
-          git commit -m "Updating Allure report"
-          git push --force origin gh-pages
+          echo "## Test report" >> "$GITHUB_STEP_SUMMARY"
+          echo "[View Allure report]($ALLURE_REPORT_URL)" >> "$GITHUB_STEP_SUMMARY"

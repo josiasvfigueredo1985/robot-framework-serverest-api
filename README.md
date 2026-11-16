@@ -103,9 +103,13 @@ fi
 ```
 
 Generate the report even if tests fail; the saved test exit code indicates the
-test outcome independently of report generation. CI also generates and uploads
-both Robot and Allure reports after test failures, with artifact links in the
-GitHub Actions job summary.
+test outcome independently of report generation. CI publishes the Allure HTML
+report to GitHub Pages for runs on `main`, even after test failures when results
+are available. The deployment job summary links to the report; a newer run
+replaces the previous report. Pull requests do not publish to the shared site.
+Set the repository's Pages source to **GitHub Actions** and ensure the
+`github-pages` environment permits deployments from `main`. Published reports
+may be public and may contain test data.
 
 ## Code organization and imports
 
