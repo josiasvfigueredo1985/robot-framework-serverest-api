@@ -55,6 +55,58 @@ python -c "import pathlib, subprocess, sys; pathlib.Path('requirements.txt').wri
 Then validate the project and review the diff. `pip freeze` includes every
 package installed in that environment, including development tools.
 
+## Test reports
+
+Robot Framework writes its output, log, and HTML report to `reports`. To also
+produce an Allure report locally, install the Allure 2 CLI and Java 8 or later.
+The Python listener is already included in `requirements.txt`. See the
+[Allure installation guide](https://allurereport.org/docs/v2/install/) for
+platform-specific instructions.
+
+Run the following from the project root with the virtual environment active.
+Each run uses a separate Allure results directory to avoid mixing old results.
+These commands execute the real API tests, which create and delete test data;
+use `--dryrun` only to check configuration, not to report actual test results.
+
+**Windows (PowerShell):**
+
+```powershell
+$runId = [guid]::NewGuid().ToString("N")
+$results = "output\allure\$runId"
+$report = "allure-report\$runId"
+robotcode robot --listener "allure_robotframework:$results"
+$testExitCode = $LASTEXITCODE
+if (-not (Get-ChildItem -Path $results -Filter "*-result.json" -ErrorAction SilentlyContinue)) {
+    throw "No Allure test results were generated. Check the Robot output."
+}
+allure generate --single-file $results -o $report
+if ($LASTEXITCODE -ne 0) { throw "Allure report generation failed." }
+allure open $report
+```
+
+**Linux / macOS:**
+
+```bash
+run_id=$(python -c 'import uuid; print(uuid.uuid4().hex)')
+results="output/allure/$run_id"
+report="allure-report/$run_id"
+if robotcode robot --listener "allure_robotframework:$results"; then
+    test_exit_code=0
+else
+    test_exit_code=$?
+fi
+if [ ! -d "$results" ] || [ -z "$(find "$results" -name '*-result.json' -print -quit)" ]; then
+    echo "No Allure test results were generated. Check the Robot output." >&2
+else
+    allure generate --single-file "$results" -o "$report" && allure open "$report"
+fi
+```
+
+Generate the report even if tests fail; the saved test exit code indicates the
+test outcome independently of report generation. CI also generates and uploads
+both Robot and Allure reports after test failures, with artifact links in the
+GitHub Actions job summary.
+
 ## Code organization and imports
 
 - `src/business` contains API models, factories, requests, schemas, steps, and hooks.

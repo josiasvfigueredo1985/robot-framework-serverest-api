@@ -41,9 +41,12 @@ jobs:
           allure --version
 
       - name: Run tests with Robot Framework
-        run: robotcode robot --listener allure_robotframework --variable ENVIRONMENT_VAR:${QA_ENVIRONMENT} src/tests/
+        id: run_tests
+        run: robotcode robot --listener allure_robotframework:output/allure --variable ENVIRONMENT_VAR:${QA_ENVIRONMENT} src/tests/
 
       - name: Upload Robot Framework test report artifacts
+        id: upload_robot_report
+        if: ${{ !cancelled() && steps.run_tests.outcome != 'skipped' }}
         uses: actions/upload-artifact@v4.6.0
         with:
           name: robot reports
@@ -56,15 +59,43 @@ jobs:
           gh_access_token: ${{ secrets.GH_ACCESS_TOKEN }}
 
       - name: Generate Allure report
+        id: allure_report
+        if: ${{ !cancelled() && steps.run_tests.outcome != 'skipped' }}
         run: |
+          if [ ! -d output/allure ] || ! find output/allure -name '*-result.json' -print -quit | grep -q .; then
+            echo "No Allure test results were generated."
+            exit 1
+          fi
           allure generate --single-file output/allure -o allure-report --clean
 
       - name: Upload Robot Framework Allure report test artifacts
+        id: upload_allure_report
+        if: ${{ !cancelled() && steps.allure_report.outcome == 'success' }}
         uses: actions/upload-artifact@v4.6.0
         with:
             name: allure report
             path: |
                   allure-report
+
+      - name: Summarize test reports
+        if: ${{ !cancelled() && steps.run_tests.outcome != 'skipped' }}
+        env:
+          ROBOT_REPORT_URL: ${{ steps.upload_robot_report.outputs.artifact-url }}
+          ALLURE_REPORT_URL: ${{ steps.upload_allure_report.outputs.artifact-url }}
+        run: |
+          {
+            echo "## Test reports"
+            if [ -n "$ROBOT_REPORT_URL" ]; then
+              echo "- [Robot Framework report]($ROBOT_REPORT_URL)"
+            else
+              echo "- Robot Framework report unavailable."
+            fi
+            if [ -n "$ALLURE_REPORT_URL" ]; then
+              echo "- [Allure report]($ALLURE_REPORT_URL)"
+            else
+              echo "- Allure report unavailable."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Publish report to GitHub gh-pages branch
         run: |
