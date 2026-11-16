@@ -1,5 +1,6 @@
 output-dir = "reports"
 paths = "src/"
+python-path = ["src"]
 
 [variables]
 DEBUG_MODE = "1"

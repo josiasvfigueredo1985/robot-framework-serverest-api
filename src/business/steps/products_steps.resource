@@ -2,6 +2,7 @@
 Documentation       This resource file contains keywords for product flow operations.
 
 Resource            ../requests/products/products_requests.resource
+Library             business.factories.products_factory.ProductsFactory
 
 
 *** Keywords ***

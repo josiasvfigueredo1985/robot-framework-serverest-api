@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation       This suite tests the login functionality with a new random user.
+Documentation       Shared setup and cleanup for the API test suites.
 
 Resource            ../business/hooks/framework_hooks/data_cleanup_hooks.resource
 

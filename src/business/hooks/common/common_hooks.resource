@@ -4,8 +4,12 @@ Documentation       Resource responsible for provide hooks common for all tests.
 Library             OperatingSystem
 Library             String
 Library             JSONLibrary
-Library             ../../../framework/utils/DirectoryUtils.py
-Library             ../../../framework/utils/SchemaUtils.py
+Library             framework.utils.directory_utils.DirectoryUtils
+Library             business.schemas.schema_loader.SchemaLoader
+
+
+*** Variables ***
+&{SCHEMA_DIRECTORY_BY_RESOURCE}=    common=common    login=login    carrinhos=carts    produtos=products    usuarios=users
 
 
 *** Keywords ***
@@ -39,7 +43,8 @@ HELPER - GET SCHEMA MODULE NAME
     [Arguments]    ${schema_name}
     ${pattern}=    Set Variable    _schemas
     ${module_dir}=    Set Variable    business.schemas
-    VAR    ${module_name}=    ${module_dir}.${schema_name}.${schema_name}${pattern}
+    ${schema_directory}=    Set Variable    ${SCHEMA_DIRECTORY_BY_RESOURCE}[${schema_name}]
+    VAR    ${module_name}=    ${module_dir}.${schema_directory}.${schema_directory}${pattern}
     RETURN    ${module_name}
 
 HELPER - GET SCHEMA CLASS NAME
@@ -48,15 +53,16 @@ HELPER - GET SCHEMA CLASS NAME
     [Arguments]    ${schema_name}    ${request_method}    ${is_common}=${False}
     ${message_type}=    Set Variable    message
     ${specific}=    Set Variable    schema
+    ${schema_directory}=    Set Variable    ${SCHEMA_DIRECTORY_BY_RESOURCE}[${schema_name}]
     IF    ${is_common}
         ${schema_class_name}=    HELPER - CAPITALIZE AND JOIN
-        ...    ${schema_name}
+        ...    ${schema_directory}
         ...    ${request_method}
         ...    ${message_type}
         ...    ${specific}
     ELSE
         ${schema_class_name}=    HELPER - CAPITALIZE AND JOIN
-        ...    ${schema_name}
+        ...    ${schema_directory}
         ...    ${request_method}
         ...    ${specific}
     END

@@ -2,6 +2,7 @@
 Documentation       Login - Authenticate your user to create a cart and, if you are an administrator, manage products
 
 Resource            ../users/users_requests.resource
+Library             framework.mock.mock_api.MockApi
 
 
 *** Variables ***

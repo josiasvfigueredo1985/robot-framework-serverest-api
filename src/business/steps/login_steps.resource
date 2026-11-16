@@ -3,6 +3,7 @@ Documentation       This resource file contains keywords for the login flow.
 
 Resource            ../requests/login/login_requests.resource
 Library             FakerLibrary
+Library             business.factories.login_factory.LoginFactory
 
 
 *** Keywords ***

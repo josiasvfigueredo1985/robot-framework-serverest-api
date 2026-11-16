@@ -2,6 +2,7 @@
 Documentation       This resource file contains keywords for user flow operations.
 
 Resource            ../requests/users/users_requests.resource
+Library             business.factories.users_factory.UsersFactory
 
 
 *** Keywords ***
@@ -29,7 +30,7 @@ Delete Registered User
     ${response}=    Delete User By Id    ${user_id}
     RETURN    ${response}
 
-Update Registered USer
+Update Registered User
     [Documentation]    STEP - Update user by id    and returns response.
     [Arguments]    ${user_id}    ${user_request_body}
     ${response}=    Put User By Id    ${user_id}    ${user_request_body}

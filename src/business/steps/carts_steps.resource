@@ -2,6 +2,7 @@
 Documentation       This resource file contains keywords for carts flow operations.
 
 Resource            ../requests/carts/carts_requests.resource
+Library             business.factories.carts_factory.CartsFactory
 
 
 *** Keywords ***

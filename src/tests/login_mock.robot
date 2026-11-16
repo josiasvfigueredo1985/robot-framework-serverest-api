@@ -7,16 +7,16 @@ Test Template       Post Mock Login
 
 
 *** Variables ***
-${VALID_EMAIL}          test@exemplo.com
+${VALID_EMAIL}          test@example.com
 ${VALID_PASSWORD}       admin123
-${INVALID_EMAIL}        testexemplo.com
+${INVALID_EMAIL}        testexample.com
 ${INVALID_PASSWORD}     admin12
 
 
 *** Test Cases ***
-Login realizado com sucesso    ${VALID_EMAIL}    ${VALID_PASSWORD}    ${SUCCESS_STATUS}    ${SUCCESS_LOGIN_MESSAGE}
-E-mail válido - senha inválida    ${VALID_EMAIL}    ${INVALID_PASSWORD}    ${INVALID_DATA_STATUS}    ${LOGIN_401}
-E-mail inválido - senha inválida    ${INVALID_EMAIL}    ${VALID_PASSWORD}    ${INVALID_DATA_STATUS}    ${LOGIN_401}
+Login Succeeds    ${VALID_EMAIL}    ${VALID_PASSWORD}    ${SUCCESS_STATUS}    ${SUCCESS_LOGIN_MESSAGE}
+Login Fails With Valid Email And Invalid Password    ${VALID_EMAIL}    ${INVALID_PASSWORD}    ${INVALID_DATA_STATUS}    ${LOGIN_401}
+Login Fails With Invalid Email And Valid Password    ${INVALID_EMAIL}    ${VALID_PASSWORD}    ${INVALID_DATA_STATUS}    ${LOGIN_401}
 
 
 *** Keywords ***

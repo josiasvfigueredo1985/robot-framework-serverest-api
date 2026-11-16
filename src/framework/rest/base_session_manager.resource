@@ -2,7 +2,7 @@
 Documentation       This resource file contains keywords for managing REST API sessions.
 
 Library             RequestsLibrary
-Library             ../utils/RestApiUtils.py
+Library             framework.utils.rest_api_utils.RestApiUtils
 Resource            ../framework_resources/base_rest_api_variables.resource
 Resource            ../framework_resources/base_common_resources.resource
 

@@ -15,8 +15,8 @@ ${LOGIN_BEARER_TOKEN}=          ${EMPTY}
 Login With New Random User
     [Documentation]    HOOKS - Logs in with a new user
     ...    and sets suite variables LOGIN_NEW_LOGIN_RESPONSE and LOGIN_BEARER_TOKEN.
-    [Arguments]    ${idAdmin}=${EMPTY}    ${emailDomain}=${EMPTY}
-    Register New Random User    ${idAdmin}    ${emailDomain}
+    [Arguments]    ${is_admin}=${EMPTY}    ${email_domain}=${EMPTY}
+    Register New Random User    ${is_admin}    ${email_domain}
     ${login_request_body}=    Get Login Request Body
     ...    ${USERS_NEW_USER_REQUEST_BODY}[email]
     ...    ${USERS_NEW_USER_REQUEST_BODY}[password]

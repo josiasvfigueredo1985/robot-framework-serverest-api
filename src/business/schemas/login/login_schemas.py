@@ -1,8 +1,4 @@
-import os
-import sys
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
-from framework.utils.SchemaUtils import SchemaUtils
+from framework.utils.schema_utils import SchemaUtils
 
 
 class LoginPostSchema(SchemaUtils):

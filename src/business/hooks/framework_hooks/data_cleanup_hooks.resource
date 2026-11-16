@@ -13,7 +13,7 @@ Resource            ../../steps/login_steps.resource
 
 *** Keywords ***
 Get Tokens From Created Users
-    [Documentation]    HOOKS - Get all user tokens from LOGIN file.
+    [Documentation]    HOOKS - Get all user tokens from the login file.
     ${user_token_length}=    Get Length    ${USER_TOKEN}
     IF    $user_token_length<= 0    Get Tokens
 

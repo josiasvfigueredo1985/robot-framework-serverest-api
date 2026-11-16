@@ -3,7 +3,7 @@ Documentation       This resource file contains keywords for carts operations.
 
 Resource            ../../steps/carts_steps.resource
 Resource            ../products/products_hooks.resource
-Library             ../../../framework/utils/StringUtils.py
+Library             framework.utils.string_utils.StringUtils
 
 
 *** Variables ***
@@ -69,7 +69,7 @@ HELPER - REGISTER CART
     Set Suite Variable    ${CARTS_NEW_CART_PRODUCTS_REQUEST_BODY}    ${cart_request_body}    # robocop: off
     Set Suite Variable    ${CARTS_NEW_CART_PRODUCTS_RESPONSE}    ${response_cart}    # robocop: off
 
-Get By Id Cart From USer
+Get Cart By ID From User
     [Documentation]    HOOKS - Retrieves data from a user's cart by id
     ...    registered by user given cart id
     ...    and sets suite variable CARTS_REGISTERED_CARTS_ID_RESPONSE.

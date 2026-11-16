@@ -1,4 +1,4 @@
-from framework.utils.ObjectUtils import ObjectUtils
+from framework.utils.object_utils import ObjectUtils
 
 
 class ProductsModel(ObjectUtils):

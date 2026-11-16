@@ -4,4 +4,4 @@ Documentation       This resource file contains base settings and libraries for 
 Library             Collections
 Library             OperatingSystem
 Library             String
-Library             ../utils/RestApiUtils.py
+Library             framework.utils.rest_api_utils.RestApiUtils
