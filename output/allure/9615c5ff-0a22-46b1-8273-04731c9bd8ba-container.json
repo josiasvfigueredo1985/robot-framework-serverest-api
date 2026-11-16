@@ -1,0 +1,1 @@
+{"uuid": "48d7c815-fe5a-4e72-9106-0fe19b92d7b9", "children": ["64f12c3f-e4fc-467d-ae37-a1aa87980aee"], "befores": [{"name": "framework.mock.mock_api.MockApi.Start Mocking", "status": "passed", "statusDetails": {}, "stop": 1794861811027}], "afters": [{"name": "framework.mock.mock_api.MockApi.Stop Mocking", "status": "passed", "statusDetails": {}, "stop": 1794861811037}]}
